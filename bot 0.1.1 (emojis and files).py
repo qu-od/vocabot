@@ -174,7 +174,7 @@ async def clear_dictionary(ctx):
 def log_message(message): #вынесли сюда функцию ведения стенограммы целиком
     time = message.created_at 
     author = message.author
-    print(f'--- message from {author} ---')
+    print(f'-- message from {author} --')
     if type(message.channel) == discord.channel.DMChannel:
         name = message.channel.recipient.name #имя собеседника DM-канала
         with open(fR'_DMs_history\of {name}.txt', 'ab') as F:
