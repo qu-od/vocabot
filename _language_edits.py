@@ -23,7 +23,7 @@ def create_R_with_langs(name, user_langs):
     R = Repeat(ln[0],'none', ln[1],'none','none')
     return R
 
-def update_langs(l_n, user, tag, user_langs):#апдейтим словарь (и его файл)
+def update_langs(l_n, user, tag, user_langs):#апдейтим  словарь (и его файл)
     if tag.startswith(' '):
         tag = tag.replace(" ",'',1)
     print(tag)

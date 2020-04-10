@@ -86,7 +86,7 @@ async def create_word_pair(ctx, word, translation, key):
     R.key = key
     s = R.info()
     print(s)
-    #raw string test: R and r worked.    
+    #raw string test: R and r  worked.    
     file = R'_Dictionaries/of ' + name + R'.txt'
     #если папки нет, она не создается и ПРОГРАММА НЕ ДАЕТ ОШИБКИ
     #СОЗДАТЬ ПАПКУ, ЕСЛИ ЕЕ НЕТ! (запихнуть проверку и создание в спец функ. или найти ее)
