@@ -166,7 +166,8 @@ async def clear_dictionary(ctx):
     await ctx.send(" Your data has been deleted. " +
      "Though you'll never be able to check this")
 
-#new line git te
+#10 th april test of push git
+#new line git t
 
 #--------------------------END OF COMMANDS. BEGINNING OF THE LIST OF FUNCTIONS--------------------
 
