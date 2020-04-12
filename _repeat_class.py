@@ -9,7 +9,7 @@ import time
 #слово встретилось будучи незнакомым
 #юзерам придется избежать многоточий в середине (и знаков " -||- ")
 
-class Repeat:
+class Repeat():
     
     def __init__(self, l, w, nl, t, k):
         self.language = l
