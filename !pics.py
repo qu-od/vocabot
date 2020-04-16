@@ -4,7 +4,7 @@ from _repeat_class import *
 from _language_edits import *
 from _users_admission import *
 
-@commands.command(name = 'экст', help = 'команда из подключаемого файла')
+@commands.command(name = 'fun test', help = 'команда из подключаемого файла')
 async def test_general(ctx):
     await ctx.send('Участник ')
 
