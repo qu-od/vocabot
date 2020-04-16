@@ -6,24 +6,30 @@ from discord.ext import commands
 from _repeat_class import *
 from _language_edits import *
 from _users_admission import *
-from cmds_for_import import *
 
+#все команды в импорт
+#прочекать @is_me и ошибку этой команды
 #converters (whitelist of words and commands for arguments) and proper exceptions
-#простой экстеншон, чтобы не перезапускать бота во время его написания (вынести все команды в импорт)
 #decos, lambdas and elif
-#категории комманд
+#категории комманд (extentions & cogs)
+#прочитать "twelve-factor app"
 #продумать систему бэкапов логов_сообщений, словарей и langs (автоматический уровень + ручной уровень)
+#не во всех карточках отображается дата (число месяца) создания
+#сделать так, чтобы для работы @command.n хватало одной точки
+#проследить, как работает R после разбиения на @commands
+#ничего страшного, если в разных коммандах одинаково называть переменные F и file? 
+'''main.py(service cmds: ask_perm, update,..), cards.py (language), bookish.py (stats), amdevs.py (fun)
+do not do general purpose bot. mee6 exist already'''
+#---next ver: bot 0.1.2 (stable and fancy)
 
+#команда (или функция) для написания сообщения от имени бота (+через эмбед, + не открывая дс)
 #отправить текстовый файл и картинку (чиатй FAQ почаще)
 #использовать эмбед для карточек (вместо спойлера - черный квадратик)
 '''сделать защиту от спама (максимум - 120 действий за минуту, т. е. 6 чел - действие 3 секунды, 
 24 чел - действие в 12 сек(!). Для начала слоумод = 1 сек пойдет. Нужен еще и явный счетчик ивентов на случай, 
 если они вместе решат провести стресс-тест и (будут кликать каждую секунду) '''
-#extensions & cogs (для того, чтобы удобно классифицировать команды и подключать их через импорты)
-
-#не во всех карточках отображается дата (число месяца) создания
-#проследить, как работает R после разбиения на @commands
-#ничего страшного, если в разных коммандах одинаково называть переменные F и file? 
+#(для ПК) создание голосовых каналов по команде, удаление по ненужности
+#(для ПК) ведение большой статистики серва (в первую очередь войсов, сообщений, их удалений, и статусов)
 
 load_dotenv()
 TOKEN = os.getenv('VOCABOT_TOKEN') #unique bot token (must be secured)
@@ -67,29 +73,34 @@ def user_permission_check(ctx): #applying permitted users list
     #print(f'author.name equals {name}') #почему этот принт срабатывает много раз после !vhelp?
     return is_user_allowed(name) #возвращаем флаг для проверки
 
+def is_me():#decorator for is_me check
+    def is_me_check(ctx):
+        return ctx.message.author.id == 303115719644807168
+    return commands.check(is_me_check)
+
 @bot.event 
 async def on_command_error(ctx, error):
     pass # если эта функция включена, ексепшоны не принтятся. во как
     if isinstance(error, commands.errors.CheckFailure): #обрабатываем ошибку отсутствия разрешения
         await ctx.send('```You do not have permission to use bot.```')
     if isinstance(error, commands.errors.CommandNotFound):  #обрабатываем ошибку "неправильная команда"
-        cool_responses = ["Try something different", "you've entered wrong command"
+        cool_responses = ["Try something different", "you've entered wrong command",
                     "**English, mother#$^%*1!! Can you speak it?**","There is no that command",
                     "Wrong command", "This command haven't been added yet, unfortunately"]
         #await ctx.send(random.choice(cool_responses))
         await ctx.send(f'`{random.choice(cool_responses)}`')
     if isinstance(error, commands.UserInputError):
-        await ctx.send('```UserInputError worked```')# base class for several next errors
+        await ctx.send('```UserInputError occured```')# base class for several next errors
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('```MissingRequiredArgument worked```')
+        await ctx.send('```Not enough arguments for that command```')
     if isinstance(error, commands.TooManyArguments):
-        await ctx.send('```TooManyArguments worked```')
+        await ctx.send("```You've entered too many arguments```")
     if isinstance(error, commands.BadArgument):
-        await ctx.send('```BadArgument worked```')
+        await ctx.send('```Wrong argument```')
     if isinstance(error, commands.BadUnionArgument):
-        await ctx.send('```BadUnionArgument worked```')
+        await ctx.send('```Wrong union argument```')
     if isinstance(error, commands.ArgumentParsingError):
-        await ctx.send('```ArgumentParsingError worked```')
+        await ctx.send('```ArgumentParsingError occured```')
 
 @bot.event 
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
@@ -122,11 +133,12 @@ def scream_case(argument): #converter example
     print('to_upper converter worked')
     return argument.upper()
 
-class ConverterForR(commands.Converter): #устроить тут лямбду
+class ConverterForR(commands.Converter):
     async def convert(self, ctx, argument):
-        name = ctx.author.name
         user_langs = get_langs_from_txt()
-        R = create_R_with_langs(name, user_langs)
+        R = create_R_with_langs(ctx.author.name, user_langs)
+        #user_langs = lambda x: get_langs_from_txt()
+        print(f'R.info() in converter is {R.info()}')
         R.dm_input(argument)
         return R
 
@@ -190,29 +202,25 @@ async def clear_dictionary(ctx):
      "Though you'll never be able to check this")
      #сделать подтверждение (are you sure)
 
-@bot.command(name = 'update', help = 'staff only')
-@is_me
+@bot.command(name = 'update', help = 'staff only') #TEST @IS_ME ON OTHER USER
+@is_me()
 async def update_commands(ctx):
-    await ctx.send('upd_cmd worked')
+    ctx.bot.reload_extension('cards') #for updating commands during runtime
+    await ctx.send('"cards" extension have been updated')
+
+'''
+@update_commands.error
+    if isinstance()
+'''
 
 #--------------------------END OF COMMANDS. BEGINNING OF THE LIST OF FUNCTIONS--------------------
-
-@commands.command() #сначала подключаем команды тут, потом из импорта(ов)
-async def addition_command(ctx):
-    await ctx.send('command was added via the extention')
-
-def toggle_commands(bot):
-    bot.add_command(addition_command)
-
-def is_me():#decorator for is_me check
-    def is_me_check(ctx):
-        return ctx.message.author.id == 303115719644807168
-    return commands.is_me_check(predicate)
+  
 
 def log_message(message): #вынесли сюда функцию ведения стенограммы целиком
     time = message.created_at 
     author = message.author
-    print(f'--- message from {author} ---')
+    #print(f'--- message from {author} --- ')
+    print(f'--- message from {author} --- in {message.channel}\n{message.content}\n')
     if type(message.channel) == discord.channel.DMChannel: 
         name = message.channel.recipient.name #имя собеседника DM-канала
         with open(fR'_DMs_history\of {name}.txt', 'ab') as F:
@@ -256,9 +264,15 @@ def clear_active_cards():
     with open('active_cards.txt', 'w') as F:
         F.write('')
 
-toggle_commands(bot)
-create_folders()
-clear_active_cards() #чтобы не обманываться 
-#на счет соответствия настоящего кэша и списка id
+bot.load_extension('cards') #подключаем команды
+#bot.load_extension('other_command_category')
+create_folders() #создаем папки для логов, если их не было
+clear_active_cards() #чтобы не обманываться на счет соответствия настоящего кэша и списка id
 
 bot.run(TOKEN)
+
+'''async def status_setup(bot):
+    game = discord.Game("with the extentions")
+    await bot.change_presence(status = discord.Status.idle, activity = game)
+
+status_setup(bot)'''

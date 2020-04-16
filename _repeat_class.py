@@ -47,7 +47,7 @@ class Repeat():
             s[1] = s[1].replace(" ",'',1)
         if s[2].startswith(" "):
             s[2] = s[2].replace(" ",'',1)
-        print(s)
+        print('dm_input:', s)
         self.word = s[0]
         self.translation = s[1]
         if s[2]: #ОТТЕСТИТЬ (если ключ будет пустой)
