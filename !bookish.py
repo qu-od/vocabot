@@ -1,17 +1,20 @@
+#STATISTICS MODULE, _NOT_ GENERAL PURPOSE
 import discord
 from discord.ext import commands
 from _repeat_class import *
 from _language_edits import *
 from _users_admission import *
 
-bot_prefix = '!v ' #на случай, если забудем параметризовать парс команд
+#welcome message с настоящими ссылками и упоминаниями
+#создание голосовых каналов по команде, удаление по ненужности
+#ведение большой статистики серва (в первую очередь войсов, сообщений, их удалений, и статусов)
 
-@commands.command(name = 'import ext test', help = 'import-able command')
-async def imported_command(ctx):
-    await ctx.send('output prior to embed')
-    await ctx.send({embed: {
-  color: 3447003,
-  description: "__**IMPORT COMMAND VIA EXTENSION WORKED!**__"
-}})
+@commands.command(name = 'set_logs_channel', 
+help = '[id] of a channel for for welcome message')
+async def set_channel(ctx, channel_id, server_id = None):
+    with open('log_channel_ids.txt', 'w') as F:
+        F.write(channel_id) #+ '-||-' + server_id)  
+    await ctx.send(f'channel has been set as <#{channel_id}>')
 
-    
+def setup(bot):
+    bot.add_command(set_channel)

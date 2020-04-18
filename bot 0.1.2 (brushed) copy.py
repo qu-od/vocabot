@@ -7,33 +7,33 @@ from _repeat_class import *
 from _language_edits import *
 from _users_admission import *
 
-#все команды в импорт
-#прочекать @is_me и ошибку этой команды
-#converters (whitelist of words and commands for arguments) and proper exceptions
-#decos, lambdas and elif
-#категории комманд (extentions & cogs)
-#прочитать "twelve-factor app"
-#продумать систему бэкапов логов_сообщений, словарей и langs (автоматический уровень + ручной уровень)
-#не во всех карточках отображается дата (число месяца) создания
-#сделать так, чтобы для работы @command.n хватало одной точки
+#использовать эмбед для карточек и ред./удал. сбщ (вместо спойлера - черный квадратик)
+#converters (whitelist of words and commands for arguments) and proper exceptions for them
+#больше обратной связи в ответ на команды
+
+#decos and lambdas
 #проследить, как работает R после разбиения на @commands
 #ничего страшного, если в разных коммандах одинаково называть переменные F и file? 
-'''main.py(service cmds: ask_perm, update,..), cards.py (language), bookish.py (stats), amdevs.py (fun)
-do not do general purpose bot. mee6 exist already'''
-#---next ver: bot 0.1.2 (stable and fancy)
+#ВЫТАЩИТЬ ОШИБКИ РАСШИРЕНИЙ
+#категории комманд (и ивентов - listenerov?) (extentions & cogs)
+#events тоже раскидать по файлам (логично, если реакции для bookish будут в bookish)
 
+#не во всех карточках отображается дата (число месяца) создания
+#некорректно дает карточки, если юзер требует больше, чем их есть всего в словаре
+#RENEGATTO COMPRENDO CHITAT' REVIEW
+#прочитать "twelve-factor app"
+#---next ver: bot 0.1.3 (stable and fancy)
+
+#продумать систему бэкапов логов_сообщений, словарей и langs (автоматический уровень + ручной уровень)
 #команда (или функция) для написания сообщения от имени бота (+через эмбед, + не открывая дс)
 #отправить текстовый файл и картинку (чиатй FAQ почаще)
-#использовать эмбед для карточек (вместо спойлера - черный квадратик)
 '''сделать защиту от спама (максимум - 120 действий за минуту, т. е. 6 чел - действие 3 секунды, 
 24 чел - действие в 12 сек(!). Для начала слоумод = 1 сек пойдет. Нужен еще и явный счетчик ивентов на случай, 
 если они вместе решат провести стресс-тест и (будут кликать каждую секунду) '''
-#(для ПК) создание голосовых каналов по команде, удаление по ненужности
-#(для ПК) ведение большой статистики серва (в первую очередь войсов, сообщений, их удалений, и статусов)
 
 load_dotenv()
 TOKEN = os.getenv('VOCABOT_TOKEN') #unique bot token (must be secured)
-GUILD = 'Первый книжный' #server name
+GUILD = 673968890325237771 #server name (ПК)
 
 bot_prefix = '!v ' #параметризовали префикс
 bot = commands.Bot(command_prefix = bot_prefix)
@@ -42,7 +42,7 @@ bot = commands.Bot(command_prefix = bot_prefix)
 async def on_ready(): #executes when connection made and data prepaired
     #print(f'{bot.user} has been connected to discord') #'user' = 'name' + 'id'
     for guild in bot.guilds:
-        if guild.name == GUILD:
+        if guild.id == GUILD:
             break
     print(f'{bot.user} is connected to  {guild.name} (id: {guild.id})')
     members_string = ''
@@ -75,14 +75,14 @@ def user_permission_check(ctx): #applying permitted users list
 
 def is_me():#decorator for is_me check
     def is_me_check(ctx):
-        return ctx.message.author.id == 303115719644807168
+        return ctx.message.author.id == 303115719644807168 #my_id
     return commands.check(is_me_check)
 
-@bot.event 
+'''@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
 async def on_command_error(ctx, error):
     pass # если эта функция включена, ексепшоны не принтятся. во как
     if isinstance(error, commands.errors.CheckFailure): #обрабатываем ошибку отсутствия разрешения
-        await ctx.send('```You do not have permission to use bot.```')
+        await ctx.send("```You don't have permission to use it```")
     if isinstance(error, commands.errors.CommandNotFound):  #обрабатываем ошибку "неправильная команда"
         cool_responses = ["Try something different", "you've entered wrong command",
                     "**English, mother#$^%*1!! Can you speak it?**","There is no that command",
@@ -101,6 +101,8 @@ async def on_command_error(ctx, error):
         await ctx.send('```Wrong union argument```')
     if isinstance(error, commands.ArgumentParsingError):
         await ctx.send('```ArgumentParsingError occured```')
+    if isinstance(error, commands.ExtensionFailed): #NE ROBIT см. "update" command
+        await ctx.send('```ExtensionFailed ```')'''
 
 @bot.event 
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
@@ -124,103 +126,69 @@ async def on_reaction_remove(reaction, user): #flips card_message on 'word' side
     R.dm_self_input(reaction.message.content)
     await reaction.message.edit(content = R.dm_card('word'))
 
-'''@bot.event
-async def on_voice_call_or_smth(): #отслеживать войсы (кто сколько и с кем сидел)
-'''
+#-----------------группа ивентов для книжного---------------------
+ 
+def is_bookish_message(message): #func for sprcific guild check. id is for ПК server
+    if isinstance(message.channel, discord.TextChannel): 
+        return message.guild.id == 673968890325237771
+    else:
+        return False
 
-#конвертеры должны быть прописаны раньше комманд (почему так?)
-def scream_case(argument): #converter example 
-    print('to_upper converter worked')
-    return argument.upper()
+def is_bookish_member(member): return member.guild.id == 673968890325237771
 
-class ConverterForR(commands.Converter):
-    async def convert(self, ctx, argument):
-        user_langs = get_langs_from_txt()
-        R = create_R_with_langs(ctx.author.name, user_langs)
-        #user_langs = lambda x: get_langs_from_txt()
-        print(f'R.info() in converter is {R.info()}')
-        R.dm_input(argument)
-        return R
+@bot.event
+async def on_member_join(member):
+    if is_bookish_member(member):
+        log_channel = get_log_channel(member.guild)#или (member.guild, 'general_logs')
+        print(log_channel)
+        await log_channel.send('on_member_join worked')
 
-#-----------------------------------BEGINNING OF COMMANDS-------------------------------
+@bot.event
+async def on_member_remove(member):
+    if is_bookish_member(member):
+        log_channel = get_log_channel(member.guild)
+        print(log_channel)
+        await log_channel.send('on_member_remove worked')
 
-@bot.command(name = 'n', help = '[word].[translation].[key] adds new word in your dictionary')
-async def create_word_pair(ctx, *, R: ConverterForR):
-    file = R'_Dictionaries/of ' + ctx.author.name + '.txt'
-    with open(file, 'a') as F:
-        R.append_to_txt(F)
-    await ctx.send('`New word pair has been created`')
+@bot.event
+async def on_message_edit(before, after):
+    if is_bookish_message(before) and before.author != bot.user:
+    #добавление ембеда == edit. так что нужна таблетка от самоответов
+        log_channel = get_log_channel(before.guild)
+        embed = discord.Embed(title = 'title', type = 'rich', 
+                        description = 'description')
+        await log_channel.send(embed = embed)
 
-@bot.command(name = 'language', 
-            help = "[ID] Sets up language for words")
-async def set_language(ctx, *, language: scream_case):
-    print(language)
-    user_langs = get_langs_from_txt()
-    update_langs('language', ctx.author.name, language, user_langs)
-    await ctx.send(f"```Foreign language has been changed to {language}.```")
+@bot.event
+async def on_message_delete(message):
+    if is_bookish_message(message) and before.author != bot.user:
+    #тут таблетка ради удобства. А то сбщ от бота были неудаляемыми
+        log_channel = get_log_channel(message.guild)
+        embed = discord.Embed(title = 'title', type = 'rich', 
+                        description = 'description')
+        await log_channel.send(embed = embed)
 
-@bot.command(name = 'native', 
-            help = "[ID] Sets up language for translations")
-async def set_native(ctx, *, native: scream_case):
-    user_langs = get_langs_from_txt()
-    update_langs('native', ctx.author.name, native, user_langs)
-    await ctx.send(f"```Native language has been changed to {native}.```") 
 
-@bot.command(name = 'cards', 
-            help = '[n] [first/last] to get first/last n words from your dictionary') 
-async def get_some_cards(ctx, n: int, what_end: str):
-    number = n #number = int(n) 
-    if what_end == 'last': #нужен ли такой искусственный путь?
-        number *= -1
-    with open('_Dictionaries/of ' + ctx.author.name + '.txt','r') as F_dm: #причесать пробелы в string.input()
-        repeat_list = read_from_txt(F_dm, number)
-    for R in repeat_list:
-        await ctx.author.create_dm() #нужно ли это?
-        card_message = await ctx.author.dm_channel.send(R.dm_card('word'))
-        #await ctx.author.dm_channel.send(R.dm_card('word'))
-        await card_message.add_reaction('🔁') #add reaction on card-message
-        with open('active_cards.txt', 'a') as F:
-            F.write(str(card_message.id) + '\n')
-    response = f'{what_end} {n} words from your dictionary have been sent into your DMs'
-    if len(repeat_list) == 0: #NEED TESTING
-        response = 'Your file is empty. _Trust me_'
-    await ctx.send(response)      
+#-----------------------------------COMMANDS-------------------------------
 
-#СДЕЛАТЬ ГРУППУ КОМАНД ДЛЯ ПОЛУЧЕНИЯ КАРТОЧЕК
-'''@bot.command(name = 'all_cards', help = 'sends all cards in DM')
-@bot.command(name = 'today_cards', help = 'sends your today's cards in DM')
-@bot.command(name = 'delete_last', help = 'deletes your last card from dictionary')
-@bot.command(name = '', help = '')
-@bot.command(name = '', help = '')
-'''
-@bot.command(name = 'clr_cards', 
-            help = 'Deletes your dictionary without backups')
-async def clear_dictionary(ctx):
-    with open('_' + ctx.author.name + '.txt',"w") as F_clr:
-        F_clr.write('')
-    await ctx.send(" Your data has been deleted. " +
-     "Though you'll never be able to check this")
-     #сделать подтверждение (are you sure)
 
 @bot.command(name = 'status', help = 'staff only') #status update
-@is_me()
-async def status_setup(ctx):
-    game = discord.Game("with the extentions")
+@is_me() #в случае ошибки штатно срабатывает CheckFailure
+async def status_setup(ctx, *args):
+    game = discord.Game(''.join(args))
     await ctx.bot.change_presence(status = discord.Status.idle, activity = game)
 
-@bot.command(name = 'update', help = 'staff only') #TEST @IS_ME ON OTHER USER
+@bot.command(name = 'update', help = 'staff only')
 @is_me()
 async def update_commands(ctx): #for updating commands during runtime
-    ctx.bot.reload_extension('!cards')
+    #try:
     ctx.bot.reload_extension('!bookish')
-    ctx.bot.reload_extension('!amdevs') 
-    await ctx.send('"cards" extension have been updated')
+    #except: 
+    ctx.bot.reload_extension('!pics')
+    ctx.bot.reload_extension('!cards') 
+    await ctx.send('```Extensions have been updated```')
 
-'''@update_commands.error
-    if isinstance()''' #может будет достаточно check failure 
-
-#--------------------------END OF COMMANDS. BEGINNING OF THE LIST OF FUNCTIONS--------------------
-  
+#--------------------------LIST OF FUNCTIONS---------------------------- 
 
 def log_message(message): #вынесли сюда функцию ведения стенограммы целиком
     time = message.created_at 
@@ -246,6 +214,14 @@ def log_message(message): #вынесли сюда функцию ведения
                 F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
     #еще есть типы каналов кроме DMChannel и TextChannel?
 
+def get_log_channel(guild: discord.guild, logs_type: str = 'general_logs') -> discord.TextChannel:
+    if logs_type == 'general_logs':
+        with open('log_channel_ids.txt', 'r') as F:
+            channel_id = int(F.readline())
+    #elif purpose == <purpose_name> ... id возвратить по ключу (сервер id + logs_type) 
+    #(напр: important_audit_logs, deletion_logs, welcome_bye_logs)
+    return guild.get_channel(channel_id)
+
 def is_active_card(msg_id: int): #check whether this message is an active card or not
 #при отключении кэш сообщений пропадает и on reaction не работает
     ans = False 
@@ -270,9 +246,11 @@ def clear_active_cards():
     with open('active_cards.txt', 'w') as F:
         F.write('')
 
+#------------------------ВОТ PARAMETERS AND START UP----------------------------
+
 bot.load_extension('!cards') #подключаем команды
 bot.load_extension('!bookish')
-bot.load_extension('!amdevs') 
+bot.load_extension('!pics') 
 create_folders() #создаем папки для логов, если их не было
 clear_active_cards() #чтобы не обманываться на счет соответствия настоящего кэша и списка id
 

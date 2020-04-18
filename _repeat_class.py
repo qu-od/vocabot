@@ -45,13 +45,15 @@ class Repeat():
         #удаляем пробелы с переди строк-переменных (если они там стоят)
         if s[1].startswith(" "):
             s[1] = s[1].replace(" ",'',1)
-        if s[2].startswith(" "):
-            s[2] = s[2].replace(" ",'',1)
         print('dm_input:', s)
         self.word = s[0]
         self.translation = s[1]
-        if s[2]: #ОТТЕСТИТЬ (если ключ будет пустой)
+        try:
+            if s[2].startswith(" "):
+                s[2] = s[2].replace(" ",'',1) 
             self.key = s[2]
+        except IndexError:
+            print('DM_INPUT() key left "None"')
         self.datetime = time.asctime(time.gmtime())
 
     def dm_self_input(self,s): #weak split parameters :
