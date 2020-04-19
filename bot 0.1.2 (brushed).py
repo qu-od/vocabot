@@ -7,21 +7,23 @@ from _repeat_class import *
 from _language_edits import *
 from _users_admission import *
 
-#использовать эмбед для карточек и ред./удал. сбщ (вместо спойлера - черный квадратик)
+#ДАТЬ ОБРАТКУ О ТОМ, ЧТО NUMBER МАЛОВАТО для маленького словаря юзера
+#pamyatka dlya Yzuma
 #converters (whitelist of words and commands for arguments) and proper exceptions for them
 #больше обратной связи в ответ на команды
 
 #decos and lambdas
+#RENEGATTO COMPRENDO CHITAT' REVIEW
+#прочитать "twelve-factor app"
+
 #проследить, как работает R после разбиения на @commands
 #ничего страшного, если в разных коммандах одинаково называть переменные F и file? 
-#ВЫТАЩИТЬ ОШИБКИ РАСШИРЕНИЙ
 #категории комманд (и ивентов - listenerov?) (extentions & cogs)
 #events тоже раскидать по файлам (логично, если реакции для bookish будут в bookish)
+#ВЫТАЩИТЬ ОШИБКИ РАСШИРЕНИЙ
 
 #не во всех карточках отображается дата (число месяца) создания
 #некорректно дает карточки, если юзер требует больше, чем их есть всего в словаре
-#RENEGATTO COMPRENDO CHITAT' REVIEW
-#прочитать "twelve-factor app"
 #---next ver: bot 0.1.3 (stable and fancy)
 
 #продумать систему бэкапов логов_сообщений, словарей и langs (автоматический уровень + ручной уровень)
@@ -54,12 +56,14 @@ async def on_ready(): #executes when connection made and data prepaired
             my_member = member
     #print(my_member.name)
     if is_user_allowed(my_member.name): #am I even allowed lol (just in case)
-        print('that user is allowed')
+        #print('that user is allowed')
         await my_member.create_dm()
-        await my_member.dm_channel.send("```У меня очень хорошее настроение```")
+        await my_member.dm_channel.send("```скоро релиз```")
         print('start_dm_sent')
     else:
         print('that user is not allowed. Start dm was not send')
+    смотрит = discord.ActivityType.watching #cyrillics test
+    await bot.change_presence(activity = discord.Activity(type = смотрит, name = '#StayHome'))
 
 @bot.event  #стенограмма
 async def on_message(message): #saving of all dialogues
@@ -104,27 +108,22 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.ExtensionFailed): #NE ROBIT см. "update" command
         await ctx.send('```ExtensionFailed ```')'''
 
-@bot.event 
+@bot.event #делаем эмбед
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
-    if user == bot.user:
-        return
-    if not is_active_card(reaction.message.id):
-        return
-    user_langs = get_langs_from_txt()
-    R = create_R_with_langs(user.name, user_langs)
-    R.dm_self_input(reaction.message.content)
-    await reaction.message.edit(content = R.dm_card('translation'))
+    msg_id = reaction.message.id
+    if user == bot.user: return
+    R = fetch_active_card(msg_id)
+    if R == None: return #значит он пустой и карточка не найдена
+    await reaction.message.edit(embed = R.dm_embed_card('translation'))
 
 @bot.event 
 async def on_reaction_remove(reaction, user): #flips card_message on 'word' side again
-    if user == bot.user:
-        return
-    if not is_active_card(reaction.message.id):
-        return
-    user_langs = get_langs_from_txt()
-    R = create_R_with_langs(user.name, user_langs)
-    R.dm_self_input(reaction.message.content)
-    await reaction.message.edit(content = R.dm_card('word'))
+    msg_id = reaction.message.id
+    if user == bot.user: return
+    R = fetch_active_card(msg_id)
+    if R == None: return #значит он пустой и карточка не найдена
+    await reaction.message.edit(embed = R.dm_embed_card('word'))
+
 
 #-----------------группа ивентов для книжного---------------------
  
@@ -155,28 +154,39 @@ async def on_message_edit(before, after):
     if is_bookish_message(before) and before.author != bot.user:
     #добавление ембеда == edit. так что нужна таблетка от самоответов
         log_channel = get_log_channel(before.guild)
-        embed = discord.Embed(title = 'title', type = 'rich', 
-                        description = 'description')
+        embed = discord.Embed(title = '__**message edited**__', type = 'rich', 
+                        description = f'`author:` {before.author}\n`msg`: {before.content}\n`edited:` {after.content}', 
+                        colour = discord.Colour.dark_teal())
         await log_channel.send(embed = embed)
 
 @bot.event
 async def on_message_delete(message):
-    if is_bookish_message(message) and before.author != bot.user:
+    if is_bookish_message(message) and message.author != bot.user:
     #тут таблетка ради удобства. А то сбщ от бота были неудаляемыми
         log_channel = get_log_channel(message.guild)
-        embed = discord.Embed(title = 'title', type = 'rich', 
-                        description = 'description')
+        embed = discord.Embed(title = '__**message deleted**__', type = 'rich', 
+                        description = f'`author:` {message.author}\n`msg`: {message.content}',
+                        colour = discord.Colour.gold())
         await log_channel.send(embed = embed)
 
+def str_to_status(argument):
+    if (argument in ('dnd','do_not_disturb', 'otsosi')):
+        status = discord.Status.dnd
+    elif (argument in ('idle','sleep', 'не активен', 'афк')):
+        status = discord.Status.idle
+    else: status = discord.Status.online
+    #если аргумент status_setup по умолч. все-таки перезаписан чем-то
+    print('status converter worked')
+    return status
 
 #-----------------------------------COMMANDS-------------------------------
 
 
 @bot.command(name = 'status', help = 'staff only') #status update
 @is_me() #в случае ошибки штатно срабатывает CheckFailure
-async def status_setup(ctx, *args):
-    game = discord.Game(''.join(args))
-    await ctx.bot.change_presence(status = discord.Status.idle, activity = game)
+async def status_setup(ctx, status_input: str_to_status, *args):
+    game = discord.Game(' '.join(args))
+    await ctx.bot.change_presence(status = status_input, activity = game)
 
 @bot.command(name = 'update', help = 'staff only')
 @is_me()
@@ -222,17 +232,6 @@ def get_log_channel(guild: discord.guild, logs_type: str = 'general_logs') -> di
     #(напр: important_audit_logs, deletion_logs, welcome_bye_logs)
     return guild.get_channel(channel_id)
 
-def is_active_card(msg_id: int): #check whether this message is an active card or not
-#при отключении кэш сообщений пропадает и on reaction не работает
-    ans = False 
-    with open('active_cards.txt', 'r') as F:
-        for line in F:
-            line = line.replace('\r','')
-            line = line.replace('\n','')
-            if line == str(msg_id):
-                return True
-    return ans
-
 def create_folders():
     dirs = os.listdir()
     if ('_Dictionaries' in dirs) == False:
@@ -244,7 +243,7 @@ def create_folders():
 
 def clear_active_cards():
     with open('active_cards.txt', 'w') as F:
-        F.write('')
+        F.write('') #удаляем содержимое
 
 #------------------------ВОТ PARAMETERS AND START UP----------------------------
 

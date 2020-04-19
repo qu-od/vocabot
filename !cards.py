@@ -22,6 +22,8 @@ class ConverterForR(commands.Converter):
 
 #------------------------------COMMANDS LIST-------------------------
 
+#эмодзи не могут быть тут использованы (могут возникнуть проблемы 
+#с кодировкой из за строковой работы с файлами)
 @commands.command(name = 'n', help = '[word].[translation].[key] adds new word in your dictionary')
 async def create_word_pair(ctx, *, R: ConverterForR):
     file = R'_Dictionaries/of ' + ctx.author.name + '.txt'
@@ -44,7 +46,7 @@ async def set_native(ctx, *, native: scream_case):
     update_langs('native', ctx.author.name, native, user_langs)
     await ctx.send(f"```Native language has been changed to {native}.```") 
 
-@commands.command(name = 'cards', 
+'''@commands.command(name = 'not_embed_cards', #OBSOLETE COMMAND
             help = '[n] [first/last] to get first/last n words from your dictionary') 
 async def get_some_cards(ctx, n: int, what_end: str):
     number = n #number = int(n) 
@@ -57,18 +59,17 @@ async def get_some_cards(ctx, n: int, what_end: str):
         await ctx.send("Your dictionary doesn't even exist. Try to enter some word pairs first")
         return
     for R in repeat_list:
-        await ctx.author.create_dm() #нужно ли это?
+        await ctx.author.create_dm()
         card_message = await ctx.author.dm_channel.send(R.dm_card('word'))
-        #await ctx.author.dm_channel.send(R.dm_card('word'))
         await card_message.add_reaction('🔁') #add reaction on card-message
         with open('active_cards.txt', 'a') as F:
             F.write(str(card_message.id) + '\n')
     response = f'{what_end} {n} words from your dictionary have been sent into your DMs'
     if len(repeat_list) == 0: #NEED TESTING
         response = 'Your dictionary is empty. _Trust me_'
-    await ctx.send(response)
+    await ctx.send(response)'''
 
-@commands.command(name = 'e_cards',  #НЕДОДЕЛ
+@commands.command(name = 'cards',  #НЕДОДЕЛ
         help = '[n] [first/last] to get first/last n words in embed')
 async def get_some_embed_cards(ctx, n: int, what_end: str):
     number = n #number = int(n) 
@@ -81,12 +82,10 @@ async def get_some_embed_cards(ctx, n: int, what_end: str):
         await ctx.send("Your dictionary doesn't even exist. Try to enter some word pairs first")
         return
     for R in repeat_list:
-        await ctx.author.create_dm() #нужно ли это?
-        card_message = await ctx.author.dm_channel.send(R.dm_card('word'))
-        #await ctx.author.dm_channel.send(R.dm_card('word'))
+        await ctx.author.create_dm()
+        card_message = await ctx.author.dm_channel.send(embed = R.dm_embed_card('word'))
         await card_message.add_reaction('🔁') #add reaction on card-message
-        with open('active_cards.txt', 'a') as F:
-            F.write(str(card_message.id) + '\n')
+        R.append_active_card(card_message.id) #лог id и R
     response = f'{what_end} {n} words from your dictionary have been sent into your DMs'
     if len(repeat_list) == 0: #NEED TESTING
         response = 'Your dictionary is empty. _Trust me_'
@@ -114,6 +113,5 @@ def setup(bot):
     bot.add_command(create_word_pair)
     bot.add_command(set_language)
     bot.add_command(set_native)
-    bot.add_command(get_some_cards)
     bot.add_command(get_some_embed_cards)
     bot.add_command(clear_dictionary)
