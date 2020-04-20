@@ -5,7 +5,7 @@ from _repeat_class import *
 from _language_edits import *
 from _users_admission import *
 
-#
+#-
 
 @commands.command(name = 'pics_test', help = 'pics extension')
 async def pics_test(ctx):

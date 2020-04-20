@@ -3,7 +3,7 @@ from _repeat_class import Repeat
 #заменили global user_langs на аргумент get_langs_from_txt()
 #это выглядит громоздко (можно передавать только нужную строку в кач-ве аргумента)
 
-def get_langs_from_txt():#прочесть словарь из файла (по имени ключу получить пару языков)
+def get_langs_from_txt(): #прочесть словарь из файла (по имени ключу получить пару языков)
     file = "langs.txt"
     with open (file, 'rb') as F:
         user_langs = {}

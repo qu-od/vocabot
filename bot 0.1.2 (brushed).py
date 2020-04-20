@@ -111,7 +111,7 @@ async def on_reaction_remove(reaction, user): #flips card_message on 'word' side
     await reaction.message.edit(embed = R.dm_embed_card('word'))
 
 
-#-----------------группа ивентов для книжного---------------------
+#------------------группа ивентов для книжного---------------------
  
 def is_bookish_message(message): #func for sprcific guild check. id is for ПК server
     if isinstance(message.channel, discord.TextChannel): 

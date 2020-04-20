@@ -16,7 +16,7 @@ def is_me():#decorator for is_me check
         return ctx.message.author.id == 303115719644807168 #my_id
     return commands.check(is_me_check)
 
-#--------------------------------COMMAND LIST------------------------------------
+#-------------------------------COMMAND LIST------------------------------------
 
 @commands.command(name = 'msg', help = 'staff only') #custom message. 
 #to channels or users on the sever where command is invoked

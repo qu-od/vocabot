@@ -6,7 +6,7 @@ from _language_edits import get_langs_from_txt, create_R_with_langs, update_lang
 #from _users_admission import *
 
 #send cards in embed
-#----------------------------EVENTS AND CONVERTERS----------------------
+#---------------------------EVENTS AND CONVERTERS----------------------
 #конвертеры должны быть прописаны раньше комманд (почему так?)
 def dict_end_converter(what_end):
     if not what_end in ['first', 'last']:
