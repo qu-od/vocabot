@@ -1,4 +1,4 @@
-from _repeat_class import *
+from _repeat_class import Repeat
 
 #заменили global user_langs на аргумент get_langs_from_txt()
 #это выглядит громоздко (можно передавать только нужную строку в кач-ве аргумента)
@@ -18,7 +18,7 @@ def create_R_with_langs(name, user_langs):
     try: #если такого элемента еще нет, то создаем его, перехватывая keyError.
         ln = user_langs[name]
     except KeyError:
-        user_langs[name] = ["_","_"]
+        user_langs[name] = ["none","none"]
         ln = user_langs[name]
     R = Repeat(ln[0],'none', ln[1],'none','none')
     return R

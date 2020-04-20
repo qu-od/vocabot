@@ -1,5 +1,6 @@
 import time
 import discord
+from math import fabs, ceil
 ''' язык, слово, перевод, комментарий, дата и время.
  в целом нужно будет native language выбрать. Часовой пояс знать не нужно,
  ведь для повторения важна лишь относительная разница между временем
@@ -53,7 +54,8 @@ class Repeat():
                 s[2] = s[2].replace(" ",'',1) 
             self.key = s[2]
         except IndexError:
-            print('DM_INPUT() key left "None"')
+            self.key = 'none'
+            print('DM_INPUT() key left "none"')
         self.datetime = time.asctime(time.gmtime())
 
     def append_to_txt(self,F):
@@ -86,7 +88,6 @@ class Repeat():
         return s
 
     def dm_embed_card(self, side: str):
-        #False mean that this is not a flip but a card creation
         short_time, key_for_dm = dm_format(self)
         if side == 'word':
             word_side_str = f"{self.language}: {self.word} --- {self.native}:" \
@@ -102,10 +103,6 @@ class Repeat():
             embed = discord.Embed(type = 'rich', title = '__translation side__', 
                     description = translation_side_str,
                     colour = discord.Colour.dark_blue())
-        if not (side in ['word','translation']):
-            embed = discord.Embed(type = 'rich', title = '__**Error occured**__', 
-                    description = 'wrong "side" argument',
-                    colour = discord.Colour.red())
         return embed
 
     def append_active_card(self, msg_id: int):
@@ -119,7 +116,7 @@ def dm_format(R): #общие костыли для удобного отобр�
     short_time = ' '.join(short_time[0:3])
     key_for_dm = R.key #чтобы спойлеры не выворачивались наизнанку 
     if R.key == '':
-        key_for_dm = ' '
+        key_for_dm = 'none'
     return short_time, key_for_dm
 
 def fetch_active_card(msg_id: int):
@@ -136,35 +133,44 @@ def fetch_active_card(msg_id: int):
                     return R
         return None #если цикл прошел и msg_id не найдено в файле
 
-def read_from_txt(F, number: int):
-    list_r = []
+def cards_from_dict(F, number: int):
+    print(f"SOOQA {type(number)}")
+    list_R = []
+    info = 'cards formed succsesfully' #по умолчанию все хорошо
+    #достаточно ли слов в словаре для запроса или нет. Или словарь пуст
     for line in F:
         line = line.replace('\n','')
         line = line.replace('\r','')
         if line.startswith("---OBJECT---"):
-            r = Repeat("none","none","none","none","none")
+            R = Repeat("none","none","none","none","none")
             s = line.split(" -||- ")
-            r.language = s[1]
-            r.word = s[2]
-            r.native = s[3]
-            r.translation = s[4]
+            R.language = s[1]
+            R.word = s[2]
+            R.native = s[3]
+            R.translation = s[4]
         if line.startswith("KEY:"):
             s = line.split(" -||- ")
-            r.key = s[1]
+            R.key = s[1]
         if line.startswith("CREATED:"):
             s = line.split(" -||- ")
-            r.datetime = s[1]
-            list_r.append(r)
-    cut_list_r = []
-    if number >= 0:
-        for i in range(number):
-            try:
-                cut_list_r.append(list_r[i])
-            except IndexError:
-                #ДАТЬ ОБРАТКУ О ТОМ, ЧТО NUMBER МАЛОВАТО
-                break
-    else:
-        beginning = len(list_r) + number #минус на минус
-        for i in range(beginning, len(list_r)):
-            cut_list_r.append(list_r[i])
-    return cut_list_r
+            R.datetime = s[1]
+            list_R.append(R) # добавление только после считывания времени
+    cut_list_R = []
+    if fabs(number) > len(list_R):
+        info = "You don't have enough cards"
+        number = ceil(number / number * len(list_R)) #(МБ ОШИБКА) чтобы сохранить знак 
+        #(убедиться, что получается int)
+    if number > 0: #first {number} of words
+        index_list = range(number)
+    elif number < 0: #last {number} of words
+        index_list = range(len(list_R) + number, len(list_R))
+    elif number == 0: #0 words requested
+        index_list = [] #цикл тогда пропустится
+        info = "You just requested 0 words, don't you?"
+    print(f'INDEX_LIST {index_list}')
+    for i in index_list:
+        cut_list_R.append(list_R[i])
+    if len(cut_list_R) == 0 and number != 0: 
+        #проcили больше 0, а словарь пуст 
+        info = 'Your dictionary is empty. _Trust me_'
+    return cut_list_R, info

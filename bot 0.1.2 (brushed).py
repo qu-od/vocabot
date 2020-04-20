@@ -3,16 +3,12 @@ import random
 import discord
 from dotenv import load_dotenv
 from discord.ext import commands
-from _repeat_class import *
-from _language_edits import *
+from _repeat_class import Repeat, fetch_active_card
 from _users_admission import *
 
-#ДАТЬ ОБРАТКУ О ТОМ, ЧТО NUMBER МАЛОВАТО для маленького словаря юзера
-#pamyatka dlya Yzuma
 #converters (whitelist of words and commands for arguments) and proper exceptions for them
-#больше обратной связи в ответ на команды
+#lambdas and decos
 
-#decos and lambdas
 #RENEGATTO COMPRENDO CHITAT' REVIEW
 #прочитать "twelve-factor app"
 
@@ -21,13 +17,10 @@ from _users_admission import *
 #категории комманд (и ивентов - listenerov?) (extentions & cogs)
 #events тоже раскидать по файлам (логично, если реакции для bookish будут в bookish)
 #ВЫТАЩИТЬ ОШИБКИ РАСШИРЕНИЙ
-
-#не во всех карточках отображается дата (число месяца) создания
-#некорректно дает карточки, если юзер требует больше, чем их есть всего в словаре
+#из хелпы убрать "staff only" команды
 #---next ver: bot 0.1.3 (stable and fancy)
 
 #продумать систему бэкапов логов_сообщений, словарей и langs (автоматический уровень + ручной уровень)
-#команда (или функция) для написания сообщения от имени бота (+через эмбед, + не открывая дс)
 #отправить текстовый файл и картинку (чиатй FAQ почаще)
 '''сделать защиту от спама (максимум - 120 действий за минуту, т. е. 6 чел - действие 3 секунды, 
 24 чел - действие в 12 сек(!). Для начала слоумод = 1 сек пойдет. Нужен еще и явный счетчик ивентов на случай, 
@@ -42,21 +35,14 @@ bot = commands.Bot(command_prefix = bot_prefix)
 
 @bot.event
 async def on_ready(): #executes when connection made and data prepaired
-    #print(f'{bot.user} has been connected to discord') #'user' = 'name' + 'id'
     for guild in bot.guilds:
         if guild.id == GUILD:
             break
     print(f'{bot.user} is connected to  {guild.name} (id: {guild.id})')
-    members_string = ''
-    for member in guild.members:
-        members_string += (member.name + "---")
-    #print(members_string)
     for member in guild.members: #finding my "member"
         if member.name == "Machine 🪐":
             my_member = member
-    #print(my_member.name)
     if is_user_allowed(my_member.name): #am I even allowed lol (just in case)
-        #print('that user is allowed')
         await my_member.create_dm()
         await my_member.dm_channel.send("```скоро релиз```")
         print('start_dm_sent')
@@ -67,7 +53,7 @@ async def on_ready(): #executes when connection made and data prepaired
 
 @bot.event  #стенограмма
 async def on_message(message): #saving of all dialogues
-    log_message(message) 
+    log_message(message)
     await bot.process_commands(message) #эта функция разблокирует работу других комманд (смотри FAQ почаще)
 
 @bot.check #global permission check
@@ -175,8 +161,6 @@ def str_to_status(argument):
     elif (argument in ('idle','sleep', 'не активен', 'афк')):
         status = discord.Status.idle
     else: status = discord.Status.online
-    #если аргумент status_setup по умолч. все-таки перезаписан чем-то
-    print('status converter worked')
     return status
 
 #-----------------------------------COMMANDS-------------------------------
