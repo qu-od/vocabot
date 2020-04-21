@@ -1,9 +1,7 @@
 #"POPULAR BUT NOT YET DONE FUNCS" MODULE
 import discord
 from discord.ext import commands
-from _repeat_class import *
-from _language_edits import *
-from _users_admission import *
+#from _users_admission import is_user_allowed
 
 #-
 

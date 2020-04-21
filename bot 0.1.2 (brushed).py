@@ -1,25 +1,31 @@
 import os
 import random
 import discord
+from importlib import reload
 from dotenv import load_dotenv
 from discord.ext import commands
-from _repeat_class import Repeat, fetch_active_card
-from _users_admission import *
+import _repeat_class as rc #так можно делать reload(rc)!
+#from _repeat_class import Repeat, fetch_active_card
+from _users_admission import is_user_allowed
+#from !cards import cards_imports_reload (! мешает импорту) 
 
-#converters (whitelist of words and commands for arguments) and proper exceptions for them
+#категории комманд (и ивентов - listenerov?) (extentions & cogs)
+#events тоже раскидать по файлам (логично, если реакции для bookish будут в bookish)
 #lambdas and decos
+#user assigning via id
 
 #RENEGATTO COMPRENDO CHITAT' REVIEW
 #прочитать "twelve-factor app"
 
+#использовать "nonce" вместо "message/user.ID" при кэшировании в файлы 
 #проследить, как работает R после разбиения на @commands
 #ничего страшного, если в разных коммандах одинаково называть переменные F и file? 
-#категории комманд (и ивентов - listenerov?) (extentions & cogs)
-#events тоже раскидать по файлам (логично, если реакции для bookish будут в bookish)
 #ВЫТАЩИТЬ ОШИБКИ РАСШИРЕНИЙ
 #из хелпы убрать "staff only" команды
 #---next ver: bot 0.1.3 (stable and fancy)
 
+#свои эксепшены
+#РефАкТоРитЬ (начиная с билт-ин методов и заканчивая новыми функциями, типами, [суб]классами)
 #продумать систему бэкапов логов_сообщений, словарей и langs (автоматический уровень + ручной уровень)
 #отправить текстовый файл и картинку (чиатй FAQ почаще)
 '''сделать защиту от спама (максимум - 120 действий за минуту, т. е. 6 чел - действие 3 секунды, 
@@ -98,7 +104,7 @@ async def on_command_error(ctx, error):
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
     msg_id = reaction.message.id
     if user == bot.user: return
-    R = fetch_active_card(msg_id)
+    R = rc.fetch_active_card(msg_id)
     if R == None: return #значит он пустой и карточка не найдена
     await reaction.message.edit(embed = R.dm_embed_card('translation'))
 
@@ -106,7 +112,7 @@ async def on_reaction_add(reaction, user): #leads to card flip on 'translation' 
 async def on_reaction_remove(reaction, user): #flips card_message on 'word' side again
     msg_id = reaction.message.id
     if user == bot.user: return
-    R = fetch_active_card(msg_id)
+    R = rc.fetch_active_card(msg_id)
     if R == None: return #значит он пустой и карточка не найдена
     await reaction.message.edit(embed = R.dm_embed_card('word'))
 
@@ -179,7 +185,12 @@ async def update_commands(ctx): #for updating commands during runtime
     ctx.bot.reload_extension('!bookish')
     #except: 
     ctx.bot.reload_extension('!pics')
-    ctx.bot.reload_extension('!cards') 
+    ctx.bot.reload_extension('!cards')
+    reload(rc)
+    #reload(Repeat) #как бы перезагрузить сразу все..
+    #reload(fetch_active_card)
+    #reload(is_user_allowed) 
+    #cards_import_reload() #еще можно так обновить косвенные импорты 
     await ctx.send('```Extensions have been updated```')
 
 #--------------------------LIST OF FUNCTIONS---------------------------- 
@@ -225,9 +236,11 @@ def create_folders():
     if ('_Server_msg_hisory' in dirs) == False:
         os.mkdir('_Server_msg_hisory')
 
-def clear_active_cards():
+def clear_cache(): #удаляем содержимое файлов (по сути - подготовка глобальных переменных)
     with open('active_cards.txt', 'w') as F:
-        F.write('') #удаляем содержимое
+        F.write('') 
+    with open('pending_dict_deletion.txt', 'w') as F:
+        F.write('')
 
 #------------------------ВОТ PARAMETERS AND START UP----------------------------
 
@@ -235,6 +248,9 @@ bot.load_extension('!cards') #подключаем команды
 bot.load_extension('!bookish')
 bot.load_extension('!pics') 
 create_folders() #создаем папки для логов, если их не было
-clear_active_cards() #чтобы не обманываться на счет соответствия настоящего кэша и списка id
+clear_cache() #чистка кэша карточек чтобы не обманываться 
+#на счет соответствия настоящего кэша и списка id.
+#ЧСХ при вызове !clr_cards эту функ. не вызываем
+#а значит карточки из кэша не пропадают до перезапуска бота 
 
 bot.run(TOKEN)

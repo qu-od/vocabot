@@ -5,6 +5,7 @@ from discord.ext import commands
 #from _language_edits import *
 #from _users_admission import *
 
+#КАТЕГОРЯ КОМАНД "bookish" (вместе с cog)
 #команда для написания сообщения от имени бота (+через эмбед, + не открывая дс)
 #custom_embed.txt в формате словаря для сборки для подготовки сообщений (узюму)
 #создание голосовых каналов по команде, удаление по ненужности

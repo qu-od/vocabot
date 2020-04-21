@@ -1,6 +1,6 @@
 import time
 import discord
-from math import fabs, ceil
+from math import fabs, copysign
 
 ''' язык, слово, перевод, комментарий, дата и время.
  в целом нужно будет native language выбрать. Часовой пояс знать не нужно,
@@ -25,6 +25,10 @@ class Repeat():
         s = f" {self.language}: {self.word} --- {self.native}:" \
                 f" {self.translation}\n KEY: {self.key}\n" \
                 f" CREATED: {self.datetime}\n"
+        return s
+
+    def short_info(self): #используется в ответах на !n и !del
+        s = f'"{self.word}"-"{self.translation}"'
         return s
     
     def console_input(self):
@@ -94,14 +98,14 @@ class Repeat():
             word_side_str = f"{self.language}: {self.word} --- {self.native}:" \
                 f" ||{self.translation}||\nKey: ||{key_for_dm}||\n" \
                 f"Created: {short_time}"
-            embed = discord.Embed(type = 'rich', title = '__word side__', 
+            embed = discord.Embed(type = 'rich', title = 'word side', 
                     description = word_side_str,
                     colour = discord.Colour.blue())
         if side == 'translation':
             translation_side_str = f"{self.language}: ||{self.word}|| --- {self.native}:" \
                 f" {self.translation}\nKey: ||{key_for_dm}||\n" \
                 f"Created: {short_time}"
-            embed = discord.Embed(type = 'rich', title = '__translation side__', 
+            embed = discord.Embed(type = 'rich', title = 'translation side', 
                     description = translation_side_str,
                     colour = discord.Colour.dark_blue())
         return embed
@@ -134,10 +138,57 @@ def fetch_active_card(msg_id: int):
                     return R
         return None #если цикл прошел и msg_id не найдено в файле
 
-def cards_from_dict(F, number: int):
-    print(f"SOOQA {type(number)}")
+def cards_from_dict_end(F, number: int): #, *, start = None, end = None):
+    raw_number = number
+    info = 'cards formed successfully' #по умолчанию все хорошо
+    list_R = read_all_R_from_dict(F)
+    cut_list_R = []
+    if fabs(number) > 10:
+        info = "Too much cards requested"
+        number = int(copysign(10, raw_number)) #знак сохраняем
+    if fabs(number) > len(list_R): #если все еще больше длины словаря
+        #если меньше десяти карточек в словаре
+        info = "You don't have enough cards"
+        number = int(copysign(len(list_R), raw_number)) #знак сохраняем
+    if number > 0: #first {number} of words
+        index_list = range(number)
+    if number < 0: #last {number} of words
+        index_list = range(len(list_R) + number, len(list_R))
+    if raw_number == 0: #0 words requested. 
+    #(number - what is requested, cut_nuber - number shortened to len(list_R) if should
+        index_list = [] #цикл тогда пропустится
+        info = "You just requested 0 words, don't you?"
+    if len(list_R) == 0 and raw_number != 0: 
+        #проcили больше 0, а словарь пуст
+        index_list = []  
+        info += '\nYour dictionary is empty. Trust me'
+    print(f'INDEX_LIST {index_list}')
+    for i in index_list:
+        cut_list_R.append(list_R[i])
+    return cut_list_R, info
+
+def cards_from_dict_array(F, start: int, end: int): #слить с предыд. функ?
     list_R = []
-    info = 'cards formed succsesfully' #по умолчанию все хорошо
+    slice_R = []
+    info = 'Cards read successfully'
+    if len(range(start, end)) > 10:
+        print('test')
+        #попросить ввести интервал поменьше
+    return slice_R, info
+
+def delete_last_card(F, user_name: str):
+    list_R = read_all_R_from_dict(F)
+    if len(list_R) > 0: #если вообще карточки в словаре есть. (если нет - ПОФИГУ)
+        new_list_R = list_R[:-1] #удаление последнего элемента
+        F.close() #вроде работает без этой строки, но оставлю ее
+        with open('_Dictionaries/of ' + user_name + '.txt','w') as F_rewrite: 
+            for R in new_list_R:
+                R.append_to_txt(F_rewrite)
+    return list_R[-1]
+    
+
+def read_all_R_from_dict(F):
+    list_R = []
     #достаточно ли слов в словаре для запроса или нет. Или словарь пуст
     for line in F:
         line = line.replace('\n','')
@@ -156,22 +207,4 @@ def cards_from_dict(F, number: int):
             s = line.split(" -||- ")
             R.datetime = s[1]
             list_R.append(R) # добавление только после считывания времени
-    cut_list_R = []
-    if fabs(number) > len(list_R):
-        info = "You don't have enough cards"
-        number = ceil(number / number * len(list_R)) #(МБ ОШИБКА) чтобы сохранить знак 
-        #(убедиться, что получается int)
-    if number > 0: #first {number} of words
-        index_list = range(number)
-    elif number < 0: #last {number} of words
-        index_list = range(len(list_R) + number, len(list_R))
-    elif number == 0: #0 words requested
-        index_list = [] #цикл тогда пропустится
-        info = "You just requested 0 words, don't you?"
-    print(f'INDEX_LIST {index_list}')
-    for i in index_list:
-        cut_list_R.append(list_R[i])
-    if len(cut_list_R) == 0 and number != 0: 
-        #проcили больше 0, а словарь пуст 
-        info = 'Your dictionary is empty. _Trust me_'
-    return cut_list_R, info
+    return list_R
