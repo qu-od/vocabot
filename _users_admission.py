@@ -6,10 +6,10 @@ def is_user_allowed(user: str) -> bool:
         filtered = filter(lambda line: not (line.startswith("#") or 
                                             line.startswith(' ')), 
                           decoded)
-        withut_specsymbols = map(lambda line: line.replace('\r','')
+        without_specsymbols = map(lambda line: line.replace('\r','')
                                                   .replace('\n',''))
         
-        if filter(lambda line: line == user): return True
+        if list(filter(lambda line: line == user)): return True #if no such users with this name found, list will be empty
     
     return False
 
