@@ -1,5 +1,6 @@
 import time
 import discord
+from typing import List, Union
 from math import fabs, copysign
 
 ''' язык, слово, перевод, комментарий, дата и время.
@@ -13,14 +14,14 @@ from math import fabs, copysign
 
 class Repeat():
     
-    def __init__(self, l, w, nl, t, k):
+    def __init__(self, l, w, nl, t, k): #сделать эти аргументы необязательными
         self.language = l
         self.word = w
         self.native = nl
         self.translation = t
         self.key = k
         self.datetime = time.asctime(time.gmtime())
-        
+
     def info(self):
         s = f" {self.language}: {self.word} --- {self.native}:" \
                 f" {self.translation}\n KEY: {self.key}\n" \
@@ -115,14 +116,7 @@ class Repeat():
             s = (f'{str(msg_id)} -||- {self.language} -||- {self.word} -||- ' +
                 f'{self.native} -||- {self.translation} -||- {self.key} -||- {self.datetime}\n')
             F.write(s)
-
-def dm_format(R): #общие костыли для удобного отображения разных форматов в ЛС
-    short_time = R.datetime.split(' ')
-    short_time = ' '.join(short_time[0:3])
-    key_for_dm = R.key #чтобы спойлеры не выворачивались наизнанку 
-    if R.key == '':
-        key_for_dm = 'none'
-    return short_time, key_for_dm
+#-------------------------------End of class description----------------            
 
 def fetch_active_card(msg_id: int):
     #check whether this message is an active card or not. If yes - read R
@@ -138,13 +132,49 @@ def fetch_active_card(msg_id: int):
                     return R
         return None #если цикл прошел и msg_id не найдено в файле
 
+def cards_from_dict_array(F, raw_start: int, raw_end: int): #слить с предыд. функ?
+    start, end, = raw_start, raw_end #raw_end от юзера ВКЛЮЧИТЕЛЬНО 
+    list_R, slice_R =  [], [] 
+    list_R.append(Repeat(None, None, None, None, None))#забили нулевой элемент, чтобы индексы начинались с 1
+    print(list_R[0].info())
+    list_R = list_R + read_all_R_from_dict(F) #сохраняем нулевой элемент
+    info = 'Cards list has formed successfully' #по умолчанию все хорошо
+    #indexes_R = range(0, len(list_R))
+    if raw_end < raw_start: #если границы перепутаны, перевернем их
+        raw_end, raw_start, end, start = raw_start, raw_end, raw_start, raw_end
+    if raw_start < 1: #проверим нижнюю границу
+        info = "start number is to small"
+        start = 1
+    if raw_end > len(list_R) - 1: #проверим верхнюю границу
+        info = "end number is too big (isn't enough cards in your dictionary)"
+        end = len(list_R) - 1
+    if len(range(start, end)) > 5: #если все еще больше пяти
+        info = "You've requested too much cards (more than 5)"
+        end = start + 5
+    index_list = range(start, end + 1) #чтобы включительно брать
+    for i in index_list: #в общем случае тут могут быть ЛЮБЫЕ индексы
+        slice_R.append(list_R[i])
+    return slice_R, info, start, end
+
+def cards_from_dict_day(F, date: List[str]): #удобно, если мало слов
+    info = f'Cards created on {date[1]} the {date[2]} have sent in dm'
+    list_R = read_all_R_from_dict(F)
+    date_R = [] 
+    date_R = list(filter(lambda R: is_requested_date(R, date), list_R))
+    if len(date_R) > 5: 
+        date_R = date_R[:5]  #ОГРАНИЧЕНИЕ НА ДЛИНУ: 5
+        info = 'First cards for this date sent in dm\nUse "dict" command to get more'
+    if len(date_R) == 0:
+        info = 'There are no cards for this date'
+    return date_R, info
+
 def cards_from_dict_end(F, number: int): #, *, start = None, end = None):
     raw_number = number
-    info = 'cards formed successfully' #по умолчанию все хорошо
+    info = 'Cards has formed successfully' #по умолчанию все хорошо
     list_R = read_all_R_from_dict(F)
     cut_list_R = []
-    if fabs(number) > 10:
-        info = "Too much cards requested"
+    if fabs(number) > 5:
+        info = "Too much cards requested in one command (more than 5)"
         number = int(copysign(10, raw_number)) #знак сохраняем
     if fabs(number) > len(list_R): #если все еще больше длины словаря
         #если меньше десяти карточек в словаре
@@ -167,15 +197,6 @@ def cards_from_dict_end(F, number: int): #, *, start = None, end = None):
         cut_list_R.append(list_R[i])
     return cut_list_R, info
 
-def cards_from_dict_array(F, start: int, end: int): #слить с предыд. функ?
-    list_R = []
-    slice_R = []
-    info = 'Cards read successfully'
-    if len(range(start, end)) > 10:
-        print('test')
-        #попросить ввести интервал поменьше
-    return slice_R, info
-
 def delete_last_card(F, user_name: str):
     list_R = read_all_R_from_dict(F)
     if len(list_R) > 0: #если вообще карточки в словаре есть. (если нет - ПОФИГУ)
@@ -185,7 +206,6 @@ def delete_last_card(F, user_name: str):
             for R in new_list_R:
                 R.append_to_txt(F_rewrite)
     return list_R[-1]
-    
 
 def read_all_R_from_dict(F):
     list_R = []
@@ -208,3 +228,21 @@ def read_all_R_from_dict(F):
             R.datetime = s[1]
             list_R.append(R) # добавление только после считывания времени
     return list_R
+
+def dm_format(R): #общие костыли для удобного отображения разных форматов в ЛС
+    short_time = R.datetime.split(' ')
+    short_time = ' '.join(short_time[0:3])
+    key_for_dm = R.key #чтобы спойлеры не выворачивались наизнанку 
+    if R.key == '':
+        key_for_dm = 'none'
+    return short_time, key_for_dm
+
+def is_requested_date(R: Repeat, date: List[str]):
+    ans = False
+    R_dttm_list = R.datetime.split(' ')
+    if (R_dttm_list[1] == date[1] and R_dttm_list[2] == date[2] 
+        and R_dttm_list[4] == date[0]):
+        ans = True
+    return ans
+    
+    

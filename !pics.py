@@ -5,7 +5,7 @@ from discord.ext import commands
 
 #-
 
-@commands.command(name = 'pics_test', help = 'pics extension')
+@commands.command(name = '_pics_test', help = 'pics extension')
 async def pics_test(ctx):
     await ctx.send('pics_test worked')
 

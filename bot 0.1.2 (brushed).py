@@ -9,13 +9,16 @@ import _repeat_class as rc #так можно делать reload(rc)!
 from _users_admission import is_user_allowed
 #from !cards import cards_imports_reload (! мешает импорту) 
 
+#service command: "delete bot messages"
+#help message only in DM
+#RENEGATTO COMPRENDO CHITAT' REVIEW
+#прочитать "twelve-factor app"
 #категории комманд (и ивентов - listenerov?) (extentions & cogs)
 #events тоже раскидать по файлам (логично, если реакции для bookish будут в bookish)
 #lambdas and decos
 #user assigning via id
+#message logging via "nonce"
 
-#RENEGATTO COMPRENDO CHITAT' REVIEW
-#прочитать "twelve-factor app"
 
 #использовать "nonce" вместо "message/user.ID" при кэшировании в файлы 
 #проследить, как работает R после разбиения на @commands
@@ -55,7 +58,7 @@ async def on_ready(): #executes when connection made and data prepaired
     else:
         print('that user is not allowed. Start dm was not send')
     смотрит = discord.ActivityType.watching #cyrillics test
-    await bot.change_presence(activity = discord.Activity(type = смотрит, name = '#StayHome'))
+    await bot.change_presence(activity = discord.Activity(type = смотрит, name = '!v help'))
 
 @bot.event  #стенограмма
 async def on_message(message): #saving of all dialogues
@@ -74,7 +77,7 @@ def is_me():#decorator for is_me check
         return ctx.message.author.id == 303115719644807168 #my_id
     return commands.check(is_me_check)
 
-'''@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
+@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
 async def on_command_error(ctx, error):
     pass # если эта функция включена, ексепшоны не принтятся. во как
     if isinstance(error, commands.errors.CheckFailure): #обрабатываем ошибку отсутствия разрешения
@@ -98,7 +101,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.ArgumentParsingError):
         await ctx.send('```ArgumentParsingError occured```')
     if isinstance(error, commands.ExtensionFailed): #NE ROBIT см. "update" command
-        await ctx.send('```ExtensionFailed ```')'''
+        await ctx.send('```ExtensionFailed ```')
 
 @bot.event #делаем эмбед
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
@@ -172,13 +175,13 @@ def str_to_status(argument):
 #-----------------------------------COMMANDS-------------------------------
 
 
-@bot.command(name = 'status', help = 'staff only') #status update
+@bot.command(name = '_status', help = 'staff only') #status update
 @is_me() #в случае ошибки штатно срабатывает CheckFailure
 async def status_setup(ctx, status_input: str_to_status, *args):
     game = discord.Game(' '.join(args))
     await ctx.bot.change_presence(status = status_input, activity = game)
 
-@bot.command(name = 'update', help = 'staff only')
+@bot.command(name = '_update', help = 'staff only')
 @is_me()
 async def update_commands(ctx): #for updating commands during runtime
     #try:

@@ -19,7 +19,7 @@ def is_me():#decorator for is_me check
 
 #-------------------------------COMMAND LIST------------------------------------
 
-@commands.command(name = 'msg', help = 'staff only') #custom message. 
+@commands.command(name = '_msg', help = 'staff only') #custom message. 
 #to channels or users on the sever where command is invoked
 @is_me()
 async def custom_message(ctx, id_type: str, opt_id: int, *args): #слишком длинный инт для питона?
@@ -35,7 +35,7 @@ async def custom_message(ctx, id_type: str, opt_id: int, *args): #слишком
     else:
         await ctx.send('`Wrong id_type argument`')
 
-@commands.command(name = 'set_logs_channel', #устанавливает канал для логов
+@commands.command(name = '_set_logs_channel', #устанавливает канал для логов
 help = '[id] of a channel for for welcome message')
 @is_me()
 async def set_channel(ctx, channel_id, server_id = None):
