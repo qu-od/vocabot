@@ -2,14 +2,14 @@ import os
 import random
 import discord
 from importlib import reload
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from discord.ext import commands
 import _repeat_class as rc #так можно делать reload(rc)!
 #from _repeat_class import Repeat, fetch_active_card
 from _users_admission import is_user_allowed
 #from !cards import cards_imports_reload (! мешает импорту) 
 
-#хостим на heroku
+#хостим на heroku.
 #service command: "delete bot messages"
 #help message only in DM
 #RENEGATTO COMPRENDO CHITAT' REVIEW
@@ -36,8 +36,10 @@ from _users_admission import is_user_allowed
 24 чел - действие в 12 сек(!). Для начала слоумод = 1 сек пойдет. Нужен еще и явный счетчик ивентов на случай, 
 если они вместе решат провести стресс-тест и (будут кликать каждую секунду) '''
 
-load_dotenv()
-TOKEN = os.getenv('VOCABOT_TOKEN') #unique bot token (must be secured)
+#load_dotenv()
+#TOKEN = os.getenv('VOCABOT_TOKEN') #unique bot token (must be secured)
+with open('DANGER_NSFGITHUB.txt', 'r') as F:
+    TOKEN = F.read()
 GUILD = 673968890325237771 #server name (ПК)
 
 bot_prefix = '!v ' #параметризовали префикс
