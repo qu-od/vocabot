@@ -1,1 +1,1 @@
-worker: python bot 0.1.3 (cogs and groups).py
+worker: python bot_0.1.3(cogs_and_groups).py
