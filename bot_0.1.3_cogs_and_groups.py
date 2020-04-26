@@ -9,7 +9,7 @@ import _repeat_class as rc #так можно делать reload(rc)!
 from _users_admission import is_user_allowed
 #from !cards import cards_imports_reload (! мешает импорту) 
 
-#хостим на heroku.
+#НАСТРАИВАЕМ БАЗЫ ДАННЫХ НА ХЕРОКУ (ЧТОБЫ СЛОВАРИ НЕ УДАЛЯЛИСЬ ПРИ ПЕРЕЗАПУСКЕ)
 #service command: "delete bot messages"
 #help message only in DM
 #RENEGATTO COMPRENDO CHITAT' REVIEW
@@ -80,7 +80,7 @@ def is_me():#decorator for is_me check
         return ctx.message.author.id == 303115719644807168 #my_id
     return commands.check(is_me_check)
 
-'''@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
+@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
 async def on_command_error(ctx, error):
     pass # если эта функция включена, ексепшоны не принтятся. во как
     if isinstance(error, commands.errors.CheckFailure): #обрабатываем ошибку отсутствия разрешения
@@ -104,7 +104,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.ArgumentParsingError):
         await ctx.send('```ArgumentParsingError occured```')
     if isinstance(error, commands.ExtensionFailed): #NE ROBIT см. "update" command
-        await ctx.send('```ExtensionFailed ```')'''
+        await ctx.send('```ExtensionFailed ```')
 
 @bot.event #делаем эмбед
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
@@ -204,8 +204,8 @@ async def update_commands(ctx): #for updating commands during runtime
 def log_message(message): #вынесли сюда функцию ведения стенограммы целиком
     time = message.created_at 
     author = message.author
-    print(f'--- message from {author} --- ')
-    #print(f'--- message from {author} --- in {message.channel}\n{message.content}\n')
+    #print(f'--- message from {author} --- ')
+    print(f'--- message from {author} --- in {message.channel}\n{message.content}\n')
     if type(message.channel) == discord.channel.DMChannel: 
         name = message.channel.recipient.name #имя собеседника DM-канала
         with open(fR'_DMs_history\of {name}.txt', 'ab') as F:
