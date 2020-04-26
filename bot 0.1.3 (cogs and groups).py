@@ -9,6 +9,7 @@ import _repeat_class as rc #так можно делать reload(rc)!
 from _users_admission import is_user_allowed
 #from !cards import cards_imports_reload (! мешает импорту) 
 
+#хостим на heroku
 #service command: "delete bot messages"
 #help message only in DM
 #RENEGATTO COMPRENDO CHITAT' REVIEW
@@ -27,7 +28,7 @@ from _users_admission import is_user_allowed
 #из хелпы убрать "staff only" команды
 #done with 0.1.3 --- next ver: bot 0.1.4 (sql database). Then 0.2.4 (pics sending)
 
-#свои эксепшены
+#свои эксепшены 
 #РефАкТоРитЬ (начиная с билт-ин методов и заканчивая новыми функциями, типами, [суб]классами)
 #продумать систему бэкапов логов_сообщений, словарей и langs (автоматический уровень + ручной уровень)
 #отправить текстовый файл и картинку (чиатй FAQ почаще)
