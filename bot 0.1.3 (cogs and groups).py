@@ -25,7 +25,7 @@ from _users_admission import is_user_allowed
 #ничего страшного, если в разных коммандах одинаково называть переменные F и file? 
 #ВЫТАЩИТЬ ОШИБКИ РАСШИРЕНИЙ
 #из хелпы убрать "staff only" команды
-#done with 0.1.3 --- next ver: bot 0.1.4 (sql database) 
+#done with 0.1.3 --- next ver: bot 0.1.4 (sql database). Then 0.2.4 (pics sending)
 
 #свои эксепшены
 #РефАкТоРитЬ (начиная с билт-ин методов и заканчивая новыми функциями, типами, [суб]классами)
@@ -201,8 +201,8 @@ async def update_commands(ctx): #for updating commands during runtime
 def log_message(message): #вынесли сюда функцию ведения стенограммы целиком
     time = message.created_at 
     author = message.author
-    #print(f'--- message from {author} --- ')
-    print(f'--- message from {author} --- in {message.channel}\n{message.content}\n')
+    print(f'--- message from {author} --- ')
+    #print(f'--- message from {author} --- in {message.channel}\n{message.content}\n')
     if type(message.channel) == discord.channel.DMChannel: 
         name = message.channel.recipient.name #имя собеседника DM-канала
         with open(fR'_DMs_history\of {name}.txt', 'ab') as F:

@@ -1,0 +1,5 @@
+﻿git+https://github.com/Rapptz/discord.py@rewrite
+typing
+importlib
+random
+dotenv
