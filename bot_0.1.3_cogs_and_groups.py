@@ -80,7 +80,7 @@ def is_me():#decorator for is_me check
         return ctx.message.author.id == 303115719644807168 #my_id
     return commands.check(is_me_check)
 
-@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
+'''@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
 async def on_command_error(ctx, error):
     pass # если эта функция включена, ексепшоны не принтятся. во как
     if isinstance(error, commands.errors.CheckFailure): #обрабатываем ошибку отсутствия разрешения
@@ -104,7 +104,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.ArgumentParsingError):
         await ctx.send('```ArgumentParsingError occured```')
     if isinstance(error, commands.ExtensionFailed): #NE ROBIT см. "update" command
-        await ctx.send('```ExtensionFailed ```')
+        await ctx.send('```ExtensionFailed ```')'''
 
 @bot.event #делаем эмбед
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 

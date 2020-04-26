@@ -1,0 +1,940 @@
+VocaBot - 2020-04-02 16:45:14.500000
+```� ���� ����� ������� ����������```
+
+VocaBot - 2020-04-02 16:45:41.293000
+```� ���� ����� ������� ����������```
+
+VocaBot - 2020-04-02 17:03:28.232000
+```� ���� ����� ������� ����������```
+
+VocaBot - 2020-04-02 17:32:11.841000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-02 17:32:58.256000
+tester msg: test
+
+VocaBot - 2020-04-02 17:40:07.924000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-02 17:40:42.241000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-02 18:04:38.819000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-02 18:05:45.559000
+а тут что пишется?
+
+Machine 🪐 - 2020-04-02 18:06:56.502000
+😉
+
+Machine 🪐 - 2020-04-02 18:07:26.122000
+🪐
+
+VocaBot - 2020-04-02 18:16:19.652000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-02 18:16:26.667000
+тестик еще
+
+VocaBot - 2020-04-02 18:19:01.101000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-02 18:21:24.190000
+latin test
+
+Machine 🪐 - 2020-04-02 18:21:48.148000
+cyrrilic тест
+
+Machine 🪐 - 2020-04-02 18:23:24.517000
+!v.n 1 2 3
+
+VocaBot - 2020-04-02 18:23:24.976000
+```New word pair has been created```
+
+Machine 🪐 - 2020-04-02 18:23:46.058000
+!v.language FR
+
+VocaBot - 2020-04-02 18:23:46.448000
+```Foreign language has been changed.```
+
+VocaBot - 2020-04-02 18:25:48.205000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-02 18:42:14.624000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-02 21:17:42.490000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-02 21:28:06.108000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-02 21:34:35.550000
+!v.n usually никогда "любимое слово никитоса"
+
+VocaBot - 2020-04-02 21:34:36.024000
+```New word pair has been created```
+
+Machine 🪐 - 2020-04-02 21:34:55.325000
+!v.dictionary
+
+Machine 🪐 - 2020-04-02 21:35:11.833000
+!vhelp
+
+VocaBot - 2020-04-02 21:35:12.178000
+```
+​No Category:
+  .clr_dictionary Deletes your dictionary without backups
+  .dictionary     Sends your dictionary in dm
+  .language       [ID] Sets up language for words
+  .n              [word] [translation] [key] For new word pair.
+  .native         [ID] Sets up language for translations
+  help            Shows this message
+
+Type !vhelp command for more info on a command.
+You can also type !vhelp category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-02 21:35:26.931000
+!v.dictionary
+
+Machine 🪐 - 2020-04-02 21:35:38.876000
+!v.language FR
+
+VocaBot - 2020-04-02 21:35:39.200000
+```Foreign language has been changed.```
+
+Machine 🪐 - 2020-04-02 21:35:56.808000
+!v.djdj
+
+Machine 🪐 - 2020-04-02 21:36:12.489000
+!v.dictionary
+
+Machine 🪐 - 2020-04-02 21:36:30.965000
+!v.clr_dictionary
+
+VocaBot - 2020-04-02 21:36:31.353000
+Your data has been deleted. Though you'll never be able to check this
+
+Machine 🪐 - 2020-04-02 21:36:43.603000
+!v.dictionary
+
+Machine 🪐 - 2020-04-02 21:40:06.248000
+!vhelp
+
+VocaBot - 2020-04-02 21:40:06.652000
+```
+​No Category:
+  .clr_dictionary Deletes your dictionary without backups
+  .dictionary     Sends your dictionary in dm
+  .language       [ID] Sets up language for words
+  .n              [word] [translation] [key] For new word pair.
+  .native         [ID] Sets up language for translations
+  help            Shows this message
+
+Type !vhelp command for more info on a command.
+You can also type !vhelp category for more info on a category.
+```
+
+VocaBot - 2020-04-02 21:52:42.303000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-03 11:27:29.761000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-03 11:27:39.049000
+!vhelp
+
+VocaBot - 2020-04-03 11:27:39.394000
+```
+​No Category:
+  .clr_dictionary Deletes your dictionary without backups
+  .dictionary     Sends your dictionary in dm
+  .language       [ID] Sets up language for words
+  .n              [word] [translation] [key] For new word pair.
+  .native         [ID] Sets up language for translations
+  help            Shows this message
+
+Type !vhelp command for more info on a command.
+You can also type !vhelp category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-03 11:27:45.941000
+!v.dictionary
+
+Machine 🪐 - 2020-04-03 11:29:04.936000
+!v.n 1 2 3
+
+VocaBot - 2020-04-03 11:29:05.413000
+```New word pair has been created```
+
+Machine 🪐 - 2020-04-03 11:29:11.921000
+!v.dictionary
+
+VocaBot - 2020-04-03 11:29:12.410000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Fri Apr
+
+VocaBot - 2020-04-03 11:29:12.721000
+Your dictionary is sent to your dms
+
+Machine 🪐 - 2020-04-03 11:29:28.539000
+!v 2 3 1
+
+Machine 🪐 - 2020-04-03 11:29:35.995000
+!v.n 2 3 1
+
+VocaBot - 2020-04-03 11:29:36.370000
+```New word pair has been created```
+
+Machine 🪐 - 2020-04-03 11:29:42.372000
+!v.dictionary
+
+VocaBot - 2020-04-03 11:29:42.600000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Fri Apr 
+
+FR: 2 --- RU: ||3||
+Key: ||1||
+Created: Fri Apr
+
+VocaBot - 2020-04-03 11:29:42.995000
+Your dictionary is sent to your dms
+
+VocaBot - 2020-04-03 12:55:20.574000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-03 13:00:01.373000
+!v.dictionary\
+
+Machine 🪐 - 2020-04-03 13:00:08.039000
+!v.dictionary
+
+VocaBot - 2020-04-03 13:00:08.347000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Fri Apr 
+
+FR: 2 --- RU: ||3||
+Key: ||1||
+Created: Fri Apr
+
+VocaBot - 2020-04-03 13:00:08.688000
+Your dictionary is sent to your dms
+
+Machine 🪐 - 2020-04-03 13:00:34.626000
+!v.dictionary
+
+Machine 🪐 - 2020-04-03 13:02:43.187000
+!v.dictionary
+
+VocaBot - 2020-04-03 13:02:43.980000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22
+
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22
+
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22
+
+EN:  at this point --- RU: ||на данный момент||
+Key: ||вот сейчас я в МСК, а свалю потом||
+Created: Sun Mar 22
+
+EN:  quite so --- RU: ||точно так/несомненно||
+Key: ||действительно перевели на дистанционку||
+Created: Sun Mar 22
+
+EN:  admission --- RU: ||вход/прием/допуск||
+Key: ||Раздел сайта бауманки (приемка)||
+Created: Sun Mar 22
+
+EN:  chartered accountant --- RU: ||профессиональный бухгалтер||
+Key: ||Аппу спросил учат ли таких в моем унике||
+Created: Sun Mar 22
+
+EN:  admit --- RU: ||принимать/зачислять||
+Key: ||универ в клуб к себе записывает абитуров||
+Created: Sun Mar 22
+
+EN:  adjust --- RU: ||поправить/уладить/приспособиться/настроить||
+Key: ||Я поправлю это, стану быстрее отвечать, Аппу)||
+Created: Sun Mar 22
+
+EN:  further --- RU: ||дальнейший/более того/впоследствии||
+Key: ||Я в следующие разы исправлюсь||
+Created: Sun Mar 22
+
+_:  unsolitited --- _: ||непрошенный||
+Key: ||картинки возбужденных парней в тиндере у редрэй||
+Created: Mon Mar 23
+
+_:  to be flattered --- _: ||быть польщенным||
+Key: ||рада, что я была твоим развлечением во время сранья||
+Created: Mon Mar 23
+
+_:  put up --- _: ||мириться||
+Key: ||не мирись с тем, что тебе такое пишут в тиндере MeowMeow||
+Created: Mon Mar 23
+
+_:  cease --- _: ||прекращать||
+Key: ||не говори так про себя!||
+Created: Mon Mar 23
+
+VocaBot - 2020-04-03 13:02:44.435000
+Your dictionary is sent to your dms
+
+VocaBot - 2020-04-05 08:56:49.718000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-05 09:34:49.157000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-05 09:47:21.835000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-05 10:13:18.578000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-05 14:04:17.904000
+!v native RU
+
+Machine 🪐 - 2020-04-05 14:04:32.418000
+!v.native RU
+
+Machine 🪐 - 2020-04-05 14:05:25.935000
+!v foo
+
+Machine 🪐 - 2020-04-05 14:06:01.916000
+!vhelp
+
+Machine 🪐 - 2020-04-05 14:07:12.687000
+!vhelp
+
+VocaBot - 2020-04-06 16:52:35.881000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 16:53:16.900000
+приветик
+
+Machine 🪐 - 2020-04-06 16:53:19.993000
+уаи
+
+Machine 🪐 - 2020-04-06 16:54:04.321000
+!v foo
+
+VocaBot - 2020-04-06 16:54:04.782000
+`I've got you.. _Or not really_`
+
+Machine 🪐 - 2020-04-06 16:54:37.724000
+!v foo
+
+VocaBot - 2020-04-06 16:54:42.296000
+`Try something different`
+
+Machine 🪐 - 2020-04-06 16:55:05.440000
+!vhelp
+
+Machine 🪐 - 2020-04-06 16:55:10.639000
+!v help
+
+VocaBot - 2020-04-06 16:55:10.994000
+`You do not have permission to use bot.`
+
+Machine 🪐 - 2020-04-06 16:59:22.718000
+!v n 1.2.3
+
+VocaBot - 2020-04-06 16:59:23.071000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-06 17:00:01.509000
+!v help
+
+VocaBot - 2020-04-06 17:00:01.889000
+```
+​No Category:
+  clr_dictionary Deletes your dictionary without backups
+  dictionary     COMMAND IS UNDER CONSTRUCTION
+  help           Shows this message
+  language       [ID] Sets up language for words
+  n              [word].[translation].[key] adds new word in your dictionary
+  native         [ID] Sets up language for translations
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+VocaBot - 2020-04-06 17:16:39.032000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-06 17:37:08.385000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 17:38:36.460000
+!v n 1.2.3
+
+VocaBot - 2020-04-06 17:38:36.948000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-06 17:38:50.622000
+!v n 3.2.1
+
+VocaBot - 2020-04-06 17:38:50.896000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-06 17:39:53.030000
+!v cards 1
+
+VocaBot - 2020-04-06 17:44:42.056000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 17:44:56.750000
+!v cards 2
+
+Machine 🪐 - 2020-04-06 17:45:13.826000
+!v help
+
+VocaBot - 2020-04-06 17:45:14.240000
+```
+​No Category:
+  cards     [n] to get first n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-06 17:45:19.120000
+!v cards 1
+
+VocaBot - 2020-04-06 17:46:03.357000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 17:46:25.269000
+!v cards 2
+
+Machine 🪐 - 2020-04-06 17:50:09.030000
+!v natiive RU
+
+VocaBot - 2020-04-06 17:50:09.320000
+`Try something different`
+
+VocaBot - 2020-04-06 17:52:51.053000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 17:54:08.132000
+!v native RU
+
+Machine 🪐 - 2020-04-06 17:54:08.330000
+!v language EN
+
+VocaBot - 2020-04-06 17:54:08.386000
+```Native language has been changed.```
+
+VocaBot - 2020-04-06 17:54:08.653000
+```Foreign language has been changed.```
+
+Machine 🪐 - 2020-04-06 17:55:36.027000
+!v cards
+
+VocaBot - 2020-04-06 18:00:18.573000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:00:24.672000
+!v cards 2
+
+VocaBot - 2020-04-06 18:01:27.414000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:01:28.729000
+!v cards 2
+
+VocaBot - 2020-04-06 18:02:36.712000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:02:43.825000
+!v cards 2
+
+VocaBot - 2020-04-06 18:06:16.907000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:06:20.301000
+!v cards 2
+
+VocaBot - 2020-04-06 18:14:19.315000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:14:37.895000
+!v help
+
+VocaBot - 2020-04-06 18:14:38.321000
+```
+​No Category:
+  cards     [n] to get first n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-06 18:15:52.674000
+!v cards 2
+
+VocaBot - 2020-04-06 18:18:55.351000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:19:45.832000
+!v cards 2
+
+VocaBot - 2020-04-06 18:23:26.571000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:23:35.984000
+!v cards 2
+
+VocaBot - 2020-04-06 18:23:36.423000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Mon Apr  `word side`
+
+VocaBot - 2020-04-06 18:24:45.362000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:24:56.241000
+!v cards 2
+
+VocaBot - 2020-04-06 18:25:19.995000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:25:20.465000
+!v help
+
+VocaBot - 2020-04-06 18:25:20.736000
+```
+​No Category:
+  cards     [n] to get first n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-06 18:25:37.972000
+!v cards 2
+
+VocaBot - 2020-04-06 18:25:38.456000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Mon Apr  `word side`
+
+VocaBot - 2020-04-06 18:25:38.924000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Mon Apr  `word side`
+
+VocaBot - 2020-04-06 18:25:39.914000
+FR: 3 --- RU: ||2||
+Key: ||1||
+Created: Mon Apr  `word side`
+
+VocaBot - 2020-04-06 18:25:40.336000
+First 2 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-06 18:26:42.922000
+!v cards 1
+
+VocaBot - 2020-04-06 18:26:43.578000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:26:44.163000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:26:44.526000
+First 1 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-06 18:35:40.474000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 18:36:01.989000
+!v cards 1
+
+VocaBot - 2020-04-06 18:36:02.425000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:36:02.875000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:36:03.436000
+First 1 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-06 18:36:19.558000
+!v cards 2
+
+VocaBot - 2020-04-06 18:36:19.858000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:36:20.307000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:36:20.767000
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:36:21.179000
+First 2 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-06 18:43:32.414000
+!v words 5
+
+VocaBot - 2020-04-06 18:43:32.835000
+`I've got you.. _Or not really_`
+
+Machine 🪐 - 2020-04-06 18:43:47.830000
+!v cards 5
+
+VocaBot - 2020-04-06 18:43:48.187000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:43:48.629000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:43:49.098000
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:43:49.538000
+EN:  at this point --- RU: ||на данный момент||
+Key: ||вот сейчас я в МСК, а свалю потом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:43:50.135000
+EN:  quite so --- RU: ||точно так/несомненно||
+Key: ||действительно перевели на дистанционку||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:43:53.494000
+EN:  admission --- RU: ||вход/прием/допуск||
+Key: ||Раздел сайта бауманки (приемка)||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 18:43:53.986000
+First 5 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-06 19:08:09.985000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-06 19:25:06.504000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 19:25:23.903000
+!v cards first 4
+
+VocaBot - 2020-04-06 19:25:24.249000
+`**English, mother#$^%*1!! Can you speak it?**`
+
+Machine 🪐 - 2020-04-06 19:25:51.315000
+!v cards 4 first
+
+VocaBot - 2020-04-06 19:25:51.678000
+`This command haven't been added yet, unfortunately`
+
+Machine 🪐 - 2020-04-06 19:26:09.383000
+!v help
+
+VocaBot - 2020-04-06 19:26:09.781000
+```
+​No Category:
+  clr_cards   Deletes your dictionary without backups
+  first_cards [n] [first/last] to get first/last n words from your dictionary
+  help        Shows this message
+  language    [ID] Sets up language for words
+  n           [word].[translation].[key] adds new word in your dictionary
+  native      [ID] Sets up language for translations
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-06 19:26:46.755000
+!v first_cards 4 first
+
+VocaBot - 2020-04-06 19:26:47.102000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 19:26:47.559000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 19:26:47.885000
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 19:26:48.493000
+EN:  at this point --- RU: ||на данный момент||
+Key: ||вот сейчас я в МСК, а свалю потом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 19:26:48.853000
+First 4 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-06 21:17:19.669000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 21:18:32.926000
+!v cards 3 last
+
+VocaBot - 2020-04-06 21:18:33.366000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:18:33.728000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:18:34.217000
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:18:34.783000
+First 3 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-06 21:18:50.919000
+!v cards 3 first
+
+VocaBot - 2020-04-06 21:18:51.159000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:18:51.648000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:18:52.074000
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:18:52.615000
+First 3 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-06 21:19:23.498000
+!v cards foo
+
+VocaBot - 2020-04-06 21:25:09.770000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 21:25:20.504000
+!v foo
+
+VocaBot - 2020-04-06 21:25:20.800000
+`Try something different`
+
+Machine 🪐 - 2020-04-06 21:25:34.622000
+!v cards 3 first
+
+VocaBot - 2020-04-06 21:25:34.824000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:25:35.390000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:25:35.828000
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:25:36.322000
+['f', 'i', 'r', 's', 't'] 3 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-06 21:27:21.030000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-06 21:27:27.897000
+!v cards 3 first
+
+VocaBot - 2020-04-06 21:27:28.267000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:27:28.752000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:27:29.188000
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:27:29.647000
+first 3 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-06 21:27:37.293000
+!v cards 2 last
+
+VocaBot - 2020-04-06 21:27:37.586000
+_:  put up --- _: ||мириться||
+Key: ||не мирись с тем, что тебе такое пишут в тиндере MeowMeow||
+Created: Mon Mar 23 `word side`
+
+VocaBot - 2020-04-06 21:27:38.060000
+_:  cease --- _: ||прекращать||
+Key: ||не говори так про себя!||
+Created: Mon Mar 23 `word side`
+
+VocaBot - 2020-04-06 21:27:38.556000
+last 2 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-06 21:29:36.233000
+!v n 1 2 3
+
+Machine 🪐 - 2020-04-06 21:30:26.062000
+!v n 1.2
+
+Machine 🪐 - 2020-04-06 21:30:41.875000
+!v cards 1 last
+
+VocaBot - 2020-04-06 21:30:42.300000
+_:  cease --- _: ||прекращать||
+Key: ||не говори так про себя!||
+Created: Mon Mar 23 `word side`
+
+VocaBot - 2020-04-06 21:30:42.778000
+last 1 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-06 21:30:52.739000
+!v n 1.2.3
+
+VocaBot - 2020-04-06 21:30:53.002000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-06 21:31:04.383000
+!v cards last 1
+
+Machine 🪐 - 2020-04-06 21:31:11.018000
+!v cards 1 last
+
+VocaBot - 2020-04-06 21:31:11.318000
+EN: 1 --- RU: ||2||
+Key: ||3||
+Created: Mon Apr  `word side`
+
+VocaBot - 2020-04-06 21:31:11.893000
+last 1 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-06 21:43:17.257000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-06 21:46:08.590000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-06 21:46:09.154000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-08 09:48:34.218000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-08 09:49:26.267000
+!v n test.тест.key example
+
+VocaBot - 2020-04-08 09:49:26.814000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-08 09:56:13.408000
+!v native RU
+
+VocaBot - 2020-04-08 09:56:13.791000
+```Native language has been changed.```
+
+Machine 🪐 - 2020-04-08 09:56:30.392000
+!v language EN
+
+VocaBot - 2020-04-08 09:56:30.757000
+```Foreign language has been changed.```
+
+Machine 🪐 - 2020-04-08 09:57:17.680000
+!v n foo.нечто.programmers say it
+
+VocaBot - 2020-04-08 09:57:18.013000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-08 09:58:12.174000
+!v cards last 2
+
+Machine 🪐 - 2020-04-08 10:00:18.877000
+!v cards 2 last\
+
+VocaBot - 2020-04-08 10:00:19.188000
+EN: test --- RU: ||тест||
+Key: ||key example||
+Created: Wed Apr  `word side`
+
+VocaBot - 2020-04-08 10:00:19.751000
+EN: foo --- RU: ||нечто||
+Key: ||programmers say it||
+Created: Wed Apr  `word side`
+
+VocaBot - 2020-04-08 10:00:20.216000
+last 2 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-08 10:44:07.704000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-08 12:13:52.278000
+```У меня очень хорошее настроение```
+

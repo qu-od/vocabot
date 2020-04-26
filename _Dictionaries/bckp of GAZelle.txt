@@ -1,0 +1,12 @@
+---OBJECT--- -||- _ -||-  evening -||- _ -||- вечер
+KEY: -||- 
+CREATED: -||- Sat Mar 28 16:45:26 2020
+
+---OBJECT--- -||- _ -||-  night -||- _ -||- ночь
+KEY: -||- 
+CREATED: -||- Sat Mar 28 17:02:35 2020
+
+---OBJECT--- -||- _ -||-  clock -||- _ -||- часы
+KEY: -||- 
+CREATED: -||- Sat Mar 28 17:03:16 2020
+

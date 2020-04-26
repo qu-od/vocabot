@@ -1,0 +1,2236 @@
+VocaBot - 2020-04-10 15:42:35.834000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-10 15:43:09.061000
+!v help
+
+VocaBot - 2020-04-10 15:43:09.386000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-10 15:43:24.136000
+тест кодировки
+
+Machine 🪐 - 2020-04-10 15:44:44.977000
+а проблемы в общем-то и нет
+
+VocaBot - 2020-04-10 16:51:23.435000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-10 16:51:44.095000
+еще тестик
+
+Machine 🪐 - 2020-04-10 16:51:55.147000
+Завтра релиз
+
+Machine 🪐 - 2020-04-10 16:52:00.803000
+На тестеров
+
+Machine 🪐 - 2020-04-10 16:52:07.501000
+Только эмбед надо еще
+
+Machine 🪐 - 2020-04-10 16:52:17.951000
+или нет?
+
+VocaBot - 2020-04-10 17:08:06.504000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-10 17:37:52.914000
+😉
+
+Machine 🪐 - 2020-04-10 18:52:21.706000
+!v foo
+
+VocaBot - 2020-04-10 18:52:22.515000
+`Try something different`
+
+Machine 🪐 - 2020-04-10 18:53:14.961000
+!v n enormous.огромный
+
+VocaBot - 2020-04-12 07:59:57.528000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 08:38:00.082000
+!v language
+
+Machine 🪐 - 2020-04-12 08:38:11.499000
+!v cards
+
+VocaBot - 2020-04-12 08:39:49.853000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 08:39:58.641000
+!v cards
+
+VocaBot - 2020-04-12 08:39:58.922000
+iser unput worked
+
+VocaBot - 2020-04-12 08:40:56.918000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 08:41:01.549000
+!v cards
+
+VocaBot - 2020-04-12 08:42:48.430000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 08:42:53.596000
+!v cards
+
+Machine 🪐 - 2020-04-12 08:43:10.746000
+!v cards 2
+
+Machine 🪐 - 2020-04-12 08:43:47.834000
+!v cards g
+
+Machine 🪐 - 2020-04-12 08:48:26.547000
+!v cards "bf
+
+VocaBot - 2020-04-12 08:48:59.271000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 08:49:11.986000
+!cards r
+
+Machine 🪐 - 2020-04-12 08:49:15.201000
+oof
+
+VocaBot - 2020-04-12 09:55:42.232000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 09:55:54.451000
+!v cards 2
+
+VocaBot - 2020-04-12 09:55:54.721000
+```UserInputError worked```
+
+VocaBot - 2020-04-12 09:55:54.986000
+```MissingRequiredArgument worked```
+
+Machine 🪐 - 2020-04-12 09:56:15.782000
+!v n
+
+Machine 🪐 - 2020-04-12 09:56:37.745000
+!v cards 3 3 3 3
+
+VocaBot - 2020-04-12 09:56:38.208000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-12 09:56:38.740000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-12 09:56:39.167000
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-12 09:56:39.633000
+3 3 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-12 09:58:13.115000
+!v cards foo
+
+VocaBot - 2020-04-12 09:58:13.385000
+```UserInputError worked```
+
+VocaBot - 2020-04-12 09:58:13.718000
+```BadArgument worked```
+
+Machine 🪐 - 2020-04-12 09:58:47.715000
+!v cards fooo foo foo foo
+
+VocaBot - 2020-04-12 09:58:48.100000
+```UserInputError worked```
+
+VocaBot - 2020-04-12 09:58:48.316000
+```BadArgument worked```
+
+Machine 🪐 - 2020-04-12 09:59:26.143000
+!v native
+
+VocaBot - 2020-04-12 09:59:26.586000
+```UserInputError worked```
+
+VocaBot - 2020-04-12 09:59:26.757000
+```MissingRequiredArgument worked```
+
+Machine 🪐 - 2020-04-12 10:00:12.972000
+!v native
+
+VocaBot - 2020-04-12 10:00:13.455000
+`You do not have permission to use bot.`
+
+Machine 🪐 - 2020-04-12 10:01:03.782000
+!v help
+
+VocaBot - 2020-04-12 10:01:04.231000
+`You do not have permission to use bot.`
+
+Machine 🪐 - 2020-04-12 10:01:25.103000
+!v native
+
+VocaBot - 2020-04-12 10:01:25.474000
+```UserInputError worked```
+
+VocaBot - 2020-04-12 10:01:25.770000
+```MissingRequiredArgument worked```
+
+Machine 🪐 - 2020-04-12 11:09:01.121000
+!v cards 44
+
+VocaBot - 2020-04-12 11:09:01.647000
+```UserInputError worked```
+
+VocaBot - 2020-04-12 11:09:01.909000
+```MissingRequiredArgument worked```
+
+VocaBot - 2020-04-12 14:21:30.432000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 14:22:18.743000
+!v language EN
+
+VocaBot - 2020-04-12 14:22:19.255000
+```Foreign language has been changed to EN.```
+
+Machine 🪐 - 2020-04-12 14:25:05.933000
+!v language en
+
+VocaBot - 2020-04-12 14:25:06.335000
+```Foreign language has been changed to en.```
+
+Machine 🪐 - 2020-04-12 14:25:13.723000
+!v language 4
+
+VocaBot - 2020-04-12 14:25:14.358000
+```Foreign language has been changed to 4.```
+
+Machine 🪐 - 2020-04-12 14:25:41.279000
+!v language EN
+
+VocaBot - 2020-04-12 14:25:41.681000
+```Foreign language has been changed to EN.```
+
+Machine 🪐 - 2020-04-12 14:26:40.756000
+!v cards foo
+
+VocaBot - 2020-04-12 14:26:41.218000
+```UserInputError worked```
+
+VocaBot - 2020-04-12 14:26:41.467000
+```BadArgument worked```
+
+Machine 🪐 - 2020-04-12 14:26:49.778000
+!v cards foo foo
+
+VocaBot - 2020-04-12 14:26:50.148000
+```UserInputError worked```
+
+VocaBot - 2020-04-12 14:26:50.302000
+```BadArgument worked```
+
+Machine 🪐 - 2020-04-12 14:26:59.121000
+!v cards foo foo foo foo
+
+VocaBot - 2020-04-12 14:26:59.432000
+```UserInputError worked```
+
+VocaBot - 2020-04-12 14:26:59.669000
+```BadArgument worked```
+
+Machine 🪐 - 2020-04-12 14:27:10.225000
+!v cards 3 foo foof ooof fo
+
+VocaBot - 2020-04-12 14:27:10.591000
+EN:  worthwhile --- RU: ||стоящий||
+Key: ||Для китая распространить вирус кажется нормальным вариантом||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-12 14:27:11.156000
+EN:  grasp --- RU: ||схватить/воспринять/осмыслить||
+Key: ||Аппу все не поймет зачем нужен дс-бот||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-12 14:27:11.673000
+EN:  reside --- RU: ||проживать/покоится/пребывать||
+Key: ||Китай устроился снизу Иркутска||
+Created: Sun Mar 22 `word side`
+
+VocaBot - 2020-04-12 14:27:12.211000
+foo 3 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-12 14:27:20.845000
+!v cards 2 last
+
+VocaBot - 2020-04-12 14:27:21.103000
+EN: test --- RU: ||тест||
+Key: ||key example||
+Created: Wed Apr  `word side`
+
+VocaBot - 2020-04-12 14:27:21.533000
+EN: foo --- RU: ||нечто||
+Key: ||programmers say it||
+Created: Wed Apr  `word side`
+
+VocaBot - 2020-04-12 14:27:22.101000
+last 2 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-12 14:58:09.905000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 14:58:19.472000
+!v language en
+
+VocaBot - 2020-04-12 14:58:19.738000
+```Foreign language has been changed to EN.```
+
+Machine 🪐 - 2020-04-12 14:58:59.168000
+!v language fr
+
+VocaBot - 2020-04-12 14:58:59.625000
+```Foreign language has been changed to FR.```
+
+VocaBot - 2020-04-12 15:05:18.456000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 15:05:26.492000
+!v native ru
+
+VocaBot - 2020-04-12 15:05:26.775000
+```Native language has been changed to RU.```
+
+VocaBot - 2020-04-12 15:28:51.820000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 15:32:54.685000
+!v n 1.2.3
+
+VocaBot - 2020-04-12 15:33:56.843000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 15:34:04.915000
+!v n 1.2.3
+
+VocaBot - 2020-04-12 15:34:51.074000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 15:34:54.753000
+!v n 1.2.3
+
+VocaBot - 2020-04-12 15:47:28.501000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 15:47:51.853000
+!v n 1.2.3
+
+VocaBot - 2020-04-12 15:53:15.033000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 15:53:23.706000
+!v n 1.2.3
+
+VocaBot - 2020-04-12 15:53:24.021000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-12 15:53:41.882000
+!v cards 2 last
+
+VocaBot - 2020-04-12 15:53:42.400000
+EN: foo --- RU: ||нечто||
+Key: ||programmers say it||
+Created: Wed Apr  `word side`
+
+VocaBot - 2020-04-12 15:53:42.863000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Sun Apr 12 `word side`
+
+VocaBot - 2020-04-12 15:53:43.402000
+last 2 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-12 16:00:13.158000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 16:00:44.920000
+!v n t.e.st
+
+VocaBot - 2020-04-12 16:00:45.668000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-12 16:00:55.978000
+!v cards 2 last
+
+VocaBot - 2020-04-12 16:00:56.229000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Sun Apr 12 `word side`
+
+VocaBot - 2020-04-12 16:00:56.778000
+FR: t --- RU: ||e||
+Key: ||st||
+Created: Sun Apr 12 `word side`
+
+VocaBot - 2020-04-12 16:00:57.376000
+last 2 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-12 16:03:34.833000
+!v ext test
+
+VocaBot - 2020-04-12 16:03:35.280000
+`Try something different`
+
+Machine 🪐 - 2020-04-12 16:04:06.956000
+!v ext test foo
+
+VocaBot - 2020-04-12 16:04:07.356000
+`This command haven't been added yet, unfortunately`
+
+VocaBot - 2020-04-12 16:05:31.118000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 16:05:38.671000
+!v ext test
+
+VocaBot - 2020-04-12 16:05:38.988000
+`Try something different`
+
+VocaBot - 2020-04-12 16:08:17.713000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 16:08:30.727000
+!v ext test foo
+
+VocaBot - 2020-04-12 16:08:30.986000
+`There is no that command`
+
+Machine 🪐 - 2020-04-12 16:21:35.340000
+!v help
+
+VocaBot - 2020-04-12 16:21:35.893000
+```
+​No Category:
+  addition_command 
+  cards            [n] [first/last] to get first/last n words from your dicti...
+  clr_cards        Deletes your dictionary without backups
+  help             Shows this message
+  language         [ID] Sets up language for words
+  n                [word].[translation].[key] adds new word in your dictionary
+  native           [ID] Sets up language for translations
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-12 16:23:31.489000
+!v addition_command
+
+VocaBot - 2020-04-12 16:23:31.855000
+command was added via the extention
+
+VocaBot - 2020-04-12 17:16:28.940000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-12 17:17:26.648000
+!v addition_command
+
+VocaBot - 2020-04-12 17:17:27.082000
+`There is no that command`
+
+Machine 🪐 - 2020-04-12 17:17:38.220000
+!v update
+
+VocaBot - 2020-04-12 17:17:38.550000
+upd_cmd worked
+
+Machine 🪐 - 2020-04-12 17:18:29.964000
+!v ext test
+
+VocaBot - 2020-04-12 17:18:30.460000
+`This command haven't been added yet, unfortunately`
+
+VocaBot - 2020-04-13 08:11:44.280000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 08:12:11.148000
+!v n testik.teesitbl.footik
+
+VocaBot - 2020-04-13 08:12:54.480000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 08:13:17.912000
+!v n testik.teesitbl.footik
+
+VocaBot - 2020-04-13 08:13:54.507000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 08:14:05.410000
+!v n 1.2.3
+
+VocaBot - 2020-04-13 08:17:06.748000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 08:17:17.762000
+!v n 1.2.3
+
+VocaBot - 2020-04-13 08:18:25.942000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 08:18:29.441000
+!v help
+
+VocaBot - 2020-04-13 08:18:29.745000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  ext test  toggle-able command
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-13 08:21:02.564000
+!v update
+
+VocaBot - 2020-04-13 08:21:03.101000
+upd_cmd worked
+
+VocaBot - 2020-04-13 08:55:24.102000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 08:55:25.954000
+!v ext test
+
+VocaBot - 2020-04-13 08:55:26.153000
+`This command haven't been added yet, unfortunately`
+
+Machine 🪐 - 2020-04-13 08:55:31.436000
+!v help
+
+VocaBot - 2020-04-13 08:55:31.749000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+VocaBot - 2020-04-13 08:56:59.032000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 08:57:26.364000
+!v ext test
+
+VocaBot - 2020-04-13 08:57:26.877000
+`you've entered wrong command**English, mother#$^%*1!! Can you speak it?**`
+
+Machine 🪐 - 2020-04-13 08:58:55.708000
+!v ext test
+
+VocaBot - 2020-04-13 08:58:56.191000
+`There is no that command`
+
+VocaBot - 2020-04-13 09:04:45.851000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 09:04:55.608000
+!v addition command
+
+VocaBot - 2020-04-13 09:04:55.897000
+`you've entered wrong command`
+
+Machine 🪐 - 2020-04-13 09:05:07.709000
+!v addition_command
+
+VocaBot - 2020-04-13 09:05:08.028000
+`Try something different`
+
+Machine 🪐 - 2020-04-13 09:05:12.494000
+!v help
+
+VocaBot - 2020-04-13 09:05:12.815000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  ext test  toggle-able command
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-13 09:06:32.989000
+!v ext_test
+
+VocaBot - 2020-04-13 09:06:33.627000
+`Wrong command`
+
+Machine 🪐 - 2020-04-13 09:06:38.253000
+!v ext test
+
+VocaBot - 2020-04-13 09:06:38.659000
+`Wrong command`
+
+Machine 🪐 - 2020-04-13 09:06:53.666000
+!v ext test
+
+VocaBot - 2020-04-13 09:06:54.350000
+`you've entered wrong command`
+
+Machine 🪐 - 2020-04-13 09:07:54.451000
+ext test
+
+Machine 🪐 - 2020-04-13 09:08:02.271000
+!v ext test
+
+VocaBot - 2020-04-13 09:08:02.948000
+`There is no that command`
+
+Machine 🪐 - 2020-04-13 09:08:13.244000
+!v cards 2 last
+
+VocaBot - 2020-04-13 09:08:13.609000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Sun Apr 12 `word side`
+
+VocaBot - 2020-04-13 09:08:14.181000
+FR: t --- RU: ||e||
+Key: ||st||
+Created: Sun Apr 12 `word side`
+
+VocaBot - 2020-04-13 09:08:14.895000
+last 2 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-13 09:15:35.149000
+!v ext test
+
+VocaBot - 2020-04-13 09:15:35.781000
+`This command haven't been added yet, unfortunately`
+
+Machine 🪐 - 2020-04-13 09:15:59.854000
+!v ext test help
+
+VocaBot - 2020-04-13 09:16:00.344000
+`Try something different`
+
+Machine 🪐 - 2020-04-13 09:16:05.854000
+!v n help
+
+Machine 🪐 - 2020-04-13 09:24:03.869000
+!v ext test
+
+VocaBot - 2020-04-13 09:24:04.299000
+`Wrong command`
+
+Machine 🪐 - 2020-04-13 09:24:10.812000
+!v help
+
+VocaBot - 2020-04-13 09:24:11.017000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  ext test  toggle-able command
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-13 09:24:47.037000
+!v ext test
+
+VocaBot - 2020-04-13 09:24:47.550000
+`This command haven't been added yet, unfortunately`
+
+Machine 🪐 - 2020-04-13 09:24:55.782000
+!v addition_command
+
+VocaBot - 2020-04-13 09:24:56.102000
+`you've entered wrong command`
+
+Machine 🪐 - 2020-04-13 09:25:00.556000
+!v n
+
+VocaBot - 2020-04-13 09:25:00.882000
+```UserInputError worked```
+
+VocaBot - 2020-04-13 09:25:01.105000
+```MissingRequiredArgument worked```
+
+Machine 🪐 - 2020-04-13 09:25:12.090000
+!v ext test foo
+
+VocaBot - 2020-04-13 09:25:12.550000
+`**English, mother#$^%*1!! Can you speak it?**`
+
+Machine 🪐 - 2020-04-13 09:25:34.775000
+!v n 1.2.3
+
+VocaBot - 2020-04-13 09:25:35.192000
+`New word pair has been created`
+
+VocaBot - 2020-04-13 09:31:10.543000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 09:31:28.617000
+!v ext test
+
+VocaBot - 2020-04-13 09:31:29.079000
+`**English, mother#$^%*1!! Can you speak it?**`
+
+Machine 🪐 - 2020-04-13 09:32:19.535000
+!v help
+
+VocaBot - 2020-04-13 09:32:19.910000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  ext test  toggle-able command
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-13 09:32:47.677000
+!v n 1.2.3
+
+VocaBot - 2020-04-13 09:32:48.039000
+`New word pair has been created`
+
+VocaBot - 2020-04-13 09:34:07.610000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 09:34:14.765000
+!v n 1.2.3
+
+VocaBot - 2020-04-13 09:34:15.462000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-13 09:36:13.497000
+!v language En
+
+VocaBot - 2020-04-13 09:36:13.879000
+```Foreign language has been changed to EN.```
+
+Machine 🪐 - 2020-04-13 09:36:22.007000
+!v language SU
+
+VocaBot - 2020-04-13 09:36:22.350000
+```Foreign language has been changed to SU.```
+
+Machine 🪐 - 2020-04-13 09:36:31.013000
+!v native KZ
+
+VocaBot - 2020-04-13 09:36:31.213000
+```Native language has been changed to KZ.```
+
+Machine 🪐 - 2020-04-13 09:36:42.634000
+!v n te.e.est
+
+VocaBot - 2020-04-13 09:36:42.944000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-13 09:37:09.116000
+!v cards 3 last
+
+VocaBot - 2020-04-13 09:37:09.534000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Mon Apr 13 `word side`
+
+VocaBot - 2020-04-13 09:37:09.946000
+FR: 1 --- RU: ||2||
+Key: ||3||
+Created: Mon Apr 13 `word side`
+
+VocaBot - 2020-04-13 09:37:10.518000
+SU: te --- KZ: ||e||
+Key: ||est||
+Created: Mon Apr 13 `word side`
+
+VocaBot - 2020-04-13 09:37:11.039000
+last 3 words from your dictionary have been sent into your DMs
+
+Machine 🪐 - 2020-04-13 09:37:25.793000
+!v native RU
+
+VocaBot - 2020-04-13 09:37:26.208000
+```Native language has been changed to RU.```
+
+Machine 🪐 - 2020-04-13 09:37:30.787000
+!v language EN
+
+VocaBot - 2020-04-13 09:37:31.095000
+```Foreign language has been changed to EN.```
+
+VocaBot - 2020-04-13 09:40:15.511000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 09:40:24.286000
+!v n 1.2.3
+
+VocaBot - 2020-04-13 09:40:24.571000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-13 09:48:14.007000
+!v help
+
+VocaBot - 2020-04-13 09:48:14.560000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  ext test  toggle-able command
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-13 09:48:20.740000
+!v ext test
+
+VocaBot - 2020-04-13 09:48:21.059000
+`**English, mother#$^%*1!! Can you speak it?**`
+
+Machine 🪐 - 2020-04-13 09:48:30.286000
+!v additional_command
+
+VocaBot - 2020-04-13 09:48:30.556000
+`**English, mother#$^%*1!! Can you speak it?**`
+
+VocaBot - 2020-04-13 09:48:47.021000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-13 09:51:13.636000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 09:51:20.764000
+!v ext test
+
+VocaBot - 2020-04-13 09:51:21.129000
+`you've entered wrong command`
+
+Machine 🪐 - 2020-04-13 09:51:30.665000
+v! ext test
+
+Machine 🪐 - 2020-04-13 09:51:37.748000
+!v ext test foofofo
+
+VocaBot - 2020-04-13 09:51:39.303000
+`Try something different`
+
+Machine 🪐 - 2020-04-13 09:52:02.609000
+!v n 1.2.teeessst
+
+VocaBot - 2020-04-13 09:52:03.067000
+`New word pair has been created`
+
+VocaBot - 2020-04-13 10:18:47.595000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 10:18:55.707000
+!v help
+
+VocaBot - 2020-04-13 10:18:56.145000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  ext test  toggle-able command
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  test_ext  
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-13 10:20:38.202000
+!v ext test
+
+VocaBot - 2020-04-13 10:20:38.641000
+`This command haven't been added yet, unfortunately`
+
+Machine 🪐 - 2020-04-13 10:22:41.064000
+!v test_ext
+
+VocaBot - 2020-04-13 10:22:41.514000
+just read the fucking docks bruh
+
+Machine 🪐 - 2020-04-13 10:23:32.643000
+!v test_ext
+
+VocaBot - 2020-04-13 10:23:33.101000
+just read the fucking docks bruh
+
+VocaBot - 2020-04-13 10:28:08.075000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 10:28:25.828000
+!v test_ext
+
+VocaBot - 2020-04-13 10:28:26.302000
+just read the fucking docks bruh
+
+VocaBot - 2020-04-13 10:50:21.993000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-13 10:52:36.613000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 10:52:46.741000
+!v help
+
+VocaBot - 2020-04-13 10:52:47.223000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  test_ext  
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+VocaBot - 2020-04-13 11:04:53.574000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 11:09:07.512000
+!v test_ext
+
+VocaBot - 2020-04-13 11:09:07.876000
+just read the fucking docks bruh
+
+Machine 🪐 - 2020-04-13 11:09:55.665000
+!v update
+
+VocaBot - 2020-04-13 11:09:56.165000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 11:10:05.448000
+!v text_ext
+
+VocaBot - 2020-04-13 11:10:05.689000
+`This command haven't been added yet, unfortunately`
+
+Machine 🪐 - 2020-04-13 11:10:25.670000
+!v help
+
+VocaBot - 2020-04-13 11:10:26.159000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  test_ext  
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-13 11:10:47.696000
+!v update
+
+VocaBot - 2020-04-13 11:10:48.233000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 11:10:53.209000
+!v test_ext
+
+VocaBot - 2020-04-13 11:10:53.514000
+just read the fucking docks bruh
+UPDATED COMMAND DURING THE RUNTIME
+
+Machine 🪐 - 2020-04-13 11:11:04.059000
+!v update
+
+VocaBot - 2020-04-13 11:11:04.395000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 11:11:13.755000
+! test_ext
+
+Machine 🪐 - 2020-04-13 11:11:29.165000
+!v test_ext
+
+VocaBot - 2020-04-13 11:11:29.560000
+just read the fucking docks bruh
+UPDATED COMMAND DURING THE RUNTIME
+
+Machine 🪐 - 2020-04-13 11:11:44.788000
+!v update
+
+VocaBot - 2020-04-13 11:11:45.111000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 11:11:50.316000
+!v test_ext
+
+VocaBot - 2020-04-13 11:11:50.629000
+just read the fucking docks bruh
+UPDATED COMMAND DURING THE RUNTIME
+
+Machine 🪐 - 2020-04-13 11:11:59.115000
+!v update
+
+VocaBot - 2020-04-13 11:11:59.432000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 11:12:08.483000
+!v test_ext
+
+VocaBot - 2020-04-13 11:12:08.737000
+AHAHAHAHAHAH
+
+Machine 🪐 - 2020-04-13 12:29:51.828000
+!v update
+
+VocaBot - 2020-04-13 12:29:52.339000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 12:38:57.093000
+!v help
+
+VocaBot - 2020-04-13 12:38:57.459000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  test_ext  
+  update    staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-13 12:39:32.416000
+!v update
+
+VocaBot - 2020-04-13 12:39:32.698000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 12:39:37.406000
+!v help
+
+VocaBot - 2020-04-13 12:39:37.625000
+```
+​No Category:
+  cards     [n] [first/last] to get first/last n words from your dictionary
+  clr_cards Deletes your dictionary without backups
+  help      Shows this message
+  language  [ID] Sets up language for words
+  n         [word].[translation].[key] adds new word in your dictionary
+  native    [ID] Sets up language for translations
+  update    staff only
+  экст  команда из подключаемого файла
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-13 12:40:13.994000
+!v экст
+
+VocaBot - 2020-04-13 12:40:14.561000
+еще раз
+
+Machine 🪐 - 2020-04-13 12:40:28.376000
+!v test_ext
+
+VocaBot - 2020-04-13 12:40:28.717000
+`Wrong command`
+
+Machine 🪐 - 2020-04-13 12:41:28.379000
+!v update
+
+VocaBot - 2020-04-13 12:41:28.854000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 12:41:32.936000
+!v update
+
+VocaBot - 2020-04-13 12:41:33.145000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 12:41:41.963000
+test!v update
+
+VocaBot - 2020-04-13 12:41:57.044000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-13 12:42:23.072000
+!v update
+
+VocaBot - 2020-04-13 12:42:23.532000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 12:42:43.658000
+!v update
+
+VocaBot - 2020-04-13 12:42:44.610000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 12:42:56.327000
+!v update
+
+VocaBot - 2020-04-13 12:42:56.666000
+"cards" extension have been updated
+
+Machine 🪐 - 2020-04-13 12:43:03.406000
+_!v update
+
+VocaBot - 2020-04-13 13:05:34.417000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-14 16:49:31.770000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-14 18:03:37.030000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-14 18:37:50.850000
+!v n badge. знак отличия
+
+Machine 🪐 - 2020-04-14 18:44:23.293000
+!v n badge. знак отличия.
+
+VocaBot - 2020-04-14 18:44:23.709000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-14 18:46:55.477000
+!v nbadge. foo
+
+VocaBot - 2020-04-14 18:46:55.955000
+`you've entered wrong command`
+
+VocaBot - 2020-04-14 18:56:20.534000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 12:36:22.707000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 12:55:51.361000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 12:57:07.435000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 13:02:20.105000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 13:05:51.786000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 15:05:29.057000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 15:37:40.923000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 16:23:01.548000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 19:08:20.336000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-15 20:36:28.770000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-16 16:05:43.937000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-16 16:09:47.648000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-16 16:12:40.637000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-16 16:13:42.263000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-16 16:58:11.377000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-17 09:27:23.814000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-17 13:09:39.991000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-17 17:01:20.682000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 08:11:49.095000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 08:51:58.701000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 09:09:16.822000
+_:  cease --- _: ||прекращать||
+Key: ||не говори так про себя!||
+Created: Mon Mar 23 `word side`
+
+VocaBot - 2020-04-18 09:09:17.557000
+EN: badge --- RU: ||знак отличия||
+Key: ||none||
+Created: Tue Apr 14 `word side`
+
+VocaBot - 2020-04-18 09:09:22.945000
+nice
+
+VocaBot - 2020-04-18 09:09:25.066000
+nice
+
+VocaBot - 2020-04-18 09:09:33.395000
+nice
+
+Machine 🪐 - 2020-04-18 09:09:42.240000
+!v cho
+
+VocaBot - 2020-04-18 09:09:42.487000
+`There is no that command`
+
+VocaBot - 2020-04-18 09:09:51.355000
+nice
+
+VocaBot - 2020-04-18 09:18:08.929000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 09:19:21.619000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 09:42:37.747000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 09:51:43.871000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 11:11:37.992000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 11:52:35.697000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 12:03:33.072000
+EN: word --- RU: ||слово||
+Key: ||key||
+Created: Sat Apr 18 `word side`
+
+VocaBot - 2020-04-18 12:27:01.809000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 13:12:25.589000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 14:19:20.716000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 14:27:08.656000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 14:40:25.380000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 14:41:11.461000
+EN: word --- RU: ||слово||
+Key: ||key||
+Created: Sat Apr 18 `word side`
+
+Machine 🪐 - 2020-04-18 14:44:11.808000
+!v n 1.2
+
+VocaBot - 2020-04-18 14:48:11.355000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 14:53:45.461000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 14:59:48.480000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 16:24:22.708000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 16:30:16.260000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 16:54:12.813000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 17:00:44.197000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 21:10:27.888000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 22:00:56.214000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 22:01:56.674000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 22:32:13.628000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 22:33:22.538000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 22:40:20.207000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-18 23:04:37.802000
+EN: 1 --- RU: ||2||
+Key: ||3||
+Created: Sat Apr 18 `word side`
+
+VocaBot - 2020-04-18 23:04:38.272000
+EN: 1 --- RU: ||2||
+Key: ||3||
+Created: Sat Apr 18 `word side`
+
+VocaBot - 2020-04-18 23:21:54.018000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 10:26:12.537000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 10:41:35.912000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 10:53:01.329000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 11:00:05.057000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 11:04:00.779000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 11:04:40.431000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 11:09:47.106000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 11:17:06.956000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 11:25:19.961000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 11:29:05.706000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 11:57:31.844000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 13:39:42.714000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 13:40:53.708000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 13:44:34.155000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 13:46:25.790000
+
+
+VocaBot - 2020-04-19 13:46:26.189000
+
+
+VocaBot - 2020-04-19 20:04:01.029000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 20:04:36.672000
+EN: 1 --- RU: ||2||
+Key: ||3||
+Created: Sat Apr 18 `word side`
+
+VocaBot - 2020-04-19 20:04:37.340000
+EN: 1 --- RU: ||2||
+Key: ||3||
+Created: Sat Apr 18 `word side`
+
+VocaBot - 2020-04-19 20:09:23.808000
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 20:15:14
+```У меня очень хорошее настроение```
+
+VocaBot - 2020-04-19 20:15:17.639000
+
+
+VocaBot - 2020-04-19 20:20:50.902000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-19 20:21:11.647000
+!v cards 3 first
+
+Machine 🪐 - 2020-04-19 20:21:45.019000
+!v update
+
+VocaBot - 2020-04-19 20:21:45.373000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-19 20:21:58.137000
+!v cards 3 first
+
+VocaBot - 2020-04-19 20:21:58.468000
+
+
+VocaBot - 2020-04-19 20:21:58.845000
+first 3 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-19 20:23:33.364000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-19 20:23:50.255000
+!v cards 3 first
+
+VocaBot - 2020-04-19 20:23:50.499000
+
+
+VocaBot - 2020-04-19 20:23:50.962000
+first 3 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-19 20:33:25.182000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-19 20:33:31.333000
+!v cards 3 first
+
+VocaBot - 2020-04-19 20:33:31.592000
+
+
+VocaBot - 2020-04-19 20:33:32.044000
+first 3 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-19 20:38:25.043000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-19 20:38:43.537000
+!v cards 3 first
+
+VocaBot - 2020-04-19 20:38:43.987000
+
+
+VocaBot - 2020-04-19 20:38:44.549000
+first 3 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-19 20:45:18.879000
+```У меня очень хорошее настроение```
+
+Machine 🪐 - 2020-04-19 20:45:36.586000
+!v cards 3 first
+
+VocaBot - 2020-04-19 20:45:37.006000
+
+
+VocaBot - 2020-04-19 20:45:37.459000
+first 3 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-19 20:48:46.038000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-19 20:49:03.240000
+!v cards 3 first
+
+VocaBot - 2020-04-19 20:49:03.602000
+
+
+VocaBot - 2020-04-19 20:49:04.097000
+first 3 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-19 21:01:28.848000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-19 21:01:58.114000
+!v cards 3 first
+
+VocaBot - 2020-04-19 21:01:58.676000
+
+
+VocaBot - 2020-04-19 21:01:59.287000
+first 3 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-19 21:04:22.916000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-19 21:04:41.356000
+!v cards 3 first
+
+VocaBot - 2020-04-19 21:04:41.822000
+
+
+VocaBot - 2020-04-19 21:04:42.423000
+first 3 words from your dictionary have been sent into your DMs
+
+VocaBot - 2020-04-19 21:12:25.173000
+```скоро релиз```
+
+VocaBot - 2020-04-19 21:25:00.064000
+
+
+VocaBot - 2020-04-19 21:25:00.484000
+
+
+VocaBot - 2020-04-19 21:28:22.282000
+
+
+VocaBot - 2020-04-19 21:28:22.750000
+
+
+VocaBot - 2020-04-19 21:28:23.304000
+
+
+VocaBot - 2020-04-19 21:36:15.936000
+```скоро релиз```
+
+VocaBot - 2020-04-20 11:07:45.144000
+```скоро релиз```
+
+VocaBot - 2020-04-20 11:11:36.413000
+```скоро релиз```
+
+VocaBot - 2020-04-20 11:13:14.977000
+
+
+VocaBot - 2020-04-20 11:13:15.437000
+
+
+VocaBot - 2020-04-20 11:13:15.997000
+
+
+VocaBot - 2020-04-20 11:31:25.669000
+
+
+VocaBot - 2020-04-20 11:31:26.305000
+
+
+VocaBot - 2020-04-20 11:56:36.499000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-20 12:03:32.564000
+!v cards 3 first
+
+VocaBot - 2020-04-20 12:03:32.995000
+
+
+VocaBot - 2020-04-20 12:03:33.384000
+
+
+VocaBot - 2020-04-20 12:03:33.856000
+
+
+VocaBot - 2020-04-20 12:03:34.325000
+`cards formed succsesfully
+first 3 cards have sent in dm`
+
+VocaBot - 2020-04-20 12:56:51.956000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-20 13:05:13.913000
+!v cards 4 last
+
+VocaBot - 2020-04-20 13:05:49.727000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-20 13:05:57.361000
+!v cards 3 last
+
+Machine 🪐 - 2020-04-20 13:06:37.261000
+!v cards 2 last
+
+VocaBot - 2020-04-20 13:06:37.645000
+
+
+VocaBot - 2020-04-20 13:06:37.988000
+
+
+VocaBot - 2020-04-20 13:06:38.551000
+`cards formed succsesfully
+last 2 cards have sent in dm`
+
+VocaBot - 2020-04-20 13:23:34.248000
+```скоро релиз```
+
+VocaBot - 2020-04-20 13:25:51.488000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-20 13:29:12.698000
+!v cards 2 last
+
+VocaBot - 2020-04-20 13:29:13.164000
+
+
+VocaBot - 2020-04-20 13:29:13.643000
+
+
+VocaBot - 2020-04-20 13:29:14.114000
+`cards formed succsesfully
+last 2 cards have sent in dm`
+
+Machine 🪐 - 2020-04-20 13:29:30.200000
+!cards 3 last
+
+VocaBot - 2020-04-20 13:30:50.312000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-20 13:30:58.322000
+!v cards 1 first
+
+VocaBot - 2020-04-20 13:30:58.595000
+
+
+VocaBot - 2020-04-20 13:30:59.130000
+`cards formed succsesfully
+first 1 cards have sent in dm`
+
+VocaBot - 2020-04-20 13:34:52.453000
+```скоро релиз```
+
+VocaBot - 2020-04-20 13:43:50.687000
+```скоро релиз```
+
+VocaBot - 2020-04-20 13:45:21.045000
+```скоро релиз```
+
+VocaBot - 2020-04-20 13:46:25.240000
+```скоро релиз```
+
+VocaBot - 2020-04-20 14:53:05.566000
+```скоро релиз```
+
+VocaBot - 2020-04-20 15:01:42.719000
+```скоро релиз```
+
+VocaBot - 2020-04-20 17:25:33.830000
+```скоро релиз```
+
+VocaBot - 2020-04-20 17:30:09.103000
+```скоро релиз```
+
+VocaBot - 2020-04-20 17:54:28.265000
+test msg
+
+VocaBot - 2020-04-21 08:41:40.888000
+```скоро релиз```
+
+VocaBot - 2020-04-21 08:44:57.759000
+```скоро релиз```
+
+VocaBot - 2020-04-21 09:28:05.102000
+```скоро релиз```
+
+VocaBot - 2020-04-21 10:15:59.352000
+```скоро релиз```
+
+VocaBot - 2020-04-21 10:31:17.284000
+```скоро релиз```
+
+VocaBot - 2020-04-21 10:39:34.607000
+```скоро релиз```
+
+VocaBot - 2020-04-21 10:41:19.235000
+```скоро релиз```
+
+VocaBot - 2020-04-21 10:41:45.578000
+```скоро релиз```
+
+VocaBot - 2020-04-21 10:44:57.667000
+```скоро релиз```
+
+VocaBot - 2020-04-21 10:46:59.782000
+```скоро релиз```
+
+VocaBot - 2020-04-21 11:29:32.580000
+```скоро релиз```
+
+VocaBot - 2020-04-21 11:30:29.388000
+```скоро релиз```
+
+VocaBot - 2020-04-21 11:35:40.037000
+```скоро релиз```
+
+VocaBot - 2020-04-21 11:39:07.987000
+```скоро релиз```
+
+VocaBot - 2020-04-21 11:48:42.224000
+```скоро релиз```
+
+VocaBot - 2020-04-21 13:06:17.516000
+```скоро релиз```
+
+VocaBot - 2020-04-21 13:50:29.038000
+```скоро релиз```
+
+VocaBot - 2020-04-21 14:31:05.932000
+```скоро релиз```
+
+VocaBot - 2020-04-21 15:19:41.611000
+```скоро релиз```
+
+VocaBot - 2020-04-21 15:58:02.408000
+```скоро релиз```
+
+VocaBot - 2020-04-21 16:28:17.078000
+```скоро релиз```
+
+VocaBot - 2020-04-21 17:24:13.443000
+```скоро релиз```
+
+VocaBot - 2020-04-21 18:17:47.674000
+```скоро релиз```
+
+VocaBot - 2020-04-21 20:02:27.984000
+```скоро релиз```
+
+VocaBot - 2020-04-21 20:39:16.353000
+`Here is your dictionary file`
+
+VocaBot - 2020-04-21 20:41:52.854000
+`Here is your dictionary file`
+
+Machine 🪐 - 2020-04-21 20:42:43.484000
+!v update
+
+VocaBot - 2020-04-21 20:42:43.892000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-21 20:43:00.062000
+!v dict_txt
+
+VocaBot - 2020-04-21 20:43:00.630000
+`Here is your dictionary file`
+
+Machine 🪐 - 2020-04-21 20:43:56.427000
+!v update
+
+VocaBot - 2020-04-21 20:43:56.805000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-21 20:44:07.754000
+!v dict_txt
+
+VocaBot - 2020-04-21 20:44:08.098000
+`Here is your dictionary file`
+
+VocaBot - 2020-04-24 10:02:47.829000
+```скоро релиз```
+
+VocaBot - 2020-04-24 10:04:20.188000
+`Here is your dictionary file`
+
+VocaBot - 2020-04-24 10:36:58.096000
+```скоро релиз```
+
+VocaBot - 2020-04-24 10:40:43.073000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-24 10:47:52.832000
+!v n 2.2
+
+VocaBot - 2020-04-24 10:47:53.371000
+`New card "2"-"2" has been created`
+
+Machine 🪐 - 2020-04-24 10:50:25.231000
+тест десяти сообщений
+
+Machine 🪐 - 2020-04-24 10:51:10.381000
+поихали
+
+Machine 🪐 - 2020-04-24 10:51:20.619000
+!v n 3.3
+
+VocaBot - 2020-04-24 10:51:20.972000
+`New card "3"-"3" has been created`
+
+Machine 🪐 - 2020-04-24 10:51:24.730000
+!v n 4.4
+
+VocaBot - 2020-04-24 10:51:24.895000
+`New card "4"-"4" has been created`
+
+Machine 🪐 - 2020-04-24 10:51:27.257000
+!v n 5.5
+
+VocaBot - 2020-04-24 10:51:27.548000
+`New card "5"-"5" has been created`
+
+Machine 🪐 - 2020-04-24 10:51:30.086000
+!v n 6.6
+
+VocaBot - 2020-04-24 10:51:30.422000
+`New card "6"-"6" has been created`
+
+Machine 🪐 - 2020-04-24 10:51:33.235000
+!v n 7.7
+
+VocaBot - 2020-04-24 10:51:33.498000
+`New card "7"-"7" has been created`
+
+Machine 🪐 - 2020-04-24 10:51:35.815000
+!v n 8.8
+
+VocaBot - 2020-04-24 10:51:36.118000
+`New card "8"-"8" has been created`
+
+Machine 🪐 - 2020-04-24 10:51:39.627000
+!v n 9.9
+
+VocaBot - 2020-04-24 10:51:39.888000
+`New card "9"-"9" has been created`
+
+Machine 🪐 - 2020-04-24 10:51:43.210000
+!v n 10.10
+
+VocaBot - 2020-04-24 10:51:43.485000
+`New card "10"-"10" has been created`
+
+Machine 🪐 - 2020-04-24 10:51:51.631000
+!v n 11.11
+
+VocaBot - 2020-04-24 10:51:52.323000
+`New card "11"-"11" has been created`
+
+Machine 🪐 - 2020-04-24 10:51:56.637000
+!v n 12.12
+
+VocaBot - 2020-04-24 10:51:56.905000
+`New card "12"-"12" has been created`
+
+Machine 🪐 - 2020-04-24 10:52:08.756000
+!v cards 11 12
+
+VocaBot - 2020-04-24 10:52:09.083000
+
+
+VocaBot - 2020-04-24 10:52:09.564000
+
+
+VocaBot - 2020-04-24 10:52:10.010000
+`Cards list has formed successfully
+cards from #11 to #12 have sent in dm`
+
+Machine 🪐 - 2020-04-24 10:52:20.561000
+!v cards 1 12
+
+VocaBot - 2020-04-24 10:52:20.854000
+
+
+VocaBot - 2020-04-24 10:52:21.351000
+
+
+VocaBot - 2020-04-24 10:52:21.858000
+
+
+VocaBot - 2020-04-24 10:52:22.353000
+
+
+VocaBot - 2020-04-24 10:52:22.779000
+
+
+VocaBot - 2020-04-24 10:52:26.086000
+
+
+VocaBot - 2020-04-24 10:52:26.575000
+
+
+VocaBot - 2020-04-24 10:52:27.021000
+
+
+VocaBot - 2020-04-24 10:52:27.496000
+
+
+VocaBot - 2020-04-24 10:52:27.879000
+
+
+VocaBot - 2020-04-24 10:52:31.329000
+
+
+VocaBot - 2020-04-24 10:52:31.717000
+`You've requested too much cards (more than 10)
+cards from #1 to #11 have sent in dm`
+
+Machine 🪐 - 2020-04-24 10:53:08.832000
+!v cards 1 5
+
+VocaBot - 2020-04-24 10:53:09.174000
+
+
+VocaBot - 2020-04-24 10:53:09.645000
+
+
+VocaBot - 2020-04-24 10:53:10.177000
+
+
+VocaBot - 2020-04-24 10:53:10.876000
+
+
+VocaBot - 2020-04-24 10:53:11.343000
+
+
+VocaBot - 2020-04-24 10:53:14.410000
+`Cards list has formed successfully
+cards from #1 to #5 have sent in dm`
+
+VocaBot - 2020-04-24 12:40:42.472000
+```скоро релиз```
+
+VocaBot - 2020-04-24 12:59:42.758000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-24 13:00:06.671000
+!v n
+
+Machine 🪐 - 2020-04-24 13:00:15.662000
+!v language Ru
+
+VocaBot - 2020-04-24 13:00:16.145000
+`Foreign language has been changed to RU.`
+
+VocaBot - 2020-04-24 13:08:52.978000
+```скоро релиз```
+
+VocaBot - 2020-04-24 13:11:48.393000
+```скоро релиз```
+
+VocaBot - 2020-04-24 13:54:27.376000
+```скоро релиз```
+
+VocaBot - 2020-04-24 14:09:01.730000
+```скоро релиз```
+
+VocaBot - 2020-04-24 15:27:30.117000
+<discord.embeds.Embed object at 0x00B3ABC0>
+
+Machine 🪐 - 2020-04-24 15:27:56.918000
+!v update
+
+VocaBot - 2020-04-24 15:27:57.354000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-24 15:28:01.622000
+!v dict
+
+VocaBot - 2020-04-24 15:28:01.928000
+`Dictionary has been sent in dms`
+
+VocaBot - 2020-04-24 15:37:00.245000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-24 15:37:07.390000
+!v dict
+
+VocaBot - 2020-04-24 15:37:07.663000
+`Dictionary has been sent in dms`
+
+VocaBot - 2020-04-24 15:37:07.890000
+
+
+VocaBot - 2020-04-24 15:38:10.875000
+
+
+Machine 🪐 - 2020-04-24 15:48:56.322000
+!v update
+
+VocaBot - 2020-04-24 15:48:56.882000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-24 15:49:08.999000
+!v dict
+
+VocaBot - 2020-04-24 15:49:09.248000
+`Dictionary has been sent in dms`
+
+VocaBot - 2020-04-24 15:49:09.471000
+
+
+Machine 🪐 - 2020-04-24 15:57:19.200000
+!v dict
+
+VocaBot - 2020-04-24 15:57:19.669000
+`Dictionary has been sent in dms`
+
+VocaBot - 2020-04-24 15:57:19.940000
+
+
+Machine 🪐 - 2020-04-24 15:57:27.735000
+!v update
+
+VocaBot - 2020-04-24 15:57:28.067000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-24 15:57:33.302000
+!v dict
+
+VocaBot - 2020-04-24 15:57:33.609000
+`Dictionary has been sent in dms`
+
+VocaBot - 2020-04-24 15:57:33.814000
+
+
+Machine 🪐 - 2020-04-24 16:10:38.269000
+!v update
+
+Machine 🪐 - 2020-04-24 16:11:05.862000
+!v update
+
+VocaBot - 2020-04-24 16:11:06.310000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-24 16:11:10.518000
+!v dict
+
+Machine 🪐 - 2020-04-24 16:11:34.957000
+!v dict 1
+
+VocaBot - 2020-04-24 16:11:35.650000
+`Dictionary has been sent in dms`
+
+VocaBot - 2020-04-24 16:11:35.904000
+
+
+Machine 🪐 - 2020-04-24 16:11:47.213000
+!v dict 2
+
+VocaBot - 2020-04-24 16:11:47.533000
+`Dictionary has been sent in dms`
+
+VocaBot - 2020-04-24 16:11:47.697000
+
+
+Machine 🪐 - 2020-04-24 16:12:08.781000
+!v dict 3
+
+VocaBot - 2020-04-24 16:12:09.497000
+`Dictionary has been sent in dms`
+
+VocaBot - 2020-04-24 16:12:09.653000
+
+
+VocaBot - 2020-04-24 16:33:20.042000
+```скоро релиз```
+
+VocaBot - 2020-04-24 16:35:21.900000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-24 16:35:27.297000
+!v dict 2
+
+VocaBot - 2020-04-24 16:35:27.546000
+`Dictionary has been sent in dms`
+
+VocaBot - 2020-04-24 16:35:27.764000
+
+
+Machine 🪐 - 2020-04-24 16:35:34.686000
+!v dict 3
+
+VocaBot - 2020-04-24 16:35:34.924000
+Too big page value.
+Length of your dictionary is 16. 1 pages
+
+Machine 🪐 - 2020-04-24 16:37:28.578000
+!v update
+
+VocaBot - 2020-04-24 16:37:29.088000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-24 16:37:36.866000
+!v dict 5
+
+VocaBot - 2020-04-24 16:37:37.132000
+`Too big page value.
+Length of your dictionary is 16.2 pages`
+
+Machine 🪐 - 2020-04-24 16:38:49.291000
+!v dict 2
+
+VocaBot - 2020-04-24 16:38:49.735000
+
+
+VocaBot - 2020-04-24 16:38:50.069000
+`Dictionary has been sent in dms`
+
+Machine 🪐 - 2020-04-24 16:39:00.525000
+!v txt_dict
+
+Machine 🪐 - 2020-04-24 16:39:12.401000
+!v help
+
+VocaBot - 2020-04-24 16:39:12.835000
+```
+​No Category:
+  cards            [start] [end]. Sends cards from "start" to "end" in DMs.Fo...
+  cards_end        [n] [first/last] to get first/last n words in embed. n <= 5
+  clr_cards        Deletes your dictionary without backups
+  confirm          service command
+  day_cards        [Mon.dd] sends cards created on that month and day.Example...
+  del              deletes your last card from dictionary
+  dict             [page] sends list of words in dms
+  dict_txt         sends your dictionary file into dms
+  help             Shows this message
+  language         [ID] Sets up language for words. Max length: 5 symbols
+  msg              staff only
+  n                [word].[translation].[key]adds new word in your dictionary...
+  native           [ID] Sets up language for translations. Max length: 5 symbols
+  pics_test        pics extension
+  set_logs_channel [id] of a channel for for welcome message
+  status           staff only
+  update           staff only
+  upload           [.txt file] with your edited dictionary in right format
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-24 16:45:46.828000
+!v update
+
+VocaBot - 2020-04-24 16:45:47.283000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-24 16:45:51.733000
+!v help
+
+VocaBot - 2020-04-24 16:45:51.985000
+```
+​No Category:
+  _confirm         service command
+  _msg             staff only
+  _pics_test       pics extension
+  cards            [start] [end]. Sends cards from "start" to "end" in DMs.Fo...
+  cards_end        [n] [first/last] to get first/last n words in embed. n <= 5
+  clr_cards        Deletes your dictionary without backups
+  day_cards        [Mon.dd] sends cards created on that month and day.Example...
+  del              deletes your last card from dictionary
+  dict             [page] sends list of words in dms
+  dict_txt         sends your dictionary file into dms
+  help             Shows this message
+  language         [ID] Sets up language for words. Max length: 5 symbols
+  n                [word].[translation].[key]adds new word in your dictionary...
+  native           [ID] Sets up language for translations. Max length: 5 symbols
+  set_logs_channel [id] of a channel for for welcome message
+  status           staff only
+  update           staff only
+  upload           [.txt file] with your edited dictionary in right format
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+VocaBot - 2020-04-24 17:34:03.066000
+```скоро релиз```
+
+VocaBot - 2020-04-24 19:49:43.065000
+```скоро релиз```
+
+VocaBot - 2020-04-24 19:55:59.502000
+```скоро релиз```
+
+VocaBot - 2020-04-24 19:58:03.633000
+
+
+VocaBot - 2020-04-24 20:40:10.245000
+
+
+VocaBot - 2020-04-25 06:33:58.124000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-25 07:36:32.769000
+!v
+
+Machine 🪐 - 2020-04-25 07:36:37.112000
+!v b
+
+VocaBot - 2020-04-25 07:36:37.578000
+`There is no that command`
+
+Machine 🪐 - 2020-04-25 07:40:41.753000
+Кстати, у меня теперь ~1000 строк кода в репе
+
+Machine 🪐 - 2020-04-25 07:40:49.590000
+🥳 🥳 🥳
+
+VocaBot - 2020-04-26 16:50:38.893000
+```скоро релиз```
+
+VocaBot - 2020-04-26 17:01:28.064000
+```скоро релиз```
+
+VocaBot - 2020-04-26 17:02:07.290000
+```скоро релиз```
+
+VocaTest - 2020-04-26 18:36:02.572000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-26 18:36:20.954000
+Здрастите
+

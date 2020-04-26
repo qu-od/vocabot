@@ -1,0 +1,195 @@
+!v hello
+Sun Mar 15 20:17:14 2020
+
+!v erb
+Sun Mar 15 20:26:37 2020
+
+!v roib
+Sun Mar 15 20:26:44 2020
+
+!v rn
+Sun Mar 15 20:26:49 2020
+
+!v  wow
+Sun Mar 15 20:27:10 2020
+
+!v great
+Sun Mar 15 20:27:16 2020
+
+!v rtb
+Sun Mar 15 20:28:34 2020
+
+!v etb
+Sun Mar 15 20:28:37 2020
+
+!v t
+Sun Mar 15 20:28:42 2020
+
+!v rtrtnr
+Sun Mar 15 20:28:47 2020
+
+!v random
+Sun Mar 15 20:28:52 2020
+
+!v wow you're so random
+Sun Mar 15 20:29:04 2020
+
+!v
+Sun Mar 15 20:29:09 2020
+
+!v
+Sun Mar 15 20:29:11 2020
+
+!v
+Sun Mar 15 20:29:12 2020
+
+!v
+Sun Mar 15 20:29:14 2020
+
+!v
+Sun Mar 15 20:29:16 2020
+
+!v
+Sun Mar 15 20:29:19 2020
+
+!help
+Sun Mar 15 20:29:38 2020
+
+!v help
+Sun Mar 15 20:29:42 2020
+
+!vn 1.2.3 test
+Sun Mar 15 20:31:20 2020
+
+!v
+Sun Mar 15 20:37:50 2020
+
+!v dictionary
+Sun Mar 15 20:37:56 2020
+
+!v dictionary
+Sun Mar 15 20:38:06 2020
+
+!v dictionary
+Sun Mar 15 20:38:16 2020
+
+!v dictionary
+Sun Mar 15 20:38:23 2020
+
+!v dictionary
+Sun Mar 15 20:39:05 2020
+
+!v dictionary
+Sun Mar 15 20:42:04 2020
+
+Hello
+Sun Mar 15 20:43:48 2020
+
+Hello
+Sun Mar 15 20:47:22 2020
+
+Why
+Sun Mar 15 20:47:26 2020
+
+t
+Sun Mar 15 20:47:30 2020
+
+t
+Sun Mar 15 20:47:34 2020
+
+t
+Sun Mar 15 20:47:35 2020
+
+Че
+Sun Mar 15 21:04:13 2020
+
+Нормас
+Sun Mar 15 21:04:24 2020
+
+!v hell
+Mon Mar 16 13:24:08 2020
+
+!v help
+Mon Mar 16 13:24:19 2020
+
+!vn t. 4
+Mon Mar 16 13:25:16 2020
+
+!vn 3.3.3
+Mon Mar 16 13:25:32 2020
+
+!v help
+Mon Mar 16 16:40:20 2020
+
+!v help
+Tue Mar 17 21:37:14 2020
+
+d!minecraft
+Tue Mar 17 21:44:00 2020
+
+bt
+Sun Mar 22 11:38:55 2020
+
+test
+Sun Mar 22 11:42:00 2020
+
+test
+Sun Mar 22 11:42:26 2020
+
+test
+Sun Mar 22 11:44:48 2020
+
+test
+Sun Mar 22 11:44:52 2020
+
+!vn dictionary
+Sun Mar 22 11:45:04 2020
+
+!v dictionary
+Sun Mar 22 11:45:35 2020
+
+!v clr dictionary
+Sun Mar 22 11:45:58 2020
+
+test test
+Sun Mar 22 11:46:17 2020
+
+!v dictionary
+Sun Mar 22 11:46:25 2020
+
+!vn worthwhile. стоящий. Для китая распространить вирус кажется нормальным вариантом
+Sun Mar 22 11:50:07 2020
+
+!vn grasp. схватить/воспринять/осмыслить. Аппу все не поймет зачем нужен дс-бот
+Sun Mar 22 11:56:00 2020
+
+!v dictionary
+Sun Mar 22 12:06:11 2020
+
+!vn reside. проживать/покоится/пребывать. Китай устроился снизу Иркутска
+Sun Mar 22 12:09:39 2020
+
+!vn at this point. на данный момент. вот сейчас я в МСК, а свалю потом
+Sun Mar 22 12:14:12 2020
+
+!vn quite so. точно так/несомненно. действительно перевели на дистанционку
+Sun Mar 22 12:18:11 2020
+
+!vn admission. вход/прием/допуск. Раздел сайта бауманки (приемка)
+Sun Mar 22 12:28:00 2020
+
+!vn chartered accountant. профессиональный бухгалтер. Аппу спросил учат ли таких в моем унике
+Sun Mar 22 12:31:30 2020
+
+!vn admit. принимать/зачислять. универ в клуб к себе записывает абитуров
+Sun Mar 22 12:35:34 2020
+
+!vn adjust. поправить/уладить/приспособиться/настроить. Я поправлю это, стану быстрее отвечать, Аппу)
+Sun Mar 22 12:40:21 2020
+
+!vn further. дальнейший/более того/впоследствии. Я в следующие разы исправлюсь
+Sun Mar 22 12:47:12 2020
+
+
+Sun Mar 22 12:49:48 2020
+

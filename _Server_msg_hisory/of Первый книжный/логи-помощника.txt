@@ -1,0 +1,277 @@
+Machine 🪐 - 2020-04-18 22:03:28.363000
+!v help
+
+VocaBot - 2020-04-18 22:03:28.746000
+```
+​No Category:
+  cards          [n] [first/last] to get first/last n words from your dictionary
+  clr_cards      Deletes your dictionary without backups
+  help           Shows this message
+  language       [ID] Sets up language for words
+  n              [word].[translation].[key] adds new word in your dictionary
+  native         [ID] Sets up language for translations
+  pics_test      pics extension
+  status         staff only
+  update         staff only
+  welcome_msg_id [id] of a channel for for welcome message
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-18 22:03:43.193000
+test edit foo
+
+VocaBot - 2020-04-18 22:03:47.562000
+<discord.embeds.Embed object at 0x041EEA80>
+
+VocaBot - 2020-04-18 22:03:58.228000
+<discord.embeds.Embed object at 0x041EEA80>
+
+Machine 🪐 - 2020-04-18 22:32:23.188000
+foo test
+
+Machine 🪐 - 2020-04-18 22:33:35.143000
+foo test edit
+
+VocaBot - 2020-04-18 22:33:39.072000
+
+
+VocaBot - 2020-04-18 22:33:39.293000
+
+
+VocaBot - 2020-04-18 22:33:39.619000
+
+
+VocaBot - 2020-04-18 22:33:39.986000
+
+
+VocaBot - 2020-04-18 22:33:40.263000
+
+
+VocaBot - 2020-04-18 22:33:44.331000
+
+
+VocaBot - 2020-04-18 22:33:44.579000
+
+
+VocaBot - 2020-04-18 22:33:44.841000
+
+
+VocaBot - 2020-04-18 22:33:45.033000
+
+
+VocaBot - 2020-04-18 22:33:45.465000
+
+
+Machine 🪐 - 2020-04-18 22:41:06.746000
+eche edit
+
+Machine 🪐 - 2020-04-18 22:43:31.046000
+!v update
+
+VocaBot - 2020-04-18 22:43:31.460000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-18 22:43:45.403000
+!v set_logs_channel 701183119323168819
+
+VocaBot - 2020-04-18 22:43:45.565000
+channel has been set as <#701183119323168819>
+
+VocaBot - 2020-04-18 22:46:09.951000
+
+
+VocaBot - 2020-04-18 22:46:25.520000
+
+
+VocaBot - 2020-04-18 22:46:31.113000
+
+
+Machine 🪐 - 2020-04-18 23:27:40.984000
+edit
+
+VocaBot - 2020-04-18 23:27:44.252000
+
+
+VocaBot - 2020-04-18 23:27:49.553000
+
+
+VocaBot - 2020-04-19 10:27:47.687000
+
+
+Machine 🪐 - 2020-04-19 10:29:56.603000
+Testik
+
+VocaBot - 2020-04-19 10:30:01.083000
+
+
+Machine 🪐 - 2020-04-19 10:43:18.081000
+Сбщ
+
+VocaBot - 2020-04-19 10:43:23.388000
+
+
+VocaBot - 2020-04-19 10:43:34.560000
+
+
+Machine 🪐 - 2020-04-19 10:53:36.719000
+!v help
+
+VocaBot - 2020-04-19 10:53:37.168000
+```
+​No Category:
+  cards            [n] [first/last] to get first/last n words from your dicti...
+  clr_cards        Deletes your dictionary without backups
+  e_cards          [n] [first/last] to get first/last n words in embed
+  help             Shows this message
+  language         [ID] Sets up language for words
+  n                [word].[translation].[key] adds new word in your dictionary
+  native           [ID] Sets up language for translations
+  pics_test        pics extension
+  set_logs_channel [id] of a channel for for welcome message
+  status           staff only
+  update           staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+VocaBot - 2020-04-19 11:15:55.237000
+on_member_remove worked
+
+VocaBot - 2020-04-19 12:41:39.628000
+
+
+Machine 🪐 - 2020-04-19 12:55:25.254000
+Такс
+
+VocaBot - 2020-04-19 12:55:30.021000
+
+
+Machine 🪐 - 2020-04-19 13:40:11.430000
+Test
+
+Machine 🪐 - 2020-04-19 13:41:03.865000
+Test
+
+VocaBot - 2020-04-19 13:41:07.354000
+
+
+Machine 🪐 - 2020-04-19 13:41:25.430000
+Test
+
+VocaBot - 2020-04-19 13:41:29.665000
+
+
+Machine 🪐 - 2020-04-19 13:43:47.540000
+!v updae
+
+Machine 🪐 - 2020-04-19 13:43:56.784000
+!v update
+
+VocaBot - 2020-04-19 13:44:07.527000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-19 13:44:54.230000
+T
+
+VocaBot - 2020-04-19 13:44:59.921000
+
+
+VocaBot - 2020-04-19 13:46:02.676000
+
+
+YAGPDB.xyz - 2020-04-20 12:01:06.027000
+**Пламенный голос** покинул сервер.
+
+VocaBot - 2020-04-20 12:01:06.435000
+on_member_remove worked
+
+VocaBot - 2020-04-20 13:00:34.801000
+
+
+VocaBot - 2020-04-20 13:28:57.073000
+
+
+VocaBot - 2020-04-20 14:19:54.975000
+
+
+VocaBot - 2020-04-20 15:33:33.787000
+
+
+VocaBot - 2020-04-20 17:09:42.568000
+
+
+VocaBot - 2020-04-20 17:09:47.054000
+
+
+VocaBot - 2020-04-20 17:09:54.450000
+
+
+Machine 🪐 - 2020-04-20 17:57:42.362000
+!v msg ch 679731918136541220 Привет ребята. Ниче так тут у вас
+
+Machine 🪐 - 2020-04-20 18:00:40.643000
+!v msg ch 693476910587445311 <@578148165115576331> вся власть шизам!! <:test:700111724229165126>:test:<:test:700111724229165126>
+
+VocaBot - 2020-04-20 18:24:32.766000
+
+
+VocaBot - 2020-04-20 19:34:12.144000
+
+
+VocaBot - 2020-04-20 19:59:57.760000
+
+
+VocaBot - 2020-04-20 20:12:18.447000
+
+
+VocaBot - 2020-04-20 20:16:22.907000
+
+
+VocaBot - 2020-04-20 20:34:46.106000
+on_member_join worked
+
+VocaBot - 2020-04-24 10:55:38.815000
+
+
+VocaBot - 2020-04-24 11:11:08.829000
+
+
+VocaBot - 2020-04-24 11:19:05.829000
+on_member_join worked
+
+VocaBot - 2020-04-24 20:39:15.844000
+
+
+VocaBot - 2020-04-24 20:39:21.887000
+
+
+VocaBot - 2020-04-24 20:39:31.457000
+
+
+VocaBot - 2020-04-24 20:52:20.110000
+
+
+VocaBot - 2020-04-24 21:04:05.539000
+
+
+VocaBot - 2020-04-24 21:04:15.286000
+
+
+VocaBot - 2020-04-24 21:04:46.161000
+
+
+VocaBot - 2020-04-24 21:16:18.553000
+
+
+VocaBot - 2020-04-25 06:48:54.153000
+
+
+VocaBot - 2020-04-25 06:48:59.596000
+
+
+VocaBot - 2020-04-25 06:49:06.873000
+
+

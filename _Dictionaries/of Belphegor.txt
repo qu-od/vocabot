@@ -1,0 +1,12 @@
+---OBJECT--- -||- _ -||- russian -||- _ -||- chmo
+KEY: -||- kozel
+CREATED: -||- Sun Apr 19 22:05:50 2020
+
+---OBJECT--- -||- _ -||- ' return 0 ' -||- _ -||- '
+KEY: -||- split("")'
+CREATED: -||- Sun Apr 19 22:08:19 2020
+
+---OBJECT--- -||- _ -||- russian -||- _ -||- ') return True ('
+KEY: -||- foo
+CREATED: -||- Sun Apr 19 22:10:31 2020
+

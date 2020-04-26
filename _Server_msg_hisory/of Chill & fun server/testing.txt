@@ -1,0 +1,45 @@
+JSBot - 2020-04-16 16:44:32.549000
+
+
+Machine 🪐 - 2020-04-16 16:45:42.744000
+deletion test
+
+VocaBot - 2020-04-16 16:45:49.529000
+whoops
+
+VocaBot - 2020-04-16 16:45:58.002000
+whoops
+
+JuniperBot - 2020-04-17 15:12:15.549000
+
+
+VocaBot - 2020-04-20 17:32:01.341000
+test foof message ch
+
+VocaBot - 2020-04-20 17:33:08.043000
+test foof message ch
+
+VocaBot - 2020-04-20 17:55:21.770000
+testikk fooof
+
+Machine 🪐 - 2020-04-20 19:03:15.064000
+!v native ru
+
+VocaBot - 2020-04-20 19:03:15.516000
+```Native language has been changed to RU.```
+
+Machine 🪐 - 2020-04-20 19:03:23.295000
+!v native 282
+
+VocaBot - 2020-04-20 19:03:23.611000
+```Native language has been changed to 282.```
+
+Machine 🪐 - 2020-04-20 19:03:30.899000
+Oh my
+
+Machine 🪐 - 2020-04-20 19:04:57.186000
+!v language 337
+
+VocaBot - 2020-04-20 19:04:57.628000
+```Foreign language has been changed to 337.```
+

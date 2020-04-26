@@ -1,0 +1,35 @@
+Machine 🪐 - 2020-04-24 18:03:00.755000
+<@!169316183995056130>
+
+Machine 🪐 - 2020-04-24 18:03:07.764000
+пинай на здоровье
+
+Machine 🪐 - 2020-04-24 18:03:14.564000
+!v help
+
+VocaBot - 2020-04-24 18:03:14.946000
+```
+​No Category:
+  _confirm         service command
+  _msg             staff only
+  _pics_test       pics extension
+  _status          staff only
+  _update          staff only
+  cards            [start] [end]. Sends cards from "start" to "end" in DMs.Fo...
+  cards_end        [n] [first/last] to get first/last n words in embed. n <= 5
+  clr_cards        Deletes your dictionary without backups
+  day_cards        [Mon.dd] sends cards created on that month and day.Example...
+  del              deletes your last card from dictionary
+  dict             [page] sends list of words in dms
+  dict_txt         sends your dictionary file into dms
+  help             Shows this message
+  language         [ID] Sets up language for words. Max length: 5 symbols
+  n                [word].[translation].[key]adds new word in your dictionary...
+  native           [ID] Sets up language for translations. Max length: 5 symbols
+  set_logs_channel [id] of a channel for for welcome message
+  upload           [.txt file] with your edited dictionary in right format
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+

@@ -1,0 +1,60 @@
+---OBJECT--- -||- _ -||-  evening -||- _ -||- вечер
+KEY: -||- 
+CREATED: -||- Sat Mar 28 16:45:26 2020
+
+---OBJECT--- -||- _ -||-  night -||- _ -||- ночь
+KEY: -||- 
+CREATED: -||- Sat Mar 28 17:02:35 2020
+
+---OBJECT--- -||- _ -||-  clock -||- _ -||- часы
+KEY: -||- 
+CREATED: -||- Sat Mar 28 17:03:16 2020
+
+---OBJECT--- -||- EN -||- language -||- RU -||- aback
+KEY: -||- взолнованный
+CREATED: -||- Tue Apr 21 08:55:56 2020
+
+---OBJECT--- -||- EN -||- aback -||- RU -||- взолнованный
+KEY: -||- none
+CREATED: -||- Tue Apr 21 08:58:00 2020
+
+---OBJECT--- -||- EN -||- about -||- RU -||- о
+KEY: -||- 
+CREATED: -||- Tue Apr 21 09:00:13 2020
+
+---OBJECT--- -||- EN -||- actor -||- RU -||- актёр
+KEY: -||- none
+CREATED: -||- Tue Apr 21 09:00:55 2020
+
+---OBJECT--- -||- EN -||- addres -||- RU -||- адрес
+KEY: -||- none
+CREATED: -||- Tue Apr 21 09:01:41 2020
+
+---OBJECT--- -||- EN -||- adjective -||- RU -||- имя прилогательное
+KEY: -||- none
+CREATED: -||- Tue Apr 21 09:03:38 2020
+
+---OBJECT--- -||- EN -||- aeroplane -||- RU -||- самолёт
+KEY: -||- none
+CREATED: -||- Tue Apr 21 09:05:06 2020
+
+---OBJECT--- -||- EN -||- I am afraid -||- RU -||- Я боюсь
+KEY: -||- none
+CREATED: -||- Tue Apr 21 09:06:34 2020
+
+---OBJECT--- -||- EN -||- Africa -||- RU -||- Африка
+KEY: -||- none
+CREATED: -||- Tue Apr 21 09:08:51 2020
+
+---OBJECT--- -||- EN -||- afternoon -||- RU -||- после полудня
+KEY: -||- none
+CREATED: -||- Tue Apr 21 09:09:59 2020
+
+---OBJECT--- -||- EN -||- again -||- RU -||- снова опять
+KEY: -||- none
+CREATED: -||- Tue Apr 21 09:13:16 2020
+
+---OBJECT--- -||- EN -||- age -||- RU -||- возраст
+KEY: -||- none
+CREATED: -||- Tue Apr 21 09:14:03 2020
+

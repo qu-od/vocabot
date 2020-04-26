@@ -1,0 +1,508 @@
+GAZelle - 2020-04-21 09:00:53.939000
+!v n actor. актёр
+
+VocaBot - 2020-04-21 09:00:54.288000
+`New word pair has been created`
+
+GAZelle - 2020-04-21 09:01:39.827000
+!v n addres. адрес
+
+VocaBot - 2020-04-21 09:01:40.391000
+`New word pair has been created`
+
+GAZelle - 2020-04-21 09:03:37.220000
+!v n adjective. имя прилогательное
+
+VocaBot - 2020-04-21 09:03:37.703000
+`New word pair has been created`
+
+GAZelle - 2020-04-21 09:05:04.611000
+!v n aeroplane. самолёт
+
+VocaBot - 2020-04-21 09:05:05.014000
+`New word pair has been created`
+
+GAZelle - 2020-04-21 09:06:33.324000
+!v n I am afraid. Я боюсь
+
+VocaBot - 2020-04-21 09:06:33.795000
+`New word pair has been created`
+
+GAZelle - 2020-04-21 09:06:46.190000
+!v cards 1 last
+
+VocaBot - 2020-04-21 09:06:46.453000
+
+
+VocaBot - 2020-04-21 09:06:47.015000
+`cards formed succsesfully
+last 1 cards have sent in dm`
+
+GAZelle - 2020-04-21 09:07:10.703000
+!v cards 3 last
+
+VocaBot - 2020-04-21 09:07:11.028000
+
+
+VocaBot - 2020-04-21 09:07:11.590000
+
+
+VocaBot - 2020-04-21 09:07:12.133000
+
+
+VocaBot - 2020-04-21 09:07:12.653000
+`cards formed succsesfully
+last 3 cards have sent in dm`
+
+GAZelle - 2020-04-21 09:08:49.383000
+!v n Africa. Африка
+
+VocaBot - 2020-04-21 09:08:49.833000
+`New word pair has been created`
+
+GAZelle - 2020-04-21 09:09:57.618000
+!v n afternoon. после полудня
+
+VocaBot - 2020-04-21 09:09:58.008000
+`New word pair has been created`
+
+GAZelle - 2020-04-21 09:13:14.525000
+!v n again. снова опять
+
+VocaBot - 2020-04-21 09:13:14.886000
+`New word pair has been created`
+
+GAZelle - 2020-04-21 09:14:01.826000
+!v n age. возраст
+
+VocaBot - 2020-04-21 09:14:02.326000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-21 09:59:00.205000
+!v n 1.2
+
+VocaBot - 2020-04-21 09:59:00.653000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-21 09:59:07.921000
+!v del
+
+VocaBot - 2020-04-21 09:59:08.128000
+`Try something different`
+
+Machine 🪐 - 2020-04-21 10:11:17.826000
+!v update
+
+VocaBot - 2020-04-21 10:11:18.102000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-21 10:11:27.293000
+!v n 1.2
+
+VocaBot - 2020-04-21 10:11:27.568000
+`New word pair has been created`
+
+Machine 🪐 - 2020-04-21 10:14:15.943000
+!v cards 2 last
+
+Machine 🪐 - 2020-04-21 10:14:36.937000
+!v cards 1 last
+
+Machine 🪐 - 2020-04-21 10:14:44.558000
+!v cards 1 first
+
+Machine 🪐 - 2020-04-21 10:17:53.002000
+!v cards 2 last
+
+VocaBot - 2020-04-21 10:17:53.495000
+
+
+VocaBot - 2020-04-21 10:17:54.061000
+
+
+VocaBot - 2020-04-21 10:17:54.595000
+`cards formed succsesfully
+last 2 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 10:18:29.628000
+!v clr_cards
+
+VocaBot - 2020-04-21 10:18:29.815000
+Your data has been deleted. Though you'll never be able to check this
+
+Machine 🪐 - 2020-04-21 10:18:36.986000
+!v cards 2 last
+
+VocaBot - 2020-04-21 10:18:37.217000
+
+
+VocaBot - 2020-04-21 10:18:37.708000
+
+
+VocaBot - 2020-04-21 10:18:38.114000
+`cards formed succsesfully
+last 2 cards have sent in dm`
+
+GAZelle - 2020-04-21 10:18:58.042000
+👀
+
+GAZelle - 2020-04-21 10:19:38.967000
+https://tenor.com/view/heartbroken-broken-heart-heart-break-love-sad-gif-10301091
+
+Machine 🪐 - 2020-04-21 10:22:52.102000
+!v cards 2 last
+
+VocaBot - 2020-04-21 10:22:52.405000
+
+
+VocaBot - 2020-04-21 10:22:52.971000
+
+
+VocaBot - 2020-04-21 10:22:53.494000
+`cards formed succsesfully
+last 2 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 10:23:54.323000
+!v update
+
+VocaBot - 2020-04-21 10:23:54.784000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-21 10:24:07.729000
+!v clr_cards
+
+VocaBot - 2020-04-21 10:24:08.020000
+`Your data has been deleted. Though you'll never be able to check this`
+
+GAZelle - 2020-04-21 10:27:40.977000
+Machine 🪐Сегодня, в 14:22
+!v cards 2 last
+VocaBot
+БОТ
+Сегодня, в 14:22
+word side
+337: 1 --- 282: 2
+Key: none
+Created: Tue Apr 21
+word side
+337: 1 --- 282: 2
+Key: none
+Created: Tue Apr 21
+cards formed succsesfully
+last 2 cards have sent in dm
+Machine 🪐Сегодня, в 14:23
+!v update
+VocaBot
+БОТ
+Сегодня, в 14:23
+Extensions have been updated
+Machine 🪐Сегодня, в 14:24
+!v clr_cards
+VocaBot
+БОТ
+Сегодня, в 14:24
+Your data has been deleted. Though you'll never be able to check this
+
+Machine 🪐 - 2020-04-21 10:29:12.156000
+!v update
+
+VocaBot - 2020-04-21 10:29:12.564000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-21 10:29:20.884000
+!v clr_cards
+
+VocaBot - 2020-04-21 10:29:21.086000
+`Your data has been deleted. Though you'll never be able to check this`
+
+Machine 🪐 - 2020-04-21 10:29:28.817000
+!v cards 2 last
+
+VocaBot - 2020-04-21 10:29:29.078000
+`You just requested 0 words, don't you?
+last 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 10:31:41.500000
+!v cards 2 last
+
+VocaBot - 2020-04-21 10:31:41.875000
+`You just requested 0 words, don't you?
+last 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 10:39:35.465000
+!v help
+
+VocaBot - 2020-04-21 10:39:35.730000
+```
+​No Category:
+  cards            [n] [first/last] to get first/last n words in embed
+  clr_cards        Deletes your dictionary without backups
+  del              deletes your last card from dictionary
+  help             Shows this message
+  language         [ID] Sets up language for words
+  msg              staff only
+  n                [word].[translation].[key]adds new word in your dictionary...
+  native           [ID] Sets up language for translations
+  pics_test        pics extension
+  set_logs_channel [id] of a channel for for welcome message
+  status           staff only
+  update           staff only
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-21 10:39:42.639000
+!v cards 2 last
+
+Machine 🪐 - 2020-04-21 10:41:21.298000
+!v cards 2 last
+
+Machine 🪐 - 2020-04-21 10:41:47.238000
+!v cards 2 last
+
+GAZelle - 2020-04-21 10:43:26.229000
+🚗 🚕 🚌 🛺 🚑 🛵 🚎 🏍️ 🚲 🚒 🚑 🚐 🚚 🚛 🚜
+
+Machine 🪐 - 2020-04-21 10:45:04.229000
+!v cards 2 last
+
+VocaBot - 2020-04-21 10:45:04.475000
+`Your dictionary is empty. _Trust me_
+last 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 10:47:03.991000
+!v cards 2 last
+
+VocaBot - 2020-04-21 10:47:04.186000
+`You don't have enough cardsYour dictionary is empty. _Trust me_
+last 0 cards have sent in dm`
+
+GAZelle - 2020-04-21 10:47:23.524000
+[word].[translation].[key]adds new word in your
+
+Machine 🪐 - 2020-04-21 10:47:36.390000
+!v cards 5 last
+
+VocaBot - 2020-04-21 10:47:36.704000
+`You don't have enough cardsYour dictionary is empty. _Trust me_
+last 0 cards have sent in dm`
+
+GAZelle - 2020-04-21 10:48:11.288000
+!v n 🚛 . 🛺
+
+Machine 🪐 - 2020-04-21 10:53:09.838000
+!v del
+
+VocaBot - 2020-04-21 10:53:10.326000
+`Last card has been deleted`
+
+Machine 🪐 - 2020-04-21 10:54:10.783000
+!v del
+
+VocaBot - 2020-04-21 10:54:11.130000
+`Last card has been deleted`
+
+Machine 🪐 - 2020-04-21 11:30:45.048000
+!v cards 2 last
+
+VocaBot - 2020-04-21 11:30:45.437000
+`You don't have enough cards
+Your dictionary is empty. _Trust me_
+last 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 11:33:05.576000
+!v update
+
+Machine 🪐 - 2020-04-21 11:35:46.807000
+!v update
+
+VocaBot - 2020-04-21 11:35:47.122000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-21 11:36:14.072000
+!v cards 2 last
+
+VocaBot - 2020-04-21 11:36:14.460000
+`You don't have enough cards
+Your dictionary is empty. Trust me
+last 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 11:36:23.227000
+!cards 0 last
+
+Machine 🪐 - 2020-04-21 11:36:32.051000
+!v cards 0 last
+
+Machine 🪐 - 2020-04-21 11:39:16.131000
+!v cards 2 last
+
+VocaBot - 2020-04-21 11:39:16.409000
+`You don't have enough cards
+Your dictionary is empty. Trust me
+last 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 11:39:26.974000
+!v cards 0 last
+
+Machine 🪐 - 2020-04-21 11:40:38.542000
+!v update
+
+VocaBot - 2020-04-21 11:40:38.956000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-21 11:40:45.872000
+!v cards 0 last
+
+Machine 🪐 - 2020-04-21 11:48:44.960000
+!v cards 0 last
+
+VocaBot - 2020-04-21 11:48:45.290000
+`You just requested 0 words, don't you?
+last 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 11:48:52.574000
+!v cards 1 last
+
+VocaBot - 2020-04-21 11:48:53.074000
+`You don't have enough cards
+Your dictionary is empty. Trust me
+last 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 11:49:28.154000
+!v cards 1 first
+
+VocaBot - 2020-04-21 11:49:28.553000
+`You don't have enough cards
+Your dictionary is empty. Trust me
+first 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 11:49:39.247000
+!v cards -3 last
+
+VocaBot - 2020-04-21 11:49:39.596000
+`You don't have enough cards
+Your dictionary is empty. Trust me
+last 0 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 11:49:55.574000
+!v cards s last
+
+Machine 🪐 - 2020-04-21 11:50:05.034000
+!v cards 3 foo
+
+VocaBot - 2020-04-21 11:50:05.417000
+`Wrong first/last argument`
+
+GAZelle - 2020-04-21 11:50:15.791000
+!v cards 1 last
+
+VocaBot - 2020-04-21 11:50:15.963000
+
+
+VocaBot - 2020-04-21 11:50:16.501000
+`cards formed succsesfully
+last 1 cards have sent in dm`
+
+GAZelle - 2020-04-21 11:50:38.838000
+!v cards 4 last
+
+VocaBot - 2020-04-21 11:50:39.121000
+
+
+VocaBot - 2020-04-21 11:50:39.799000
+
+
+VocaBot - 2020-04-21 11:50:40.277000
+
+
+VocaBot - 2020-04-21 11:50:40.767000
+
+
+VocaBot - 2020-04-21 11:50:41.188000
+`cards formed succsesfully
+last 4 cards have sent in dm`
+
+Machine 🪐 - 2020-04-21 11:55:33.700000
+!v cards 3 foo
+
+VocaBot - 2020-04-21 11:55:34.086000
+`Wrong first/last argument`
+
+Machine 🪐 - 2020-04-21 11:55:40.297000
+!v cards s last
+
+Machine 🪐 - 2020-04-21 11:55:58.753000
+!v cards -1 last
+
+VocaBot - 2020-04-21 11:55:59.147000
+`You don't have enough cards
+Your dictionary is empty. Trust me
+last 0 cards have sent in dm`
+
+GAZelle - 2020-04-21 12:10:27.933000
+ДНЕВНИК
+Логотип Дневник.ru -->
+СТОЛОВАЯ
+
+***
+Безопасный поисковик для детей
+Ваше мнение
+Лучшая мотивация для ребенка-это...
+
+Результаты | Архив опросов
+Всего ответов: 129
+
+МАТЕМАТИКА
+********************************************************************************
+21 апреля.
+
+Подготовься к уроку в 15.30
+
+(выполни задания, данные вчера)
+
+Для математической разминки пройди тест на ЭМУ "Умножение и деление.20 апреля"
+
+Домашнее задание- Петерсон стр.70 №5, 8
+
+ 
+
+20 апреля.
+
+Петерсон стр.67 №4, 5, учебник Аргинской№ 443,431
+
+Задачу 431 обязательно разберем сегодня на уроке в 15.30-
+
+GAZelle - 2020-04-21 12:11:47.873000
+ДНЕВНИК
+Логотип Дневник.ru -->
+СТОЛОВАЯ
+
+***
+Безопасный поисковик для детей
+Ваше мнение
+Лучшая мотивация для ребенка-это...
+
+Результаты | Архив опросов
+Всего ответов: 129
+
+МАТЕМАТИКА
+********************************************************************************
+21 апреля.
+
+Подготовься к уроку в 15.30
+
+(выполни задания, данные вчера)
+
+Для математической разминки пройди тест на ЭМУ "Умножение и деление.20 апреля"
+
+Домашнее задание- Петерсон стр.70 №5, 8
+
+ 
+
+20 апреля.
+
+Петерсон стр.67 №4, 5, учебник Аргинской№ 443,431
+
+Задачу 431 обязательно разберем сегодня на уроке в 15.30-
+

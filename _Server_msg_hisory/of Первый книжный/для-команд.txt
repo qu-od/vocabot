@@ -1,0 +1,300 @@
+Machine 🪐 - 2020-04-02 21:48:22.125000
+!bump
+
+Server Monitoring - 2020-04-02 21:48:22.924000
+<@303115719644807168>
+
+Machine 🪐 - 2020-04-02 21:48:29.400000
+!1684
+
+Server Monitoring - 2020-04-02 21:48:29.746000
+
+
+Machine 🪐 - 2020-04-02 21:48:37.223000
+!d bump
+
+DISBOARD - 2020-04-02 21:48:37.412000
+
+
+Machine 🪐 - 2020-04-05 12:06:07.507000
+!bump
+
+Server Monitoring - 2020-04-05 12:06:08.211000
+
+
+Machine 🪐 - 2020-04-05 12:06:12.227000
+!d bump
+
+DISBOARD - 2020-04-05 12:06:12.538000
+
+
+Machine 🪐 - 2020-04-06 17:42:38.558000
+!d bump
+
+DISBOARD - 2020-04-06 17:42:39.009000
+
+
+Machine 🪐 - 2020-04-10 18:24:17.808000
+!bump
+
+Server Monitoring - 2020-04-10 18:24:18.403000
+<@303115719644807168>
+
+Machine 🪐 - 2020-04-10 18:24:30.313000
+!9496
+
+Server Monitoring - 2020-04-10 18:24:30.632000
+
+
+Machine 🪐 - 2020-04-10 18:24:34.377000
+!d bump
+
+DISBOARD - 2020-04-10 18:24:34.582000
+
+
+Machine 🪐 - 2020-04-12 10:32:08.807000
+!bump
+
+Server Monitoring - 2020-04-12 10:32:09.377000
+<@303115719644807168>
+
+Machine 🪐 - 2020-04-12 10:32:13.164000
+!0065
+
+Server Monitoring - 2020-04-12 10:32:13.656000
+
+
+Machine 🪐 - 2020-04-12 10:32:18.232000
+!d bump
+
+DISBOARD - 2020-04-12 10:32:18.456000
+
+
+Machine 🪐 - 2020-04-13 12:54:10.773000
+!bump
+
+Server Monitoring - 2020-04-13 12:54:11.307000
+<@303115719644807168>
+
+Machine 🪐 - 2020-04-13 12:54:17.987000
+!8237
+
+Server Monitoring - 2020-04-13 12:54:18.310000
+
+
+Machine 🪐 - 2020-04-13 12:54:21.562000
+!bump
+
+Server Monitoring - 2020-04-13 12:54:22.167000
+
+
+Machine 🪐 - 2020-04-13 12:54:25.322000
+!d bump
+
+DISBOARD - 2020-04-13 12:54:25.560000
+
+
+Machine 🪐 - 2020-04-15 13:24:45.848000
+!d bump
+
+DISBOARD - 2020-04-15 13:24:46.049000
+
+
+Machine 🪐 - 2020-04-15 13:24:51.638000
+!bump
+
+Server Monitoring - 2020-04-15 13:24:52.173000
+<@303115719644807168>
+
+Machine 🪐 - 2020-04-15 13:24:56.605000
+!1262
+
+Server Monitoring - 2020-04-15 13:24:57.063000
+
+
+Machine 🪐 - 2020-04-15 17:00:22.477000
+!в рудз
+
+Machine 🪐 - 2020-04-15 17:00:28.214000
+!d help
+
+DISBOARD - 2020-04-15 17:00:28.301000
+
+
+Machine 🪐 - 2020-04-15 17:00:48.225000
+!d invite <#685540231536967723>
+
+DISBOARD - 2020-04-15 17:00:48.521000
+
+
+Machine 🪐 - 2020-04-15 17:01:32.221000
+!v invite <#699972691351830529>
+
+VocaBot - 2020-04-15 17:01:32.534000
+`This command haven't been added yet, unfortunately`
+
+Machine 🪐 - 2020-04-15 17:01:54.326000
+!d invite <#699972691351830529>
+
+DISBOARD - 2020-04-15 17:01:54.675000
+
+
+Machine 🪐 - 2020-04-20 17:09:41.436000
+!bump
+
+Server Monitoring - 2020-04-20 17:09:42.060000
+<@303115719644807168>
+
+Machine 🪐 - 2020-04-20 17:09:46.385000
+!1222
+
+Server Monitoring - 2020-04-20 17:09:46.832000
+
+
+Machine 🪐 - 2020-04-20 17:09:53.844000
+!d bump
+
+DISBOARD - 2020-04-20 17:09:54.094000
+
+
+Machine 🪐 - 2020-04-24 19:54:12.483000
+!v dict
+
+Machine 🪐 - 2020-04-24 19:57:52.768000
+!v dict
+
+VocaBot - 2020-04-24 19:57:53.227000
+```UserInputError occured```
+
+VocaBot - 2020-04-24 19:57:53.447000
+```Not enough arguments for that command```
+
+Machine 🪐 - 2020-04-24 19:58:03.466000
+!v dict 1
+
+VocaBot - 2020-04-24 19:58:03.924000
+`Dictionary has been sent in dms`
+
+Machine 🪐 - 2020-04-24 19:59:23.024000
+!v cards_end 1 last
+
+VocaBot - 2020-04-24 19:59:23.410000
+
+
+VocaBot - 2020-04-24 19:59:23.910000
+`Cards has formed successfully
+last 1 cards have sent in dm`
+
+Machine 🪐 - 2020-04-24 20:38:39.900000
+!v clr_dict
+
+VocaBot - 2020-04-24 20:38:40.244000
+`This command haven't been added yet, unfortunately`
+
+Machine 🪐 - 2020-04-24 20:38:51.461000
+!v clr_cards
+
+VocaBot - 2020-04-24 20:38:51.750000
+`Do you really want to delete all your cards?
+Answer with !v _confirm yes/no`
+
+Machine 🪐 - 2020-04-24 20:39:04.162000
+!v _confirm y
+
+VocaBot - 2020-04-24 20:39:04.451000
+`Your data has been deleted. Though you'll never be able to check this`
+
+Machine 🪐 - 2020-04-24 20:39:15.140000
+!d bump
+
+DISBOARD - 2020-04-24 20:39:15.382000
+
+
+Machine 🪐 - 2020-04-24 20:39:21.106000
+!bump
+
+Server Monitoring - 2020-04-24 20:39:21.594000
+<@303115719644807168>
+
+Machine 🪐 - 2020-04-24 20:39:30.549000
+!9167
+
+Server Monitoring - 2020-04-24 20:39:31.057000
+
+
+Machine 🪐 - 2020-04-24 20:40:01.708000
+!v dict
+
+VocaBot - 2020-04-24 20:40:02.091000
+```UserInputError occured```
+
+VocaBot - 2020-04-24 20:40:02.294000
+```Not enough arguments for that command```
+
+Machine 🪐 - 2020-04-24 20:40:10.022000
+!v dict 1
+
+VocaBot - 2020-04-24 20:40:10.526000
+`Dictionary has been sent in dms`
+
+Machine 🪐 - 2020-04-24 20:45:13.101000
+!v help
+
+VocaBot - 2020-04-24 20:45:13.411000
+```
+​No Category:
+  _confirm          service command
+  _msg              staff only
+  _pics_test        pics extension
+  _set_logs_channel [id] of a channel for for welcome message
+  _status           staff only
+  _update           staff only
+  cards             [start] [end]. Sends cards from "start" to "end" in DMs.F...
+  cards_end         [n] [first/last] to get first/last n words in embed. n <= 5
+  clr_cards         Deletes your dictionary without backups
+  day_cards         [Mon.dd] sends cards created on that month and day.Exampl...
+  del               deletes your last card from dictionary
+  dict              [page] sends list of words in dms
+  dict_txt          sends your dictionary file into dms
+  help              Shows this message
+  language          [ID] Sets up language for words. Max length: 5 symbols
+  n                 [word].[translation].[key]adds new word in your dictionar...
+  native            [ID] Sets up language for translations. Max length: 5 sym...
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+Machine 🪐 - 2020-04-24 20:45:57.738000
+!v n language En
+
+Machine 🪐 - 2020-04-24 20:46:14.753000
+!v language En
+
+VocaBot - 2020-04-24 20:46:15.080000
+`Foreign language has been changed to EN.`
+
+Machine 🪐 - 2020-04-24 20:46:25.589000
+!v native ru
+
+VocaBot - 2020-04-24 20:46:25.850000
+`Native language has been changed to RU.`
+
+Machine 🪐 - 2020-04-25 06:48:53.175000
+!bump
+
+Server Monitoring - 2020-04-25 06:48:53.736000
+<@303115719644807168>
+
+Machine 🪐 - 2020-04-25 06:48:58.833000
+!4796
+
+Server Monitoring - 2020-04-25 06:48:59.253000
+
+
+Machine 🪐 - 2020-04-25 06:49:06.297000
+!d bump
+
+DISBOARD - 2020-04-25 06:49:06.504000
+
+
