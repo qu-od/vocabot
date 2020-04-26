@@ -1,5 +1,2 @@
 ﻿git+https://github.com/Rapptz/discord.py
 typing
-importlib
-random
-dotenv
