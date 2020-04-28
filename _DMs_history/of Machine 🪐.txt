@@ -2234,3 +2234,102 @@ VocaTest - 2020-04-26 18:36:02.572000
 Machine 🪐 - 2020-04-26 18:36:20.954000
 Здрастите
 
+VocaTest - 2020-04-28 08:45:27.240000
+```скоро релиз```
+
+VocaTest - 2020-04-28 08:46:20.960000
+
+
+VocaTest - 2020-04-28 08:52:04.830000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-28 08:52:10.396000
+!v _custom
+
+Machine 🪐 - 2020-04-28 08:53:12.643000
+!v help _custom
+
+VocaTest - 2020-04-28 08:53:13.121000
+```
+!v _custom 
+
+staff only
+
+```
+
+Machine 🪐 - 2020-04-28 08:53:22.199000
+!v foo
+
+VocaTest - 2020-04-28 08:53:22.447000
+`This command haven't been added yet, unfortunately`
+
+Machine 🪐 - 2020-04-28 08:53:38.542000
+!v _custom
+
+VocaTest - 2020-04-28 08:54:12.113000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-28 08:54:21.638000
+!v _custom
+
+VocaTest - 2020-04-28 09:18:40.197000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-28 09:27:37.906000
+!v native no
+
+VocaTest - 2020-04-28 09:27:38.402000
+`Native language has been changed to NO.`
+
+Machine 🪐 - 2020-04-28 09:30:28.670000
+!v native ru
+
+VocaTest - 2020-04-28 09:39:38.800000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-28 09:40:41.625000
+!v _custom
+
+VocaTest - 2020-04-28 09:40:42.303000
+`Here is your dictionary file`
+
+VocaTest - 2020-04-28 09:40:42.508000
+`create_dm needed only once`
+
+VocaTest - 2020-04-28 09:42:23.854000
+```скоро релиз```
+
+Machine 🪐 - 2020-04-28 09:43:18.306000
+!v _custom
+
+VocaTest - 2020-04-28 09:43:18.871000
+`Here is your dictionary file`
+
+VocaTest - 2020-04-28 09:43:19.124000
+`create_dm needed only once`
+
+VocaTest - 2020-04-28 10:16:24.597000
+```ты нужен людям```
+
+VocaBot - 2020-04-28 10:31:11.910000
+```ты нужен людям```
+
+Machine 🪐 - 2020-04-28 10:31:30.231000
+!v help n
+
+VocaBot - 2020-04-28 10:31:30.487000
+```
+!v n <R>
+
+[word].[translation].[key]adds new word in your dictionary. Key is not nessesarily
+
+```
+
+VocaBot - 2020-04-28 10:31:30.466000
+```
+!v n <R>
+
+[word].[translation].[key]adds new word in your dictionary. Key is not nessesarily
+
+```
+

@@ -9,6 +9,13 @@ import _repeat_class as rc #так можно делать reload(rc)!
 from _users_admission import is_user_allowed
 #from !cards import cards_imports_reload (! мешает импорту) 
 
+#load_dotenv()
+#TOKEN = os.getenv('VOCABOT_TOKEN') #unique bot token (must be secured)
+with open('DANGER_NSFGITHUB.txt', 'r') as F:
+    TOKEN = F.read()
+
+#!native не создает новую строку для пользователя
+#get_dirs_from_cloud - ошибка кодировки при записи файлов
 #НАСТРАИВАЕМ БАЗЫ ДАННЫХ НА ХЕРОКУ (ЧТОБЫ СЛОВАРИ НЕ УДАЛЯЛИСЬ ПРИ ПЕРЕЗАПУСКЕ)
 #service command: "delete bot messages"
 #help message only in DM
@@ -36,10 +43,7 @@ from _users_admission import is_user_allowed
 24 чел - действие в 12 сек(!). Для начала слоумод = 1 сек пойдет. Нужен еще и явный счетчик ивентов на случай, 
 если они вместе решат провести стресс-тест и (будут кликать каждую секунду) '''
 
-#load_dotenv()
-#TOKEN = os.getenv('VOCABOT_TOKEN') #unique bot token (must be secured)
-with open('DANGER_NSFGITHUB.txt', 'r') as F:
-    TOKEN = F.read()
+
 GUILD = 673968890325237771 #server name (ПК)
 
 bot_prefix = '!v ' #параметризовали префикс
@@ -56,7 +60,7 @@ async def on_ready(): #executes when connection made and data prepaired
             my_member = member
     if is_user_allowed(my_member.name): #am I even allowed lol (just in case)
         await my_member.create_dm()
-        await my_member.dm_channel.send("```скоро релиз```")
+        await my_member.dm_channel.send("```ты нужен людям```")
         print('start_dm_sent')
     else:
         print('that user is not allowed. Start dm was not send')
@@ -177,6 +181,29 @@ def str_to_status(argument):
 
 #-----------------------------------COMMANDS-------------------------------
 
+@bot.command(name = '_custom', help = 'staff only') #можно сюда пихать любую временную команду
+@is_me()
+async def getdirs(ctx): #посмотрим файлы в облаке
+    print('1')
+    with open('pull_listdir.txt', 'wb') as F:
+        for element in os.listdir():
+            F.write((element + '\n').encode('utf-8'))
+    print('2')
+    file = discord.File('pull_listdir.txt')
+    #await ctx.author.create_dm()
+    print('3')
+    await ctx.author.dm_channel.send('`Here is your dictionary file`', file = file)
+    await ctx.author.dm_channel.send('`create_dm needed only once`')
+    print('4')
+'''dict_file = discord.File(
+            f'_Dictionaries/of {cursedtea}.txt', filename = 'Tea card collection.txt')
+    await ctx.author.create_dm()
+    await ctx.author.dm_channel.send('`Here is your dictionary file`', file = dict_file)
+    
+    dict_file = discord.File(
+            f'_Dictionaries/of {cursedtea}.txt', filename = 'Tea card collection.txt')
+    await ctx.author.create_dm()
+    await ctx.author.dm_channel.send('`Here is your dictionary file`', file = dict_file)'''
 
 @bot.command(name = '_status', help = 'staff only') #status update
 @is_me() #в случае ошибки штатно срабатывает CheckFailure

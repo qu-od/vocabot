@@ -33,3 +33,42 @@ Type !v help command for more info on a command.
 You can also type !v help category for more info on a category.
 ```
 
+Machine 🪐 - 2020-04-28 08:46:19.942000
+!v dict 1
+
+VocaBot - 2020-04-28 08:46:20.474000
+`Dictionary has been sent in dms`
+
+VocaTest - 2020-04-28 08:46:21.136000
+`Dictionary has been sent in dms`
+
+Machine 🪐 - 2020-04-28 08:49:09.230000
+!v _status
+
+VocaBot - 2020-04-28 08:49:09.431000
+```UserInputError occured```
+
+VocaBot - 2020-04-28 08:49:09.625000
+```Not enough arguments for that command```
+
+VocaTest - 2020-04-28 08:49:09.687000
+```UserInputError occured```
+
+VocaTest - 2020-04-28 08:49:09.896000
+```Not enough arguments for that command```
+
+Machine 🪐 - 2020-04-28 08:49:31.309000
+!v _custom
+
+VocaBot - 2020-04-28 08:49:31.560000
+`you've entered wrong command`
+
+Machine 🪐 - 2020-04-28 09:12:26.192000
+!v foo
+
+Machine 🪐 - 2020-04-28 09:12:34.002000
+!v native ru
+
+VocaTest - 2020-04-28 09:12:34.362000
+`Native language has been changed to RU.`
+

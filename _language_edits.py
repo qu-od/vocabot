@@ -17,22 +17,26 @@ def get_langs_from_txt(): #прочесть словарь из файла (по
 def create_R_with_langs(name, user_langs):
     try: #если такого элемента еще нет, то создаем его, перехватывая keyError.
         ln = user_langs[name]
-    except KeyError:
+    except KeyError: #если юзер новенький - добавить строку
         user_langs[name] = ["none","none"]
         ln = user_langs[name]
     R = Repeat(ln[0],'none', ln[1],'none','none')
     return R
 
-def update_langs(l_n, user, tag, user_langs):#апдейтим  словарь (и его файл)
+def update_langs(l_n, name, tag, user_langs):#апдейтим  словарь (и его файл)
     if tag.startswith(' '):
         tag = tag.replace(" ",'',1)
     print(tag)
-    langs = user_langs[user] #pick dict element
+    try:
+        langs = user_langs[name] #pick dict element
+    except KeyError: #если юзер новенький - добавить строку
+        user_langs[name] = ["none","none"]
+        langs = user_langs[name]
     if l_n == 'language':
         langs[0] = tag
     if l_n == 'native':
         langs[1] = tag
-    user_langs[user] = langs #place changed dict element back
+    user_langs[name] = langs #place changed dict element back
     with open('langs.txt','wb') as F:
         for key in user_langs: #ключи это юзернеймы
             s = (key + " -||- " + user_langs[key][0] +

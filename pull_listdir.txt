@@ -1,0 +1,44 @@
+!bookish.py
+!cards.py
+!pics.py
+.git
+.gitignore
+.mypy_cache
+active_cards.txt
+assigned_bot_users.txt
+bckp2 of Machine 🪐.txt
+bot 0.0.1 (parse members or dm).py
+bot 0.0.2 (append to txt and read).py
+bot 0.0.3 (actual bot instead of client).py
+bot 0.1.0 (command decos).py
+bot 0.1.1 (cards, extensions, checks).py
+bot 0.1.2 (brushed).py
+bot_0.1.3_cogs_and_groups.py
+bot_modules_test.py
+b_0.1.1_mypy.py
+console_input_to_txt.py
+console_output_from_txt.py
+DANGER_NSFGITHUB.txt
+DANGER_NSFGITHUB_test.txt
+decos_test.py
+func_test.py
+func_test_2.py
+gitignore befoe her.txt
+help_message.txt
+langs.txt
+log_channel_ids.txt
+new_wplace.code-workspace
+pending_dict_deletion.txt
+Procfile
+pull_listdir.txt
+README.md
+requirements.txt
+test.txt
+whalecum.txt
+_Dictionaries
+_DMs_history
+_language_edits.py
+_repeat_class.py
+_Server_msg_hisory
+_users_admission.py
+__pycache__

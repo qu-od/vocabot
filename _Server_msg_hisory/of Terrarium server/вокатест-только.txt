@@ -1,0 +1,267 @@
+GAZelle - 2020-04-28 09:56:35.796000
+!v cards 1
+
+VocaTest - 2020-04-28 09:56:36.377000
+
+
+VocaTest - 2020-04-28 09:56:36.895000
+`Cards list has formed successfully
+cards from #1 to #1 have sent in dm`
+
+GAZelle - 2020-04-28 09:57:08.542000
+!v cards 4
+
+VocaTest - 2020-04-28 09:57:08.932000
+
+
+VocaTest - 2020-04-28 09:57:09.520000
+`Cards list has formed successfully
+cards from #4 to #4 have sent in dm`
+
+GAZelle - 2020-04-28 09:57:50.667000
+!v cards 2
+
+VocaTest - 2020-04-28 09:57:51.113000
+
+
+VocaTest - 2020-04-28 09:57:51.676000
+`Cards list has formed successfully
+cards from #2 to #2 have sent in dm`
+
+GAZelle - 2020-04-28 09:58:47.265000
+0
+
+GAZelle - 2020-04-28 09:58:47.632000
+0
+
+GAZelle - 2020-04-28 09:58:47.935000
+0
+
+GAZelle - 2020-04-28 09:58:48.274000
+0
+
+GAZelle - 2020-04-28 09:58:48.787000
+0
+
+GAZelle - 2020-04-28 09:58:49.121000
+0
+
+GAZelle - 2020-04-28 09:58:49.411000
+0
+
+GAZelle - 2020-04-28 09:58:49.750000
+0
+
+GAZelle - 2020-04-28 09:58:49.935000
+0
+
+GAZelle - 2020-04-28 09:58:50.281000
+0
+
+GAZelle - 2020-04-28 09:58:57.603000
+0
+
+GAZelle - 2020-04-28 09:58:57.927000
+.0
+
+GAZelle - 2020-04-28 09:58:58.206000
+0
+
+GAZelle - 2020-04-28 10:01:02.961000
+> *`||***~~help~~***||`*
+
+GAZelle - 2020-04-28 10:01:38.343000
+!v language EN
+
+GAZelle - 2020-04-28 10:03:11.989000
+!v native 100101010100101010101010101010100101
+
+VocaTest - 2020-04-28 10:03:12.380000
+`error: too long id`
+
+GAZelle - 2020-04-28 10:03:42.022000
+!v native 5i
+
+VocaTest - 2020-04-28 10:03:42.464000
+`error: non-alphabet symbol`
+
+Machine 🪐 - 2020-04-28 10:11:41.808000
+!v native rU
+
+Machine 🪐 - 2020-04-28 10:11:58.625000
+!v update
+
+Machine 🪐 - 2020-04-28 10:12:08.728000
+!v _update
+
+VocaTest - 2020-04-28 10:12:09.158000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-28 10:12:23.898000
+!v native rU
+
+GAZelle - 2020-04-28 10:14:36.926000
+!v language EN
+
+Machine 🪐 - 2020-04-28 10:14:40.799000
+!v native rU
+
+GAZelle - 2020-04-28 10:14:56.421000
+!v _update
+
+GAZelle - 2020-04-28 10:15:07.507000
+!v update
+
+Machine 🪐 - 2020-04-28 10:15:44.705000
+!v _update
+
+VocaTest - 2020-04-28 10:15:49.252000
+```Extensions have been updated```
+
+Machine 🪐 - 2020-04-28 10:16:04.133000
+!v native rU
+
+Machine 🪐 - 2020-04-28 10:16:36.828000
+!v native rU
+
+VocaTest - 2020-04-28 10:16:37.157000
+`Native language has been changed to RU.`
+
+GAZelle - 2020-04-28 10:16:58.495000
+!v language En
+
+VocaTest - 2020-04-28 10:16:58.908000
+`Foreign language has been changed to EN.`
+
+GAZelle - 2020-04-28 10:17:15.417000
+!v help
+
+VocaTest - 2020-04-28 10:17:15.777000
+```
+​No Category:
+  _confirm   service command
+  _pics_test pics extension
+  cards      [start] [end]. Sends cards from "start" to "end" in DMs.For gett...
+  cards_end  [n] [first/last] to get first/last n words in embed. n <= 5
+  clr_cards  Deletes your dictionary without backups
+  day_cards  [Mon.dd] sends cards created on that month and day.Example: "!v ...
+  del        deletes your last card from dictionary
+  dict       [page] sends list of words in dms
+  dict_txt   sends your dictionary file into dms
+  help       Shows this message
+  language   [ID] Sets up language for words. Max length: 5 symbols
+  n          [word].[translation].[key]adds new word in your dictionary. Key ...
+  native     [ID] Sets up language for translations. Max length: 5 symbols
+
+Type !v help command for more info on a command.
+You can also type !v help category for more info on a category.
+```
+
+GAZelle - 2020-04-28 10:18:10.710000
+!v n class. класс.
+
+VocaTest - 2020-04-28 10:18:11.117000
+`New card "class"-"класс" has been created`
+
+GAZelle - 2020-04-28 10:18:45.733000
+!v cards 1
+
+VocaTest - 2020-04-28 10:18:46.103000
+
+
+VocaTest - 2020-04-28 10:18:46.562000
+`Cards list has formed successfully
+cards from #1 to #1 have sent in dm`
+
+GAZelle - 2020-04-28 10:19:12.270000
+!v cards 2
+
+VocaTest - 2020-04-28 10:19:12.698000
+
+
+VocaTest - 2020-04-28 10:19:13.196000
+`Cards list has formed successfully
+cards from #2 to #2 have sent in dm`
+
+GAZelle - 2020-04-28 10:19:23.294000
+!v cards 3
+
+VocaTest - 2020-04-28 10:19:23.582000
+
+
+VocaTest - 2020-04-28 10:19:24.050000
+`Cards list has formed successfully
+cards from #3 to #3 have sent in dm`
+
+GAZelle - 2020-04-28 10:19:41.495000
+!v cards 1 4
+
+VocaTest - 2020-04-28 10:19:41.778000
+
+
+VocaTest - 2020-04-28 10:19:42.211000
+
+
+VocaTest - 2020-04-28 10:19:42.694000
+
+
+VocaTest - 2020-04-28 10:19:43.245000
+
+
+VocaTest - 2020-04-28 10:19:43.736000
+`Cards list has formed successfully
+cards from #1 to #4 have sent in dm`
+
+GAZelle - 2020-04-28 10:20:25.337000
+!v dict 1
+
+VocaTest - 2020-04-28 10:20:26.202000
+`Dictionary has been sent in dms`
+
+GAZelle - 2020-04-28 10:25:48.604000
+!v language UA🇺🇦
+
+VocaTest - 2020-04-28 10:25:49.430000
+`error: non-alphabet symbol`
+
+GAZelle - 2020-04-28 10:26:21.759000
+!v language UA
+
+VocaTest - 2020-04-28 10:26:22.125000
+`Foreign language has been changed to UA.`
+
+Machine 🪐 - 2020-04-28 10:26:25.645000
+!v language УкР
+
+VocaTest - 2020-04-28 10:26:25.959000
+`Foreign language has been changed to УКР.`
+
+Machine 🪐 - 2020-04-28 10:26:40.222000
+!v language en
+
+VocaTest - 2020-04-28 10:26:40.547000
+`Foreign language has been changed to EN.`
+
+GAZelle - 2020-04-28 10:26:49.670000
+!v language УКРАИНА
+
+VocaTest - 2020-04-28 10:26:49.942000
+`error: too long id`
+
+Machine 🪐 - 2020-04-28 10:27:16.224000
+!v help language
+
+VocaTest - 2020-04-28 10:27:16.614000
+```
+!v language <language>
+
+[ID] Sets up language for words. Max length: 5 symbols
+
+```
+
+GAZelle - 2020-04-28 10:27:32.581000
+!v language UA
+
+VocaTest - 2020-04-28 10:27:32.938000
+`Foreign language has been changed to UA.`
+
