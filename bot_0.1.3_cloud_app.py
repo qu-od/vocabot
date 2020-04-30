@@ -8,7 +8,7 @@ import _repeat_class as rc #так можно делать reload(rc)!
 from _users_admission import is_user_allowed
 #from !cards import cards_imports_reload (! мешает импорту) 
 
-версия_бота = 't'  #'b' for VocaBot 't' for VocaTest 
+версия_бота = 'b'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 #unique bot token (must be secured)
