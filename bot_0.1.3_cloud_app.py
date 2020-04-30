@@ -13,8 +13,6 @@ if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN')
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 #unique bot token (must be secured)
 
-#токены настроить и деплоить с гитхаба
-#listir in local. Set up tokens vars in cloud
 #НАСТРАИВАЕМ БАЗЫ ДАННЫХ НА ХЕРОКУ (ЧТОБЫ СЛОВАРИ НЕ УДАЛЯЛИСЬ ПРИ ПЕРЕЗАПУСКЕ)
 #user assigning via id
 #service command: "delete bot messages"
