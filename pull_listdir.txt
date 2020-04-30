@@ -18,8 +18,6 @@ bot_modules_test.py
 b_0.1.1_mypy.py
 console_input_to_txt.py
 console_output_from_txt.py
-DANGER_NSFGITHUB.txt
-DANGER_NSFGITHUB_test.txt
 decos_test.py
 func_test.py
 func_test_2.py

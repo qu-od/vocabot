@@ -6,7 +6,7 @@ from _repeat_class import Repeat
 def get_langs_from_txt(): #прочесть словарь из файла (по имени ключу получить пару языков)
     file = "langs.txt"
     with open (file, 'rb') as F:
-        user_langs = {}
+        user_langs = {}    
         for line in F:
             line_dcd = line.decode('utf-8')
             line_dcd = line_dcd.replace('\n','')
