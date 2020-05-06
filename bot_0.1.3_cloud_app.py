@@ -5,16 +5,18 @@ from importlib import reload
 from discord.ext import commands
 import _repeat_class as rc #так можно делать reload(rc)!
 #from _repeat_class import Repeat, fetch_active_card
-from _users_admission import is_user_allowed, init_user, create_table
+from _users_admission import is_user_allowed, init_user, create_table, delete_table
 #from !cards import cards_imports_reload (! мешает импорту) 
 
 версия_бота = 'b'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 
-#create_table() #эти две строки - временно
-#init_user('Machine 🪐', '303115719644807168')
-try: #ДИКИЙ КОСТЫЛЬ
+#UNCOMMENT NEXT LINES BEFORE DEPLOYING
+#delete_table()
+create_table()
+init_user('Machine 🪐', '303115719644807168')
+try: #костыль пока на бд не перешли
     with open('langs.txt', 'r') as F:
         a = F.read()
 except FileNotFoundError:
@@ -110,7 +112,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.ArgumentParsingError):
         await ctx.send('```ArgumentParsingError occured```')
     if isinstance(error, commands.ExtensionFailed): #NE ROBIT см. "update" command
-        await ctx.send('```ExtensionFailed ```')'''
+        await ctx.send('```ExtensionFailed```')'''
 
 @bot.event #делаем эмбед
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
@@ -245,7 +247,7 @@ def log_message(message): #вынесли сюда функцию ведения
     author = message.author
     print(f'--- message from {author} --- ')
     #print(f'--- message from {author} --- in {message.channel}\n{message.content}\n')
-    '''if type(message.channel) == discord.channel.DMChannel: 
+    r'''if type(message.channel) == discord.channel.DMChannel:
         name = message.channel.recipient.name #имя собеседника DM-канала
         with open(fR'_DMs_history\of {name}.txt', 'ab') as F:
             if author == bot.user:

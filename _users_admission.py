@@ -36,7 +36,7 @@ def init_user(name: str, user_id: str):
     conn.close()
 #далее функции для разрешения  на отдельные комманды
 
-def get_connection():
+def get_connection(): #на локалке и в облаке использует разные url 
     db_url = os.getenv('DATABASE_URL')
     if db_url == 'localhost':
         db_password = os.getenv('DATABASE_PASSWORD')
@@ -52,7 +52,7 @@ def create_table():
 
     name_Table = "allowed_users"
     sqlCreateTable = ("CREATE TABLE public." + name_Table + 
-    " (name character varying(50), id character varying(30), PRIMARY KEY (name));") 
+    " (name character varying(50), id character varying(30), PRIMARY KEY (id));") 
     cursor.execute(sqlCreateTable)
     conn.commit()
 
@@ -61,3 +61,11 @@ def create_table():
     tables = cursor.fetchall()
     for table in tables:
         print(table)
+
+def delete_table():
+    conn = get_connection()
+    cursor = conn.cursor()
+    name_Table = "allowed_users"
+    sqlDeleteTable = "DROP TABLE public." + name_Table
+    cursor.execute(sqlDeleteTable)
+    conn.commit()
