@@ -8,12 +8,18 @@ import _repeat_class as rc #так можно делать reload(rc)!
 from _users_admission import is_user_allowed, init_user, create_table
 #from !cards import cards_imports_reload (! мешает импорту) 
 
-версия_бота = 't'  #'b' for VocaBot 't' for VocaTest 
+версия_бота = 'b'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 
 #create_table() #эти две строки - временно
 #init_user('Machine 🪐', '303115719644807168')
+try: #ДИКИЙ КОСТЫЛЬ
+    with open('langs.txt', 'r') as F:
+        a = F.read()
+except FileNotFoundError:
+    with open('langs.txt', 'w') as F:
+        F.write('')
 
 #unique bot token (must be secured)
 
