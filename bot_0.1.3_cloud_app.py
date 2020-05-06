@@ -12,8 +12,8 @@ from _users_admission import is_user_allowed, init_user, create_table
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 
-create_table() #эти две строки - временно
-init_user('Machine 🪐', '303115719644807168')
+#create_table() #эти две строки - временно
+#init_user('Machine 🪐', '303115719644807168')
 
 #unique bot token (must be secured)
 
