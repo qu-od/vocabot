@@ -5,12 +5,16 @@ from importlib import reload
 from discord.ext import commands
 import _repeat_class as rc #так можно делать reload(rc)!
 #from _repeat_class import Repeat, fetch_active_card
-from _users_admission import is_user_allowed
+from _users_admission import is_user_allowed, init_user, create_table
 #from !cards import cards_imports_reload (! мешает импорту) 
 
 версия_бота = 't'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
+
+create_table() #эти две строки - временно
+init_user('Machine 🪐', '303115719644807168')
+
 #unique bot token (must be secured)
 
 #НАСТРАИВАЕМ БАЗЫ ДАННЫХ НА ХЕРОКУ (ЧТОБЫ СЛОВАРИ НЕ УДАЛЯЛИСЬ ПРИ ПЕРЕЗАПУСКЕ)
@@ -50,7 +54,7 @@ async def on_ready(): #executes when connection made and data prepaired
     for member in guild.members: #finding my "member"
         if member.name == "Machine 🪐":
             my_member = member
-    if is_user_allowed(my_member.name): #am I even allowed lol (just in case)
+    if is_user_allowed(my_member.id): #am I even allowed lol (just in case)
         await my_member.create_dm()
         await my_member.dm_channel.send("```скоро мама позовет```")
         print('start_dm_sent')
@@ -66,10 +70,10 @@ async def on_message(message): #saving of all dialogues
 
 @bot.check #global permission check
 def user_permission_check(ctx): #applying permitted users list
-    name = ctx.author.name #потом сделать проверку по [user snowflake id] и не парится
+    cmd_user_id = ctx.author.id #потом сделать проверку по [user snowflake id] и не парится
     #и получать его из сообщения/процедуры инициализации
     #print(f'author.name equals {name}') #почему этот принт срабатывает много раз после !vhelp?
-    return is_user_allowed(name) #возвращаем флаг для проверки
+    return is_user_allowed(cmd_user_id) #возвращаем флаг для проверки
 
 def is_me():#decorator for is_me check
     def is_me_check(ctx):
@@ -217,6 +221,16 @@ async def update_commands(ctx): #for updating commands during runtime
     #reload(is_user_allowed) 
     #cards_import_reload() #еще можно так обновить косвенные импорты 
     await ctx.send('```Extensions have been updated```')
+
+@bot.command(name = '_init_user', 
+    help = 'forms request on bot using. Need some time to be processed')
+@is_me()
+#на тесте (бот приватный) разрешения давать вручную
+#после того, как бот станет публичным, обслуживать юзеров с серверов-подписчиков
+async def admission_request(ctx, name: str, user_id: str):
+    init_user(name, user_id)
+    await ctx.send(f'```User {name} is allowed now```')
+    
 
 #--------------------------LIST OF FUNCTIONS---------------------------- 
 

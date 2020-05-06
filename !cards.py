@@ -225,13 +225,6 @@ async def clr_cards(ctx, ans: bool):
         await ctx.send("`Deletion failed sucсessfully`")
     #если bool converter не сработает (ни yes ни no), то выведеся BadArgumentError
 
-'''
-@commands.command(name = 'init_me', 
-    help = 'forms request on bot using. Need some time to be processed')
-#на тесте (бот приватный) разрешения давать вручную
-#после того, как бот станет публичным, обслуживать юзеров с серверов-подписчиков
-async def admission_request(ctx):
-    pass'''
 
 '''
 @commands.command(name = '', help = '')
@@ -281,7 +274,6 @@ def setup(bot):
     #bot.add_command(take_dict_back)
     bot.add_command(clr_cards_request)
     bot.add_command(clr_cards)
-    #bot.add_command(admission_request)
 
 def cards_imports_reload(): #для импорта в майн, нужно убрать ! из !cards.py
     reload(get_langs_from_txt)
