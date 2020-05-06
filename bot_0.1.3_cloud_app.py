@@ -237,9 +237,9 @@ async def admission_request(ctx, name: str, user_id: str):
 def log_message(message): #вынесли сюда функцию ведения стенограммы целиком
     time = message.created_at 
     author = message.author
-    #print(f'--- message from {author} --- ')
+    print(f'--- message from {author} --- ')
     #print(f'--- message from {author} --- in {message.channel}\n{message.content}\n')
-    if type(message.channel) == discord.channel.DMChannel: 
+    '''if type(message.channel) == discord.channel.DMChannel: 
         name = message.channel.recipient.name #имя собеседника DM-канала
         with open(fR'_DMs_history\of {name}.txt', 'ab') as F:
             if author == bot.user:
@@ -256,7 +256,7 @@ def log_message(message): #вынесли сюда функцию ведения
                 F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
             else:
                 F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
-    #еще есть типы каналов кроме DMChannel и TextChannel?
+    #еще есть типы каналов кроме DMChannel и TextChannel?'''
 
 def get_log_channel(guild: discord.guild, logs_type: str = 'general_logs') -> discord.TextChannel:
     if logs_type == 'general_logs':
