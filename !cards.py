@@ -114,8 +114,11 @@ async def send_particular_cards(ctx, start: int, end: int = None):
         'Example: "!v day_cards Apr 28". If empty, today date is implied')
 async def send_day_cards(ctx, date: mmdd_converter = None):
     if date == None: #внутри конвертера это не работает
-        month, day = time.asctime(time.gmtime()).split(' ')[1:3]
-        date = [time.strftime('%Y'), month, day] #это массив года, месяца и дня в строгом формате
+        print(time.asctime(time.gmtime()))
+        date = [time.strftime('%Y'), time.strftime(f'%b'), 
+            str(int(time.strftime(f'%d')))] #это массив года, месяца и дня в строгом формате
+        #это массив года, месяца и дня в строгом формате str-int УБИРАЕТ НОЛЬ В НАЧАЛЕ
+        print(date, 'DATE FORMED IN COMMAND')
     repeat_list = [] #чтобы при FileNotFoundError лист был определен для create_cards 
     try:
         with open('_Dictionaries/of ' + ctx.author.name + '.txt','r') as F:
@@ -275,7 +278,7 @@ def setup(bot):
     bot.add_command(clr_cards_request)
     bot.add_command(clr_cards)
 
-def cards_imports_reload(): #для импорта в майн, нужно убрать ! из !cards.py
+'''def cards_imports_reload(): #для импорта в майн, нужно убрать ! из !cards.py
     reload(get_langs_from_txt)
     reload(rc.cards_from_dict_end)
     reload(rc.cards_from_dict_day)
@@ -283,4 +286,4 @@ def cards_imports_reload(): #для импорта в майн, нужно уб�
     reload(rc.delete_last_card)
     reload(get_langs_from_txt)
     reload(create_R_with_langs)
-    reload(update_langs)
+    reload(update_langs)'''

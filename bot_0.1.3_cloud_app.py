@@ -5,17 +5,17 @@ from importlib import reload
 from discord.ext import commands
 import _repeat_class as rc #так можно делать reload(rc)!
 #from _repeat_class import Repeat, fetch_active_card
-from _users_admission import is_user_allowed, init_user, create_table, delete_table
+import _users_admission as ua
+#from _users_admission import is_user_allowed, init_user
+from _database import create_table, delete_table
 #from !cards import cards_imports_reload (! мешает импорту) 
 
-версия_бота = 'b'  #'b' for VocaBot 't' for VocaTest 
+версия_бота = 't'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 
-#UNCOMMENT NEXT LINES BEFORE DEPLOYING
-#delete_table()
-create_table()
-init_user('Machine 🪐', '303115719644807168')
+#delete_table('test_table') TEST LINE
+#create_table('test_table') TEST LINE
 try: #костыль пока на бд не перешли
     with open('langs.txt', 'r') as F:
         a = F.read()
@@ -23,25 +23,17 @@ except FileNotFoundError:
     with open('langs.txt', 'w') as F:
         F.write('')
 
-#unique bot token (must be secured)
-
-#НАСТРАИВАЕМ БАЗЫ ДАННЫХ НА ХЕРОКУ (ЧТОБЫ СЛОВАРИ НЕ УДАЛЯЛИСЬ ПРИ ПЕРЕЗАПУСКЕ)
-#user assigning via id
-#service command: "delete bot messages"
-#help message customisation (embed, only in DM, hide _staff_only_cmds)
-#прочитать "twelve-factor app"
-#RENEGATTO COMPRENDO CHITAT' REVIEW
+#НАСТРАИВАЕМ ОСТАЛЬНЫЕ БД ВМЕСТО ФАЙЛИКОВ (сначала карточки, потом логи)
+#help message customisation (embed, send in DM not in server)
 #прочитать про декораторы
-
+#RENEGATTO COMPRENDO CHITAT' DMs
 #категории комманд (и ивентов - listenerov?) (extentions & cogs)
 #events тоже раскидать по файлам (логично, если реакции для bookish будут в bookish)
-#message logging via "nonce"
-#использовать "nonce" вместо "message/user.ID" при кэшировании в файлы 
 #проследить, как работает R после разбиения на @commands
 #done with 0.1.3 --- next ver: bot 0.2.0 (sql database). Then 0.2.1 (pics sending)
 
 #РефАкТоРитЬ (начиная с билт-ин методов и заканчивая новыми функциями, типами, [суб]классами)
-#продумать систему бэкапов логов_сообщений, словарей и langs (автоматический уровень + ручной уровень)
+#продумать систему бэкапов всех таблиц баз данных (автоматический уровень + ручной уровень)
 #отправить картинку (чиатй FAQ почаще)
 '''сделать защиту от спама (максимум - 120 действий за минуту, т. е. 6 чел - действие 3 секунды, 
 24 чел - действие в 12 сек(!). Для начала слоумод = 1 сек пойдет. Нужен еще и явный счетчик ивентов на случай, 
@@ -62,7 +54,7 @@ async def on_ready(): #executes when connection made and data prepaired
     for member in guild.members: #finding my "member"
         if member.name == "Machine 🪐":
             my_member = member
-    if is_user_allowed(my_member.id): #am I even allowed lol (just in case)
+    if ua.is_user_allowed(my_member.name, my_member.id): #am I even allowed lol (just in case)
         await my_member.create_dm()
         await my_member.dm_channel.send("```скоро мама позовет```")
         print('start_dm_sent')
@@ -78,10 +70,8 @@ async def on_message(message): #saving of all dialogues
 
 @bot.check #global permission check
 def user_permission_check(ctx): #applying permitted users list
-    cmd_user_id = ctx.author.id #потом сделать проверку по [user snowflake id] и не парится
-    #и получать его из сообщения/процедуры инициализации
     #print(f'author.name equals {name}') #почему этот принт срабатывает много раз после !vhelp?
-    return is_user_allowed(cmd_user_id) #возвращаем флаг для проверки
+    return ua.is_user_allowed(ctx.author.name, ctx.author.id) #возвращаем флаг для проверки
 
 def is_me():#decorator for is_me check
     def is_me_check(ctx):
@@ -209,6 +199,22 @@ async def getdirs(ctx): #посмотрим файлы в облаке
     await ctx.author.create_dm()
     await ctx.author.dm_channel.send('`Here is your dictionary file`', file = dict_file)'''
 
+@bot.command(name = '_init_user', 
+    help = '[name] [id] for user initialization')
+@is_me()
+#на тесте (пока бот приватный) разрешения давать вручную
+#после того, как бот станет публичным, обслуживать юзеров с серверов-подписчиков
+async def admit_user(ctx, name: str, snowflake_id: str):
+    info = ua.init_user(name, snowflake_id)
+    await ctx.send(f'`{info}`')
+
+@bot.command(name = '_block_user', help = '[id] [name: Optional]' + 
+    'for blocking user with this id. Or just to log new user without admission')
+@is_me() 
+async def block_user(ctx, snowflake_id: str, name: str = None):
+    info = ua.block_user(name, snowflake_id)
+    await ctx.send(f'`{info}`')
+
 @bot.command(name = '_status', help = 'staff only') #status update
 @is_me() #в случае ошибки штатно срабатывает CheckFailure
 async def status_setup(ctx, status_input: str_to_status, *args):
@@ -218,27 +224,23 @@ async def status_setup(ctx, status_input: str_to_status, *args):
 @bot.command(name = '_update', help = 'staff only')
 @is_me()
 async def update_commands(ctx): #for updating commands during runtime
-    #try:
-    ctx.bot.reload_extension('!bookish')
-    #except: 
-    ctx.bot.reload_extension('!pics')
-    ctx.bot.reload_extension('!cards')
-    reload(rc)
-    #reload(Repeat) #как бы перезагрузить сразу все..
-    #reload(fetch_active_card)
-    #reload(is_user_allowed) 
-    #cards_import_reload() #еще можно так обновить косвенные импорты 
-    await ctx.send('```Extensions have been updated```')
-
-@bot.command(name = '_init_user', 
-    help = 'forms request on bot using. Need some time to be processed')
-@is_me()
-#на тесте (бот приватный) разрешения давать вручную
-#после того, как бот станет публичным, обслуживать юзеров с серверов-подписчиков
-async def admission_request(ctx, name: str, user_id: str):
-    init_user(name, user_id)
-    await ctx.send(f'```User {name} is allowed now```')
-    
+    try:
+        ctx.bot.reload_extension('!bookish')
+        ctx.bot.reload_extension('!pics')
+        ctx.bot.reload_extension('!cards')
+    except commands.ExtensionFailed: 
+        await ctx.send('```Some error in command-extentions being reloaded```')
+        return
+    try: 
+        reload(rc) #update _repeat_class module
+        reload(ua) #update _users_admission module
+        #reload(fetch_active_card) #как бы перезагружать функции из импорта а не модули..
+        #!cards.cards_import_reload() #еще хотелось бы так обновить косвенные импорты 
+        #восклицательный знак запрещает import !cards 
+    except Exception:
+        await ctx.send('```Some error in modules being reloaded```')
+        return
+    await ctx.send('```Extensions have been updated successfully```')
 
 #--------------------------LIST OF FUNCTIONS---------------------------- 
 

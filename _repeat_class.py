@@ -159,14 +159,15 @@ def cards_from_dict_array(F, raw_start: int, raw_end: int): #слить с пр�
 def cards_from_dict_day(F, date: List[str]): #удобно, если мало слов
     info = f'Cards created on {date[1]} the {date[2]} have sent in dm'
     list_R = read_all_R_from_dict(F)
-    date_R = [] 
-    date_R = list(filter(lambda R: is_requested_date(R, date), list_R))
-    if len(date_R) > 5: 
-        date_R = date_R[:5]  #ОГРАНИЧЕНИЕ НА ДЛИНУ: 5
-        info = 'First cards for this date sent in dm\nUse "dict" command to get more'
-    if len(date_R) == 0:
+    dated_R = [] 
+    dated_R = list(filter(lambda R: is_requested_date(R, date), list_R))
+    print(dated_R, 'DATED_R LIST IN RC FUNC')
+    if len(dated_R) > 5: 
+        dated_R = dated_R[:5]  #ОГРАНИЧЕНИЕ НА ДЛИНУ: 5
+        info = 'First 5 cards for this date sent in dm\nUse "dict" command to get more'
+    if len(dated_R) == 0:
         info = 'There are no cards for this date'
-    return date_R, info
+    return dated_R, info
 
 def cards_from_dict_end(F, number: int): #, *, start = None, end = None):
     raw_number = number
@@ -240,6 +241,9 @@ def dm_format(R): #общие костыли для удобного отобр�
 def is_requested_date(R: Repeat, date: List[str]):
     ans = False
     R_dttm_list = R.datetime.split(' ')
+    if R_dttm_list[2] == '': #если месяц однозначный
+        R_dttm_list = R_dttm_list[:2] + R_dttm_list[3:] #удаляем этот пустой элемент
+        print(R_dttm_list[0:3])
     if (R_dttm_list[1] == date[1] and R_dttm_list[2] == date[2] 
         and R_dttm_list[4] == date[0]):
         ans = True
