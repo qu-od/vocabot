@@ -29,9 +29,9 @@ def cursor_exec_select(query: str) -> List[tuple]:
     conn.close()
     return ans #возвращает лист тьюплов в любом случае
 
-def cursor_exec_edit(query: str, info = None):
+def cursor_exec_edit(query: str, info: str = None):
     with get_connection() as conn:
-        with conn.cursor as cursor:
+        with conn.cursor() as cursor:
             cursor.execute(query)
     conn.close()
 

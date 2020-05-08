@@ -7,15 +7,16 @@ import _repeat_class as rc #так можно делать reload(rc)!
 #from _repeat_class import Repeat, fetch_active_card
 import _users_admission as ua
 #from _users_admission import is_user_allowed, init_user
-from _database import create_table, delete_table
+import _language_edits as le
+import _database as db
 #from !cards import cards_imports_reload (! мешает импорту) 
 
-версия_бота = 't'  #'b' for VocaBot 't' for VocaTest 
+версия_бота = 'b'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 
-#delete_table('test_table') TEST LINE
-#create_table('test_table') TEST LINE
+#db.delete_table('test_table') TEST LINE
+#db.create_table('test_table') TEST LINE
 try: #костыль пока на бд не перешли
     with open('langs.txt', 'r') as F:
         a = F.read()
@@ -233,7 +234,9 @@ async def update_commands(ctx): #for updating commands during runtime
         return
     try: 
         reload(rc) #update _repeat_class module
+        reload(le) #update _language_edits module
         reload(ua) #update _users_admission module
+        reload(db) #update _database module
         #reload(fetch_active_card) #как бы перезагружать функции из импорта а не модули..
         #!cards.cards_import_reload() #еще хотелось бы так обновить косвенные импорты 
         #восклицательный знак запрещает import !cards 
