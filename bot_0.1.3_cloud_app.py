@@ -10,21 +10,26 @@ import _users_admission as ua
 import _language_edits as le
 import _database as db
 #from !cards import cards_imports_reload (! мешает импорту) 
+#sql запросы написаны в одну строку (т. е. есть опасность sql-injection)
 
-версия_бота = 'b'  #'b' for VocaBot 't' for VocaTest 
+версия_бота = 't'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 
-#db.delete_table('test_table') TEST LINE
-#db.create_table('test_table') TEST LINE
-try: #костыль пока на бд не перешли
-    with open('langs.txt', 'r') as F:
-        a = F.read()
-except FileNotFoundError:
-    with open('langs.txt', 'w') as F:
-        F.write('')
 
-#НАСТРАИВАЕМ ОСТАЛЬНЫЕ БД ВМЕСТО ФАЙЛИКОВ (сначала карточки, потом логи)
+#BUG: карточки отваливаются через некоторое время (когда соединение прерывается)
+#Попробовать восстанавливать активные карточки на on_ready(). Взяв эти сообщения в кэш снова
+
+#поставить себе линию на 80-том столбце в VSC, чтоб не смотреть каждый раз на номер колонки
+#datetime in active_cards (time instead of char_var). НУЖНО ДЛЯ СОРТИРОВКИ
+#ПОКА-ЧТО В ЮЗЕР_НЕЙМ СТОЛБЕЦ СЛОВАРЕЙ БУДЕМ ПИСАТЬ ИНКРЕМЕНТ (ЦИФЕРКУ В ФОРМАТЕ СТРОКИ)
+'''переделать все варианты None именно в NoneType, а не str. В бд это будет null. 
+    Только надо переписать запросы вместе с %s'''
+#проверку if len == 1 при запросах SELECT .. WHERE заменить на что-то более осмысленное
+#добавить во все Dict.tables имя пользователя куда-то на видное место (коммент например)
+#ПОЧИТАТЬ ПЕП (например про то, как переносить длинные строки)
+#проверить все МУПУем
+#написать FIND()
 #help message customisation (embed, send in DM not in server)
 #прочитать про декораторы
 #RENEGATTO COMPRENDO CHITAT' DMs
@@ -108,8 +113,9 @@ async def on_command_error(ctx, error):
 @bot.event #делаем эмбед
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
     msg_id = reaction.message.id
-    if user == bot.user: return
-    R = rc.fetch_active_card(msg_id)
+    if user == bot.user: return #если бот не сам поставил эту реакцию
+    if reaction.emoji != '🔁': return #если эмодзи именно это
+    R = rc.fetch_active_card(msg_id) #ищем это сообщ в БД сообщений-карточек
     if R == None: return #значит он пустой и карточка не найдена
     await reaction.message.edit(embed = R.dm_embed_card('translation'))
 
@@ -117,6 +123,7 @@ async def on_reaction_add(reaction, user): #leads to card flip on 'translation' 
 async def on_reaction_remove(reaction, user): #flips card_message on 'word' side again
     msg_id = reaction.message.id
     if user == bot.user: return
+    if reaction.emoji != '🔁': return
     R = rc.fetch_active_card(msg_id)
     if R == None: return #значит он пустой и карточка не найдена
     await reaction.message.edit(embed = R.dm_embed_card('word'))
@@ -179,17 +186,13 @@ def str_to_status(argument):
 @bot.command(name = '_custom', help = 'staff only') #можно сюда пихать любую временную команду
 @is_me()
 async def getdirs(ctx): #посмотрим файлы в облаке
-    print('1')
     with open('pull_listdir.txt', 'wb') as F:
         for element in os.listdir():
             F.write((element + '\n').encode('utf-8'))
-    print('2')
     file = discord.File('pull_listdir.txt')
     #await ctx.author.create_dm()
-    print('3')
     await ctx.author.dm_channel.send('`Here is your dictionary file`', file = file)
     await ctx.author.dm_channel.send('`create_dm needed only once`')
-    print('4')
 '''dict_file = discord.File(
             f'_Dictionaries/of {cursedtea}.txt', filename = 'Tea card collection.txt')
     await ctx.author.create_dm()
@@ -200,7 +203,7 @@ async def getdirs(ctx): #посмотрим файлы в облаке
     await ctx.author.create_dm()
     await ctx.author.dm_channel.send('`Here is your dictionary file`', file = dict_file)'''
 
-@bot.command(name = '_init_user', 
+@bot.command(name = '_init', 
     help = '[name] [id] for user initialization')
 @is_me()
 #на тесте (пока бот приватный) разрешения давать вручную
@@ -209,7 +212,7 @@ async def admit_user(ctx, name: str, snowflake_id: str):
     info = ua.init_user(name, snowflake_id)
     await ctx.send(f'`{info}`')
 
-@bot.command(name = '_block_user', help = '[id] [name: Optional]' + 
+@bot.command(name = '_block', help = '[id] [name: Optional]' + 
     'for blocking user with this id. Or just to log new user without admission')
 @is_me() 
 async def block_user(ctx, snowflake_id: str, name: str = None):
@@ -281,18 +284,10 @@ def get_log_channel(guild: discord.guild, logs_type: str = 'general_logs') -> di
 
 def create_folders():
     dirs = os.listdir()
-    if ('_Dictionaries' in dirs) == False:
-        os.mkdir('_Dictionaries')
     if ('_DMs_history' in dirs) == False:
         os.mkdir('_DMs_history')
     if ('_Server_msg_hisory' in dirs) == False:
         os.mkdir('_Server_msg_hisory')
-
-def clear_cache(): #удаляем содержимое файлов (по сути - подготовка глобальных переменных)
-    with open('active_cards.txt', 'w') as F:
-        F.write('') 
-    with open('pending_dict_deletion.txt', 'w') as F:
-        F.write('')
 
 #------------------------ВОТ PARAMETERS AND START UP----------------------------
 
@@ -300,9 +295,5 @@ bot.load_extension('!cards') #подключаем команды
 bot.load_extension('!bookish')
 bot.load_extension('!pics') 
 create_folders() #создаем папки для логов, если их не было
-clear_cache() #чистка кэша карточек чтобы не обманываться 
-#на счет соответствия настоящего кэша и списка id.
-#ЧСХ при вызове !clr_cards эту функ. не вызываем
-#а значит карточки из кэша не пропадают до перезапуска бота 
 
 bot.run(TOKEN)

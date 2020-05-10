@@ -1,45 +1,22 @@
 from _repeat_class import Repeat
+from _database import cursor_exec_select, cursor_exec_edit
+  
 
-#заменили global user_langs на аргумент get_langs_from_txt()
-#это выглядит громоздко (можно передавать только нужную строку в кач-ве аргумента)
+def create_R_with_langs(user_id: str):
+    #прочтем словарь из таблички (по имени ключу получить пару языков
+    lines = cursor_exec_select(f"SELECT * FROM langs_config WHERE user_id = '{user_id}'")
+    #запись в бд должна быть, ведь юзер вызвал команду, значит он инициализирован
+    #поэтому проверку if len(lines) == 0: не делаем. Ловим баги 
+    language, native = lines[0][2], lines[0][3] #language, native: str
+    return Repeat(language, None, native, None, None)
 
-def get_langs_from_txt(): #прочесть словарь из файла (по имени ключу получить пару языков)
-    file = "langs.txt"
-    with open (file, 'rb') as F:
-        user_langs = {}    
-        for line in F:
-            line_dcd = line.decode('utf-8')
-            line_dcd = line_dcd.replace('\n','')
-            s = line_dcd.split(" -||- ")
-            user_langs[s[0]] = [s[1], s[2]]
-    return user_langs
-
-def create_R_with_langs(name, user_langs):
-    try: #если такого элемента еще нет, то создаем его, перехватывая keyError.
-        ln = user_langs[name]
-    except KeyError: #если юзер новенький - добавить строку
-        user_langs[name] = ["none","none"]
-        ln = user_langs[name]
-    R = Repeat(ln[0],'none', ln[1],'none','none')
-    return R
-
-def update_langs(l_n, name, tag, user_langs):#апдейтим  словарь (и его файл)
-    if tag.startswith(' '):
-        tag = tag.replace(" ",'',1)
-    print(tag)
-    try:
-        langs = user_langs[name] #pick dict element
-    except KeyError: #если юзер новенький - добавить строку
-        user_langs[name] = ["none","none"]
-        langs = user_langs[name]
-    if l_n == 'language':
-        langs[0] = tag
-    if l_n == 'native':
-        langs[1] = tag
-    user_langs[name] = langs #place changed dict element back
-    with open('langs.txt','wb') as F:
-        for key in user_langs: #ключи это юзернеймы
-            s = (key + " -||- " + user_langs[key][0] +
-                    " -||- " + user_langs[key][1] + "\n")
-            bytes_str = s.encode('utf-8')
-            F.write(bytes_str)
+def update_langs(user_id: str, tag: str, l_or_n: str):
+    #if tag.startswith(' '):
+    #    tag = tag.replace(" ",'',1) #ВОЗМОЖНА ОШИБКА ПРИ ПЕРЕВОРОТЕ КАРТОЧКИ
+    print(tag) 
+    if l_or_n == 'language': #update foreign language tag in db (for words)
+        cursor_exec_edit(f"UPDATE langs_config SET language = '{tag}' " +
+            f"WHERE user_id = '{user_id}'")
+    elif l_or_n == 'native': #update native language tag in db (for translations)
+        cursor_exec_edit(f"UPDATE langs_config SET native = '{tag}' " +
+            f"WHERE user_id = '{user_id}'") 

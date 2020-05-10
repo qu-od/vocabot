@@ -2,6 +2,7 @@ import time
 import discord
 from typing import List, Union
 from math import fabs, copysign
+from _database import cursor_exec_select, cursor_exec_edit
 
 ''' язык, слово, перевод, комментарий, дата и время.
  в целом нужно будет native language выбрать. Часовой пояс знать не нужно,
@@ -20,7 +21,7 @@ class Repeat():
         self.native = nl
         self.translation = t
         self.key = k
-        self.datetime = time.asctime(time.gmtime())
+        self.datetime = time.asctime(time.gmtime()) #UTC +0
 
     def info(self):
         s = f" {self.language}: {self.word} --- {self.native}:" \
@@ -50,6 +51,7 @@ class Repeat():
     def dm_input(self,s):
         s = s.split(".")
         #удаляем пробелы с переди строк-переменных (если они там стоят)
+        #пробелы могут быть, из-за точек. После них юзеру хочется поставить пробел
         if s[1].startswith(" "):
             s[1] = s[1].replace(" ",'',1)
         print('dm_input:', s)
@@ -60,11 +62,29 @@ class Repeat():
                 s[2] = s[2].replace(" ",'',1) 
             self.key = s[2]
         except IndexError:
-            self.key = 'none'
-            print('DM_INPUT() key left "none"')
+            self.key = None
+            print('DM_INPUT() key = None')
         self.datetime = time.asctime(time.gmtime())
 
-    def append_to_txt(self,F):
+    #ВОТ ТУТ NONE НУЖНО В NULL. ОДНОСТРОЧНЫМ ЗАПРОСОМ ЭТОГО НЕ СДЕЛАТЬ
+    def append_to_db(self, user_id: str, user_name: str):
+        #ЖИИРНЫЙ КОСТЫЫЫЛЬ, ПОКА НЕ ОСВОИЛИ sql.timestamp:
+        #ПИШЕМ В СТОЛБЕЦ NAME ИНДЕКС ДЛЯ СОРТИРОВКИ ПО ВРЕМЕНИ СОЗДАНИЯ
+        #ИНДЕКСЫ В ЭТОЙ КОЛОНКЕ НАДО СОХРАНИТЬ УНИКАЛЬНЫМИ
+        lines = cursor_exec_select("SELECT user_name FROM " +
+            f"dictionaries._{user_id} ORDER BY user_name") #ascending sort by default
+        try: 
+            last_index = int(lines[-1][0]) + 1 #первый элемент в последнем тьюпле листа lines
+        except IndexError: #если словарь был пуст и строк не было
+            print('МЯУ! СТРОК В СЛОВАРЕ НЕТУ! ЗАПИШУ СТРОКУ С ЕДИНИЧКОЙ')
+            last_index = 1
+        cursor_exec_edit(f"INSERT INTO dictionaries._{user_id} VALUES "
+            #+ f"('{user_name}', '{self.language}', '{self.word}', " #_СО ВРЕМЕНЕМ_ ВЕРНЕМ ЭТО
+            + f"('{str(last_index)}', '{self.language}', '{self.word}', "
+            + f"'{self.native}', '{self.translation}', '{self.key}', "
+            + f"'{self.datetime}')")
+
+    def append_to_txt(self, F):
         F.write(f"---OBJECT--- -||- {self.language} -||- {self.word} -||- " \
                 f"{self.native} -||- {self.translation}\nKEY: -||- {self.key}\n" \
                 f"CREATED: -||- {self.datetime}\n\n")
@@ -111,33 +131,30 @@ class Repeat():
                     colour = discord.Colour.dark_blue())
         return embed
 
-    def append_active_card(self, msg_id: int):
-        with open('active_cards.txt', 'a') as F: #log card and R inatance in one line
-            s = (f'{str(msg_id)} -||- {self.language} -||- {self.word} -||- ' +
-                f'{self.native} -||- {self.translation} -||- {self.key} -||- {self.datetime}\n')
-            F.write(s)
+    def append_active_card(self, msg_id: str, user_name: str, user_id: str):
+        query = (f"INSERT INTO active_cards VALUES ('{msg_id}', '{user_name}', " +
+        f"'{user_id}', '{self.language}', '{self.word}', '{self.native}', " +
+        f"'{self.translation}', '{self.key}', '{self.datetime}')")
+        cursor_exec_edit(query)
+    
 #-------------------------------End of class description----------------            
 
 def fetch_active_card(msg_id: int):
     #check whether this message is an active card or not. If yes - read R
     #при отключении кэш сообщений пропадает и on reaction не работает
-        with open('active_cards.txt', 'r') as F: 
-            for line in F:
-                line = line.replace('\r','')
-                line = line.replace('\n','')
-                if line.split(' -||- ', 1)[0] == str(msg_id):
-                    s = line.split(' -||- ')
-                    R = Repeat(s[1], s[2], s[3], s[4], s[5])
-                    R.datetime = s[6]
-                    return R
-        return None #если цикл прошел и msg_id не найдено в файле
+    lines = cursor_exec_select(f"SELECT * FROM active_cards WHERE msg_id = '{str(msg_id)}'")
+    if len(lines) == 1: #если ответ есть
+        l = lines[0] #извлекли тьюпл из листа
+        R = Repeat(l[3], l[4], l[5], l[6], l[7])
+        R.datetime = l[8]
+        return R
+    return None #если цикл прошел и msg_id не найдено в файле
 
-def cards_from_dict_array(F, raw_start: int, raw_end: int): #слить с предыд. функ?
+def cards_from_dict_array(user_id: str, raw_start: int, raw_end: int): #слить с предыд. функ?
     start, end, = raw_start, raw_end #raw_end от юзера ВКЛЮЧИТЕЛЬНО 
     list_R, slice_R =  [], [] 
     list_R.append(Repeat(None, None, None, None, None))#забили нулевой элемент, чтобы индексы начинались с 1
-    print(list_R[0].info())
-    list_R = list_R + read_all_R_from_dict(F) #сохраняем нулевой элемент
+    list_R = list_R + read_all_R_from_dict_table(user_id) #сохраняем нулевой элемент
     info = 'Cards list has formed successfully' #по умолчанию все хорошо
     #indexes_R = range(0, len(list_R))
     if raw_end < raw_start: #если границы перепутаны, перевернем их
@@ -150,33 +167,32 @@ def cards_from_dict_array(F, raw_start: int, raw_end: int): #слить с пр�
         end = len(list_R) - 1
     if len(range(start, end)) > 5: #если все еще больше пяти
         info = "You've requested too much cards (more than 5)"
-        end = start + 5
+        end = start + 4
     index_list = range(start, end + 1) #чтобы включительно брать
     for i in index_list: #в общем случае тут могут быть ЛЮБЫЕ индексы
         slice_R.append(list_R[i])
     return slice_R, info, start, end
 
-def cards_from_dict_day(F, date: List[str]): #удобно, если мало слов
-    info = f'Cards created on {date[1]} the {date[2]} have sent in dm'
-    list_R = read_all_R_from_dict(F)
+def cards_from_dict_day(user_id: str, date: List[str]): #удобно, если мало слов
+    info = f'Cards created on {date[1]} the {date[2]} have sent in dm. '
+    list_R = read_all_R_from_dict_table(user_id)
     dated_R = [] 
     dated_R = list(filter(lambda R: is_requested_date(R, date), list_R))
-    print(dated_R, 'DATED_R LIST IN RC FUNC')
     if len(dated_R) > 5: 
-        dated_R = dated_R[:5]  #ОГРАНИЧЕНИЕ НА ДЛИНУ: 5
-        info = 'First 5 cards for this date sent in dm\nUse "dict" command to get more'
+        dated_R = dated_R[:5] #максимум 5 карточек
+        info += 'First 5 cards for this date sent in dm\nUse "dict" to see all at once'
     if len(dated_R) == 0:
         info = 'There are no cards for this date'
     return dated_R, info
 
-def cards_from_dict_end(F, number: int): #, *, start = None, end = None):
+def cards_from_dict_end(user_id: str, number: int): #, *, start = None, end = None):
     raw_number = number
     info = 'Cards has formed successfully' #по умолчанию все хорошо
-    list_R = read_all_R_from_dict(F)
+    list_R = read_all_R_from_dict_table(user_id)
     cut_list_R = []
     if fabs(number) > 5:
         info = "Too much cards requested in one command (more than 5)"
-        number = int(copysign(10, raw_number)) #знак сохраняем
+        number = int(copysign(5, raw_number)) #знак сохраняем
     if fabs(number) > len(list_R): #если все еще больше длины словаря
         #если меньше десяти карточек в словаре
         info = "You don't have enough cards"
@@ -198,37 +214,45 @@ def cards_from_dict_end(F, number: int): #, *, start = None, end = None):
         cut_list_R.append(list_R[i])
     return cut_list_R, info
 
-def delete_last_card(F, user_name: str):
-    list_R = read_all_R_from_dict(F)
+def delete_last_card(user_id: str):
+    #word is a key var in dict-tables
+    list_R = read_all_R_from_dict_table(user_id) #ОНИ СОРТИРОВАНЫ _ПО ИНДЕКСУ_ 
+    #_СО ВРЕМЕНЕМ_ ВЫБИРАТЬ ПОСЛЕДНЮЮ СТРОКУ СОРТИРОВКОЙ ПО СТОЛБЦУ ВРЕМЕНИ
     if len(list_R) > 0: #если вообще карточки в словаре есть. (если нет - ПОФИГУ)
-        new_list_R = list_R[:-1] #удаление последнего элемента
-        F.close() #вроде работает без этой строки, но оставлю ее
-        with open('_Dictionaries/of ' + user_name + '.txt','w') as F_rewrite: 
-            for R in new_list_R:
-                R.append_to_txt(F_rewrite)
-    return list_R[-1]
+        newest_R = list_R[-1]
+        cursor_exec_edit(f"DELETE FROM dictionaries._{user_id} WHERE word = '{newest_R.word}'")
+    else: #если в словаре пусто
+        print('МЯУ! rc.delete_last_cards_upd : В СЛОВАРЕ ПУСТО')
+    return newest_R #самая новая карточка (САМЫЙ БОЛЬШОЙ ИНДЕКС)
 
-def read_all_R_from_dict(F):
-    list_R = []
-    #достаточно ли слов в словаре для запроса или нет. Или словарь пуст
-    for line in F:
-        line = line.replace('\n','')
-        line = line.replace('\r','')
-        if line.startswith("---OBJECT---"):
-            R = Repeat("none","none","none","none","none")
-            s = line.split(" -||- ")
-            R.language = s[1]
-            R.word = s[2]
-            R.native = s[3]
-            R.translation = s[4]
-        if line.startswith("KEY:"):
-            s = line.split(" -||- ")
-            R.key = s[1]
-        if line.startswith("CREATED:"):
-            s = line.split(" -||- ")
-            R.datetime = s[1]
-            list_R.append(R) # добавление только после считывания времени
+def read_all_R_from_dict_table(user_id: str):
+    list_R: List[Repeat] = []
+    lines = cursor_exec_select(f"SELECT * FROM dictionaries._{user_id} "
+        + "ORDER BY user_name") #сорт по возрастанию индекса (ПОТОМ ВРЕМЕНИ)
+    for line in lines: #итерация по листу тьюплов
+        R = Repeat(*line[1:6]) #TEST UNPACK LIST
+        R.datetime = line[6] 
+        list_R.append(R)
     return list_R
+
+    #list_R = [] #оставим для истории
+    #for line in F:
+    #    line = line.replace('\n','')
+    #    line = line.replace('\r','')
+    #    if line.startswith("---OBJECT---"):
+    #        R = Repeat("none","none","none","none","none")
+    #        s = line.split(" -||- ")
+    #        R.language = s[1]
+    #        R.word = s[2]
+    #        R.native = s[3]
+    #        R.translation = s[4]
+    #    if line.startswith("KEY:"):
+    #        s = line.split(" -||- ")
+    #        R.key = s[1]
+    #    if line.startswith("CREATED:"):
+    #        s = line.split(" -||- ")
+    #        R.datetime = s[1]
+    #        list_R.append(R) # добавление только после считывания времени
 
 def dm_format(R): #общие костыли для удобного отображения разных форматов в ЛС
     short_time = R.datetime.split(' ')
@@ -243,7 +267,6 @@ def is_requested_date(R: Repeat, date: List[str]):
     R_dttm_list = R.datetime.split(' ')
     if R_dttm_list[2] == '': #если месяц однозначный
         R_dttm_list = R_dttm_list[:2] + R_dttm_list[3:] #удаляем этот пустой элемент
-        print(R_dttm_list[0:3])
     if (R_dttm_list[1] == date[1] and R_dttm_list[2] == date[2] 
         and R_dttm_list[4] == date[0]):
         ans = True

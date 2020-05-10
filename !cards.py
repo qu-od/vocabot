@@ -1,20 +1,21 @@
 #LANGUAGES MODULE (здешние команды оставить без категории)
 import discord
 import time
+import os
 from typing import List, Union
 from importlib import reload
 from discord.ext import commands
-from _language_edits import get_langs_from_txt, create_R_with_langs, update_langs
+from _language_edits import create_R_with_langs, update_langs
+from _users_admission import create_dict_table
+from _database import cursor_exec_select, cursor_exec_edit
 import _repeat_class as rc
 #import _embdict_class as ec
 #from _users_admission import *  
 #ds.AllowedMentions еще не ввели (ждем ds.py1.4)
 
-#команда-инициализация юзера
 #попросить отполировать английский
 #брать отредактированный .txt-словарь обратно (формат должен быть строго соблюден)
 #class for big_embed_dict_message? (настроить кнопки перелистывания и удаления)
-#вынести try: open dic.txt with: в отдельную функцию  (передать функцию выбора карточек в эту функцию?)
 #explain prefix with space: "!v command@"
 
 
@@ -46,8 +47,7 @@ def dict_end_converter(what_end):
 
 class ConverterForR(commands.Converter):
     async def convert(self, ctx, argument):
-        user_langs = get_langs_from_txt()
-        R = create_R_with_langs(ctx.author.name, user_langs)
+        R = create_R_with_langs(ctx.author.id)
         #user_langs = lambda x: get_langs_from_txt()
         R.dm_input(argument)
         return R
@@ -56,42 +56,33 @@ class ConverterForR(commands.Converter):
 
 #эмодзи писать в карточки пока нельзя (из-за траблов с кодировкой)
 @commands.command(name = 'n', help = ' [word].[translation].[key]' + 
-'adds new word in your dictionary. Key is not nessesarily')
+'adds new word in your dictionary. Key is not nessesary')
 async def create_word_pair(ctx, *, R: ConverterForR):
-    file = R'_Dictionaries/of ' + ctx.author.name + '.txt'
-    with open(file, 'a') as F:
-        R.append_to_txt(F)
+    R.append_to_db(str(ctx.author.id), ctx.author.name) #записываем в именную табличку
     await ctx.send(f'`New card {R.short_info()} has been created`')
 
 @commands.command(name = 'del', help = 'deletes your last card from dictionary')
 async def delete_recent_card(ctx):
-    try: #MAKE TRY_DICT_FUNC
-        with open('_Dictionaries/of ' + ctx.author.name + '.txt','r') as F: 
-            last_R = rc.delete_last_card(F, ctx.author.name)
-    except FileNotFoundError:
-        await ctx.send("`Your dictionary doesn't even exist. Try to enter some word pairs first`")
-        return
-    await ctx.send(f'`Last card {last_R.short_info()} has been deleted`')
+    newest_R = rc.delete_last_card(str(ctx.author.id))
+    await ctx.send(f'`Last card {newest_R.short_info()} has been deleted`')
 
 @commands.command(name = 'language', 
             help = " [ID] Sets up language for words. Max length: 5 symbols")
-async def set_language(ctx, *, language: short_alpha_upper):
-    if language.startswith('error: '):
-        await ctx.send(f'`{language}`') #this is error message not a language
+async def set_language(ctx, *, language_tag: short_alpha_upper):
+    if language_tag.startswith('error: '):
+        await ctx.send(f'`{language_tag}`') #this is error message not a tag
         return 
-    user_langs = get_langs_from_txt()
-    update_langs('language', ctx.author.name, language, user_langs)
-    await ctx.send(f"`Foreign language has been changed to {language}.`")
+    update_langs(ctx.author.id, language_tag, 'language')
+    await ctx.send(f"`Foreign language has been changed to {language_tag}.`")
 
 @commands.command(name = 'native', 
             help = " [ID] Sets up language for translations. Max length: 5 symbols")
-async def set_native(ctx, *, native: short_alpha_upper):
-    if native.startswith('error: '):
-        await ctx.send(f'`{native}`')
+async def set_native(ctx, *, native_tag: short_alpha_upper):
+    if native_tag.startswith('error: '):
+        await ctx.send(f'`{native_tag}`') #this is error message not a tag
         return
-    user_langs = get_langs_from_txt()
-    update_langs('native', ctx.author.name, native, user_langs)
-    await ctx.send(f"`Native language has been changed to {native}.`") 
+    update_langs(ctx.author.id, native_tag, 'native')
+    await ctx.send(f"`Native language has been changed to {native_tag}.`") 
 
 @commands.command(name = 'cards', 
     help = '[start] [end]. Sends cards from "start" to "end" in DMs.' + 
@@ -99,33 +90,24 @@ async def set_native(ctx, *, native: short_alpha_upper):
 async def send_particular_cards(ctx, start: int, end: int = None):
     repeat_list = [] #чтобы при FileNotFoundError лист был определен для create_cards   
     if end == None: end = start #если один аргумент, значит это отдельная карточка
-    try:
-        with open('_Dictionaries/of ' + ctx.author.name + '.txt','r') as F:
-            repeat_list, info, slice_start, slice_end = rc.cards_from_dict_array(F, start, end)
-    except FileNotFoundError:
-        await ctx.send("`Your dictionary doesn't even exist. Try to enter some word pairs first`")
-        return
+    repeat_list, info, slice_start, slice_end = rc.cards_from_dict_array(str(ctx.author.id), start, end)
     await create_cards(repeat_list, ctx)
     info = f'`{info}\ncards from #{slice_start} to #{slice_end} have sent in dm`'
     await ctx.send(info)
 
-@commands.command(name = 'day_cards', #need more tests
-    help = '[Mon.dd] sends cards created on that month and day.' + 
-        'Example: "!v day_cards Apr 28". If empty, today date is implied')
+@commands.command(name = 'cards_day', #need more tests
+    help = '[Mon.dd] sends cards created on that month and day.'
+        + 'Example: "!v day_cards Apr.28". If empty, today date is implied. '
+        + 'Warning: time is being saved in (UTC +0). '
+        + 'So today really means present day in (UTC +0) timezone')
 async def send_day_cards(ctx, date: mmdd_converter = None):
     if date == None: #внутри конвертера это не работает
-        print(time.asctime(time.gmtime()))
-        date = [time.strftime('%Y'), time.strftime(f'%b'), 
-            str(int(time.strftime(f'%d')))] #это массив года, месяца и дня в строгом формате
-        #это массив года, месяца и дня в строгом формате str-int УБИРАЕТ НОЛЬ В НАЧАЛЕ
-        print(date, 'DATE FORMED IN COMMAND')
+        tl = time.asctime(time.gmtime()).split(' ')
+        if tl[2] == '': #КОСТЫЛЬ
+            tl = tl[:2] + tl[3:]
+        date = [tl[4], tl[1], tl[2]] #это [год, месяц, день] в (UTC +0)
     repeat_list = [] #чтобы при FileNotFoundError лист был определен для create_cards 
-    try:
-        with open('_Dictionaries/of ' + ctx.author.name + '.txt','r') as F:
-            repeat_list, info = rc.cards_from_dict_day(F, date)
-    except FileNotFoundError:
-        await ctx.send("`Your dictionary doesn't even exist. Try to enter some word pairs first`")
-        return
+    repeat_list, info = rc.cards_from_dict_day(str(ctx.author.id), date)
     await create_cards(repeat_list, ctx)
     await ctx.send(f'`{info}`')
 
@@ -140,12 +122,7 @@ async def send_end_cards(ctx, number: int, what_end: dict_end_converter):
     if what_end == 'last':
         number *= -1
     repeat_list = [] #чтобы len(repeat_list) была = 0 если словаря нет 
-    try:
-        with open('_Dictionaries/of ' + ctx.author.name + '.txt','r') as F:
-            repeat_list, info = rc.cards_from_dict_end(F, number)
-    except FileNotFoundError:
-        await ctx.send("`Your dictionary doesn't even exist. Try to enter some word pairs first`")
-        return
+    repeat_list, info = rc.cards_from_dict_end(str(ctx.author.id), number)
     await create_cards(repeat_list, ctx) #либо в DMs либо в ctx.channel
     info = f'`{info}\n{what_end} {len(repeat_list)} cards have sent in dm`'
     await ctx.send(info)
@@ -153,23 +130,18 @@ async def send_end_cards(ctx, number: int, what_end: dict_end_converter):
 #BEING CODED
 @commands.command(name = 'dict', help = ' [page] sends list of words in dms')
 async def send_embed_dict(ctx, page: int):
-    try:
-        with open('_Dictionaries/of ' + ctx.author.name + '.txt','r') as F:
-            repeat_list = rc.read_all_R_from_dict(F)
-    except FileNotFoundError:
-        await ctx.send("`Your dictionary doesn't even exist. Try to enter some word pairs first`")
-        return
+    repeat_list = rc.read_all_R_from_dict_table(str(ctx.author.id))
     ii = 10 * (page - 1) #index shift
     if ii > len(repeat_list):
         await ctx.send(f"`Too big page value." + 
             f"\nLength of your dictionary is {len(repeat_list)}." +
-            f"It has {len(repeat_list)//10 + 1} pages`")
+            f" It has {len(repeat_list)//10 + 1} pages`")
         return
     try:
-        page_repeat_list = repeat_list[0 + ii: 9 + ii]
+        page_repeat_list = repeat_list[0 + ii: 10 + ii]
     except IndexError: #если не умещается
-        page_repeat_list = repeat_list[ii:]
-    dict_str = '\n'.join([f'#{repeat_list.index(R)} {R.language}-{R.native}' + 
+        page_repeat_list = repeat_list[ii:] #обрезать, чтобы уместилось
+    dict_str = '\n'.join([f'#{repeat_list.index(R) + 1} {R.language}-{R.native} ' + 
         f'{R.short_info()}' for R in page_repeat_list])
     #в генераторе асимптотика - квадрат.
     embed = discord.Embed(type = 'rich', title = f'page {page} of your dictionary', 
@@ -186,10 +158,14 @@ async def send_embed_dict(ctx, page: int):
 
 @commands.command(name = 'dict_txt', help = ' sends your dictionary file into dms')
 async def send_txt_dict(ctx): #вроде текст весит немного, поэтому ограничений не давать
-    dict_file = discord.File(
-            f'_Dictionaries/of {ctx.author.name}.txt', filename = 'My card collection.txt')
+    list_R = rc.read_all_R_from_dict_table(str(ctx.author.id))
+    with open('temp_dict.txt', 'w') as F: 
+        for R in list_R: #запись в файл
+            R.append_to_txt(F)
+    dict_file = discord.File('temp_dict.txt', filename = 'My card collection.txt')
     await ctx.author.create_dm()
     await ctx.author.dm_channel.send('`Here is your dictionary file`', file = dict_file)  
+    os.remove("temp_dict.txt") #удаление этого файла
 
 '''#BEING CODED
 @commands.command(name = 'upload', 
@@ -197,34 +173,37 @@ async def send_txt_dict(ctx): #вроде текст весит немного, 
 async def take_dict_back(ctx):
     pass'''
 
-@commands.command(name = 'clr_cards', 
+@commands.command(name = 'dict_full_deletion', #не удаляет активные карточки из БД
             help = ' Deletes your dictionary without backups')
 async def clr_cards_request(ctx):
     await ctx.send("`Do you really want to delete all your cards?" + 
-    "\nAnswer with !v _confirm yes/no`")
-    str_id = str(ctx.author.id)
-    is_id_in_file, new_ids_list = is_id_in_deletion_pending(str_id) #bool flag
-    if is_id_in_file == False: #если он не записан еще
-        with open('pending_dict_deletion.txt', 'a') as F:
-            F.write(str_id + '\n')
+        "\nAnswer with !v confirm yes/no`")
+    user_id = str(ctx.author.id)
+    if is_id_in_deletion_pending(user_id) == False: #записываем id юзера, если еще не
+        cursor_exec_edit("INSERT INTO cards_clr_pending VALUES "
+            + f"('{ctx.author.name}', '{user_id}', '{time.asctime(time.gmtime())}')")
 
-@commands.command(name = '_confirm', help = ' service command') 
+@commands.command(name = 'confirm', help = ' service command') 
 #только пока нет когов, только для удаления
 #потом прекращать ожидание ответа через некоторое время
 #зачем я это пишу? все равно же временная и некрасивая команда
 async def clr_cards(ctx, ans: bool):
-    is_id_in_file, new_ids_list = is_id_in_deletion_pending(str(ctx.author.id)) #bool flag
+    user_id = str(ctx.author.id)
+    is_id_in_file = is_id_in_deletion_pending(str(ctx.author.id)) #bool flag
     if not is_id_in_file: #если звпроса не было, то пусть идет лесом
-        await ctx.send("`Your confirmation are not essential`")
+        await ctx.send("`Your confirmation is not essential`")
         return
     if ans is True: #dict deletion confirmed by user
-        update_deletion_pending(new_ids_list)
-        with open('_Dictionaries/of ' + ctx.author.name + '.txt',"w") as F:
-            F.write('') #чистка словаря
+        cursor_exec_edit(f"DELETE FROM cards_clr_pending WHERE user_id = '{user_id}'")
+        #удалили айдишник из таблицы ожидания
+        create_dict_table('b' + user_id) #бэкап перед удалением (table_name = b_123id321)
+        cursor_exec_edit(f"DELETE FROM dictionaries._{user_id}") 
+        #почистили таблицу, но не удалили
         await ctx.send("`Your data has been deleted. " +
                     "Though you'll never be able to check this`")
     elif ans is False: #dict deletion rejected by user
-        update_deletion_pending(new_ids_list)
+        cursor_exec_edit(f"DELETE FROM cards_clr_pending WHERE user_id = '{user_id}'")
+        #удалили айдишник из таблицы ожидания
         await ctx.send("`Deletion failed sucсessfully`")
     #если bool converter не сработает (ни yes ни no), то выведеся BadArgumentError
 
@@ -242,27 +221,16 @@ async def create_cards(repeat_list: List[rc.Repeat], ctx): #анно. типов
         #card_message = await ctx.author.dm_channel.send(embed = R.dm_embed_card('word'))
         card_message = await ctx.send(embed = R.dm_embed_card('word')) #for public testing
         await card_message.add_reaction('🔁') #add reaction on card-message
-        R.append_active_card(card_message.id) #лог id и R
+        R.append_active_card(str(card_message.id), 
+            ctx.author.name, str(ctx.author.id)) #лог id и R
 
 def is_id_in_deletion_pending(user_id: str):
     is_id_in_file = False
-    ids_list = []
-    with open('pending_dict_deletion.txt', 'r') as F:
-        for line in F:
-            line = line.replace('\n','')
-            line = line.replace('\r','')
-            ids_list.append(line)
-    if user_id in ids_list:
+    if len(cursor_exec_select("SELECT user_id FROM cards_clr_pending "
+            + f"WHERE user_id = '{user_id}'")) == 1:
         is_id_in_file = True
-        i = ids_list.index(user_id) #заявка на удаление была подана 
-        new_ids_list = ids_list[:i] + ids_list[i+1:] #удаление ай||д||ишника
-    else: new_ids_list = ids_list
-    return is_id_in_file, new_ids_list
-        
-def update_deletion_pending(new_ids_list: list):
-    with open('pending_dict_deletion.txt', 'w') as F:
-        for Id in new_ids_list:
-            F.write(Id + '\n')  
+    return is_id_in_file
+
 
 def setup(bot):
     bot.add_command(create_word_pair)

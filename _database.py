@@ -24,10 +24,9 @@ def cursor_exec_select(query: str) -> List[tuple]:
     conn = get_connection() #for "SELECT" queries
     with conn.cursor() as cursor:
         cursor.execute(query)
-        ans = cursor.fetchall()
-        print(len(ans))
+        lines = cursor.fetchall()
     conn.close()
-    return ans #возвращает лист тьюплов в любом случае
+    return lines #возвращает лист тьюплов в любом случае
 
 def cursor_exec_edit(query: str, info: str = None):
     with get_connection() as conn:
@@ -35,26 +34,16 @@ def cursor_exec_edit(query: str, info: str = None):
             cursor.execute(query)
     conn.close()
 
-def create_table(table_name: str):
-    conn = get_connection()
-    cursor = conn.cursor()
 
-    name_Table = "allowed_users"
-    sqlCreateTable = ("CREATE TABLE public." + name_Table + 
-    " (name character varying(50), id character varying(30), PRIMARY KEY (id));") 
-    cursor.execute(sqlCreateTable)
-    conn.commit()
-
-    sqlGetTableList = "SELECT table_schema,table_name FROM information_schema.tables where table_schema='public' ORDER BY table_schema,table_name ;"
+'''def print_table_list()
+    sqlGetTableList = "SELECT table_schema,table_name FROM information_schema.tables " +
+        "where table_schema='public' ORDER BY table_schema,table_name ;"
     cursor.execute(sqlGetTableList)
     tables = cursor.fetchall()
     for table in tables:
-        print(table)
+        print(table)'''
 
-def delete_table(table_name: str):
-    conn = get_connection()
-    cursor = conn.cursor()
-    name_Table = "allowed_users"
-    sqlDeleteTable = "DROP TABLE public." + name_Table
-    cursor.execute(sqlDeleteTable)
-    conn.commit()
+def delete_table(table_schema_point_name: str): #NEED TESTING #UNUSED
+    #table_schema_point_name format: table_schema.table_name 
+    #for example: Dictionaries.some_user_id
+    cursor_exec_edit("DROP TABLE " + table_schema_point_name)
