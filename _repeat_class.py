@@ -176,7 +176,7 @@ def cards_from_dict_array(user_id: str, raw_start: int, raw_end: int): #слит
 def cards_from_dict_day(user_id: str, date: List[str]): #удобно, если мало слов
     info = f'Cards created on {date[1]} the {date[2]} have sent in dm. '
     list_R = read_all_R_from_dict_table(user_id)
-    dated_R = [] 
+    #dated_R = [] 
     dated_R = list(filter(lambda R: is_requested_date(R, date), list_R))
     if len(dated_R) > 5: 
         dated_R = dated_R[:5] #максимум 5 карточек
@@ -215,6 +215,7 @@ def cards_from_dict_end(user_id: str, number: int): #, *, start = None, end = No
     return cut_list_R, info
 
 def delete_last_card(user_id: str):
+    newest_R = []
     #word is a key var in dict-tables
     list_R = read_all_R_from_dict_table(user_id) #ОНИ СОРТИРОВАНЫ _ПО ИНДЕКСУ_ 
     #_СО ВРЕМЕНЕМ_ ВЫБИРАТЬ ПОСЛЕДНЮЮ СТРОКУ СОРТИРОВКОЙ ПО СТОЛБЦУ ВРЕМЕНИ

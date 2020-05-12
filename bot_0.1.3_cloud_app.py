@@ -20,6 +20,10 @@ if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 #BUG: карточки отваливаются через некоторое время (когда соединение прерывается)
 #Попробовать восстанавливать активные карточки на on_ready(). Взяв эти сообщения в кэш снова
 
+#BUG: если удалить словарь (!cards_clr) 2 раза подряд, бэкап уже занят.
+#нужно их нумеровать
+
+#сделать нормальные логи сообщений (см. SQL.type.test)(и вывод в консоль)
 #поставить себе линию на 80-том столбце в VSC, чтоб не смотреть каждый раз на номер колонки
 #datetime in active_cards (time instead of char_var). НУЖНО ДЛЯ СОРТИРОВКИ
 #ПОКА-ЧТО В ЮЗЕР_НЕЙМ СТОЛБЕЦ СЛОВАРЕЙ БУДЕМ ПИСАТЬ ИНКРЕМЕНТ (ЦИФЕРКУ В ФОРМАТЕ СТРОКИ)
@@ -84,7 +88,7 @@ def is_me():#decorator for is_me check
         return ctx.message.author.id == 303115719644807168 #my_id
     return commands.check(is_me_check)
 
-'''@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
+@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
 async def on_command_error(ctx, error):
     pass # если эта функция включена, ексепшоны не принтятся. во как
     if isinstance(error, commands.errors.CheckFailure): #обрабатываем ошибку отсутствия разрешения
@@ -108,7 +112,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.ArgumentParsingError):
         await ctx.send('```ArgumentParsingError occured```')
     if isinstance(error, commands.ExtensionFailed): #NE ROBIT см. "update" command
-        await ctx.send('```ExtensionFailed```')'''
+        await ctx.send('```ExtensionFailed```')
 
 @bot.event #делаем эмбед
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
@@ -253,9 +257,9 @@ async def update_commands(ctx): #for updating commands during runtime
 def log_message(message): #вынесли сюда функцию ведения стенограммы целиком
     time = message.created_at 
     author = message.author
-    print(f'--- message from {author} --- ')
-    #print(f'--- message from {author} --- in {message.channel}\n{message.content}\n')
-    r'''if type(message.channel) == discord.channel.DMChannel:
+    #print(f'--- message from {author} --- ')
+    print(f'--- message from {author} --- in {message.channel}\n{message.content}\n')
+    if type(message.channel) == discord.channel.DMChannel:
         name = message.channel.recipient.name #имя собеседника DM-канала
         with open(fR'_DMs_history\of {name}.txt', 'ab') as F:
             if author == bot.user:
@@ -272,7 +276,7 @@ def log_message(message): #вынесли сюда функцию ведения
                 F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
             else:
                 F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
-    #еще есть типы каналов кроме DMChannel и TextChannel?'''
+    #еще есть типы каналов кроме DMChannel и TextChannel?
 
 def get_log_channel(guild: discord.guild, logs_type: str = 'general_logs') -> discord.TextChannel:
     if logs_type == 'general_logs':
