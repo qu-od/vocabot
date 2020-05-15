@@ -15,7 +15,6 @@
 /.mypy_cache
 /func_test_2.py
 /test.txt
-/DANGER_NSFGITHUB_test.txt
 /log_channel_ids.txt
 /pending_dict_deletion.txt
 /_Server_msg_hisory
@@ -23,4 +22,4 @@
 /postgresql_test.py
 /pull_listdir.txt
 /assigned bot users.txt
-/mydb.dump
+/latest.dump

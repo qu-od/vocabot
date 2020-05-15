@@ -5,6 +5,7 @@ from discord.ext import commands
 #from _language_edits import *
 #from _users_admission import *
 
+#use this for stats _predictions_ https://pytorch.org/tutorials/
 #КАТЕГОРЯ КОМАНД "bookish" (вместе с cog)
 #команда для написания сообщения от имени бота (+через эмбед, + не открывая дс)
 #custom_embed.txt в формате словаря для сборки для подготовки сообщений (узюму)

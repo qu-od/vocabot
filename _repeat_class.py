@@ -78,9 +78,10 @@ class Repeat():
         except IndexError: #если словарь был пуст и строк не было
             print('МЯУ! СТРОК В СЛОВАРЕ НЕТУ! ЗАПИШУ СТРОКУ С ЕДИНИЧКОЙ')
             last_index = 1
+        indx = str(last_index) if last_index >= 10 else '0' + str(last_index) #КОСТЫЛЬ В КОСТЫЛЕ
         cursor_exec_edit(f"INSERT INTO dictionaries._{user_id} VALUES "
             #+ f"('{user_name}', '{self.language}', '{self.word}', " #_СО ВРЕМЕНЕМ_ ВЕРНЕМ ЭТО
-            + f"('{str(last_index)}', '{self.language}', '{self.word}', "
+            + f"('{indx}', '{self.language}', '{self.word}', "
             + f"'{self.native}', '{self.translation}', '{self.key}', "
             + f"'{self.datetime}')")
 
@@ -144,9 +145,8 @@ def fetch_active_card(msg_id: int):
     #при отключении кэш сообщений пропадает и on reaction не работает
     lines = cursor_exec_select(f"SELECT * FROM active_cards WHERE msg_id = '{str(msg_id)}'")
     if len(lines) == 1: #если ответ есть
-        l = lines[0] #извлекли тьюпл из листа
-        R = Repeat(l[3], l[4], l[5], l[6], l[7])
-        R.datetime = l[8]
+        R = Repeat(*lines[0][3:8]) #lines[0] - извлечение тьюпла из листа
+        R.datetime = lines[8]
         return R
     return None #если цикл прошел и msg_id не найдено в файле
 
@@ -231,7 +231,7 @@ def read_all_R_from_dict_table(user_id: str):
     lines = cursor_exec_select(f"SELECT * FROM dictionaries._{user_id} "
         + "ORDER BY user_name") #сорт по возрастанию индекса (ПОТОМ ВРЕМЕНИ)
     for line in lines: #итерация по листу тьюплов
-        R = Repeat(*line[1:6]) #TEST UNPACK LIST
+        R = Repeat(*line[1:6])
         R.datetime = line[6] 
         list_R.append(R)
     return list_R

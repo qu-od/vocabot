@@ -179,7 +179,7 @@ async def clr_cards_request(ctx):
     await ctx.send("`Do you really want to delete all your cards?" + 
         "\nAnswer with !v confirm yes/no`")
     user_id = str(ctx.author.id)
-    if is_id_in_deletion_pending(user_id) == False: #записываем id юзера, если еще не
+    if not is_id_in_deletion_pending(user_id): #записываем id юзера, если еще не
         cursor_exec_edit("INSERT INTO cards_clr_pending VALUES "
             + f"('{ctx.author.name}', '{user_id}', '{time.asctime(time.gmtime())}')")
 
@@ -189,7 +189,7 @@ async def clr_cards_request(ctx):
 #зачем я это пишу? все равно же временная и некрасивая команда
 async def clr_cards(ctx, ans: bool):
     user_id = str(ctx.author.id)
-    is_id_in_file = is_id_in_deletion_pending(str(ctx.author.id)) #bool flag
+    is_id_in_file: bool = is_id_in_deletion_pending(str(ctx.author.id))
     if not is_id_in_file: #если звпроса не было, то пусть идет лесом
         await ctx.send("`Your confirmation is not essential`")
         return

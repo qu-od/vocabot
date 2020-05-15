@@ -1,1 +1,1 @@
-worker: python bot_0.1.3_cloud_app.py
+worker: python bot_0.2.0_updates_and_stats.py
