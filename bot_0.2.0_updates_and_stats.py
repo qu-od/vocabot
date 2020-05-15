@@ -266,7 +266,9 @@ def log_message(message): #вынесли сюда функцию ведения
                 F.write(f'{bot.user.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
             else: #проблемы с битой кириллицей разрешились после удаления старого файла
                 F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
-    if type(message.channel) == discord.channel.TextChannel:
+    r'''if type(message.channel) == discord.channel.TextChannel: 
+    #не может создать файл в облаке
+    #поэтому кттс перевести логи на таблички
         guild = message.guild
         dirs = os.listdir('_Server_msg_hisory')
         if (f'of {guild}' in dirs) == False:
@@ -275,7 +277,7 @@ def log_message(message): #вынесли сюда функцию ведения
             if author == bot.user:
                 F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
             else:
-                F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
+                F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))'''
     #еще есть типы каналов кроме DMChannel и TextChannel?
 
 def get_log_channel(guild: discord.guild, logs_type: str = 'general_logs') -> discord.TextChannel:
