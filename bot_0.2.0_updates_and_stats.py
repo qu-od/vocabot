@@ -12,7 +12,7 @@ import _database as db
 #from !cards import cards_imports_reload (! мешает импорту) 
 #sql запросы написаны в одну строку (т. е. есть опасность sql-injection)
 
-версия_бота = 't'  #'b' for VocaBot 't' for VocaTest 
+версия_бота = 'b'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 
