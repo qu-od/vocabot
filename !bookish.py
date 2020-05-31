@@ -1,6 +1,8 @@
 #STATISTICS MODULE, _NOT_ GENERAL PURPOSE
 import discord
+import psycopg2
 from discord.ext import commands
+from _database import cursor_exec_select, cursor_exec_edit
 #from _repeat_class import *
 #from _language_edits import *
 #from _users_admission import *
@@ -36,13 +38,21 @@ async def custom_message(ctx, id_type: str, opt_id: int, *args): #слишком
     else:
         await ctx.send('`Wrong id_type argument`')
 
-@commands.command(name = '_set_logs_channel', #устанавливает канал для логов
+@commands.command(name = '_logs', #устанавливает канал для логов
 help = '[id] of a channel for for welcome message')
 @is_me()
-async def set_channel(ctx, channel_id, server_id = None):
-    with open('log_channel_ids.txt', 'w') as F:
-        F.write(channel_id) #+ '-||-' + server_id)  
-    await ctx.send(f'channel has been set as <#{channel_id}>')
+async def set_channel(ctx, channel_id: str, server_id = None):
+    try:
+        query = (f"INSERT INTO log_channels VALUES ('{str(ctx.guild.id)}', 'all', "
+                + f"'{channel_id}', '{str(ctx.author.id)}')")
+        cursor_exec_edit(query)
+        await ctx.send(f'```all_logs channel set as <#{channel_id}>```')
+    except psycopg2.errors.lookup('23505'): #UniqueViolationError in sql table
+        query = ("UPDATE log_channels" + 
+                f" SET channel_id = '{channel_id}', logs_type = 'all'"
+                + f" WHERE channel_id = '{channel_id}'")
+        cursor_exec_edit(query)
+        await ctx.send(f'```all_logs channel changed to <#{channel_id}> ```')
 
 def setup(bot):
     bot.add_command(set_channel)

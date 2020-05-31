@@ -22,7 +22,7 @@ if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 #BUG: второй раз словарь не удаляется (!cards_clr) 2 раза подряд, бэкап уже занят.
 #нужно их нумеровать
 
-#сделать нормальные логи сообщений (см. SQL.type.test)
+#сделать нормальные логи сообщений (см. SQL.type.text)
 #поставить себе линию на 80-том столбце в VSC, чтоб не смотреть каждый раз на номер колонки
 #datetime in active_cards (time instead of char_var). НУЖНО ДЛЯ СОРТИРОВКИ
 #ПОКА-ЧТО В ЮЗЕР_НЕЙМ СТОЛБЕЦ СЛОВАРЕЙ БУДЕМ ПИСАТЬ ИНКРЕМЕНТ (ЦИФЕРКУ В ФОРМАТЕ СТРОКИ)
@@ -278,10 +278,13 @@ def log_message(message): #вынесли сюда функцию ведения
                 F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))
     #еще есть типы каналов кроме DMChannel и TextChannel?
 
-def get_log_channel(guild: discord.guild, logs_type: str = 'general_logs') -> discord.TextChannel:
-    if logs_type == 'general_logs':
-        with open('log_channel_ids.txt', 'r') as F:
-            channel_id = int(F.readline())
+def get_log_channel(guild: discord.guild, logs_type: str = 'all') -> discord.TextChannel:
+    if logs_type == 'all':
+        lines = db.cursor_exec_select("SELECT * FROM log_channels WHERE +"
+            + f"server_id = '{guild.id}' AND logs_type = 'all'")
+    if len(lines) == 1:
+        channel_id = int(lines[0][2])
+    if len(lines) >= 1: print('МЯУ! неожиданный дубликат в базе данных')
     #elif purpose == <purpose_name> ... id возвратить по ключу (сервер id + logs_type) 
     #(напр: important_audit_logs, deletion_logs, welcome_bye_logs)
     return guild.get_channel(channel_id)

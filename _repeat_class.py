@@ -146,7 +146,7 @@ def fetch_active_card(msg_id: int):
     lines = cursor_exec_select(f"SELECT * FROM active_cards WHERE msg_id = '{str(msg_id)}'")
     if len(lines) == 1: #если ответ есть
         R = Repeat(*lines[0][3:8]) #lines[0] - извлечение тьюпла из листа
-        R.datetime = lines[8]
+        R.datetime = lines[0][8]
         return R
     return None #если цикл прошел и msg_id не найдено в файле
 

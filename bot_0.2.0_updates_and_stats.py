@@ -22,6 +22,7 @@ if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
 #BUG: второй раз словарь не удаляется (!cards_clr) 2 раза подряд, бэкап уже занят.
 #нужно их нумеровать
 
+#сделать команду для сброса логов на сервере
 #сделать нормальные логи сообщений (см. SQL.type.test)
 #поставить себе линию на 80-том столбце в VSC, чтоб не смотреть каждый раз на номер колонки
 #datetime in active_cards (time instead of char_var). НУЖНО ДЛЯ СОРТИРОВКИ
@@ -147,35 +148,39 @@ def is_bookish_member(member): return member.guild.id == 673968890325237771
 async def on_member_join(member):
     if is_bookish_member(member):
         log_channel = get_log_channel(member.guild)#или (member.guild, 'general_logs')
-        print(log_channel)
-        await log_channel.send('on_member_join worked')
+        if log_channel: #если он задан
+            print(log_channel)
+            await log_channel.send('on_member_join worked')
 
 @bot.event
 async def on_member_remove(member):
     if is_bookish_member(member):
         log_channel = get_log_channel(member.guild)
-        print(log_channel)
-        await log_channel.send('on_member_remove worked')
+        if log_channel: #если он задан
+            print(log_channel)
+            await log_channel.send('on_member_remove worked')
 
 @bot.event
 async def on_message_edit(before, after):
     if is_bookish_message(before) and before.author != bot.user:
     #добавление ембеда == edit. так что нужна таблетка от самоответов
         log_channel = get_log_channel(before.guild)
-        embed = discord.Embed(title = '__**message edited**__', type = 'rich', 
-                        description = f'`author:` {before.author}\n`msg`: {before.content}\n`edited:` {after.content}', 
-                        colour = discord.Colour.dark_teal())
-        await log_channel.send(embed = embed)
+        if log_channel: #если он задан
+            embed = discord.Embed(title = '__**message edited**__', type = 'rich', 
+                            description = f'`author:` {before.author}\n`msg`: {before.content}\n`edited:` {after.content}', 
+                            colour = discord.Colour.dark_teal())
+            await log_channel.send(embed = embed)
 
 @bot.event
 async def on_message_delete(message):
     if is_bookish_message(message) and message.author != bot.user:
     #тут таблетка ради удобства. А то сбщ от бота были неудаляемыми
         log_channel = get_log_channel(message.guild)
-        embed = discord.Embed(title = '__**message deleted**__', type = 'rich', 
-                        description = f'`author:` {message.author}\n`msg`: {message.content}',
-                        colour = discord.Colour.gold())
-        await log_channel.send(embed = embed)
+        if log_channel: #если он задан
+            embed = discord.Embed(title = '__**message deleted**__', type = 'rich', 
+                            description = f'`author:` {message.author}\n`msg`: {message.content}',
+                            colour = discord.Colour.gold())
+            await log_channel.send(embed = embed)
 
 def str_to_status(argument):
     if (argument in ('dnd','do_not_disturb', 'otsosi')):
@@ -280,10 +285,16 @@ def log_message(message): #вынесли сюда функцию ведения
                 F.write(f'{author.name} - {time}\n{message.content}\n\n'.encode('utf-8'))'''
     #еще есть типы каналов кроме DMChannel и TextChannel?
 
-def get_log_channel(guild: discord.guild, logs_type: str = 'general_logs') -> discord.TextChannel:
-    if logs_type == 'general_logs':
-        with open('log_channel_ids.txt', 'r') as F:
-            channel_id = int(F.readline())
+def get_log_channel(guild: discord.guild, logs_type: str = 'all') -> discord.TextChannel:
+    if logs_type == 'all':
+        lines = db.cursor_exec_select("SELECT * FROM log_channels WHERE "
+            + f"server_id = '{guild.id}' AND logs_type = 'all'")
+    if len(lines) == 1:
+        channel_id = int(lines[0][2])
+    elif len(lines) == 0: 
+        print("log channel hasn't been chosen")
+        return None #канал не задан
+    elif len(lines) >= 1: print('МЯУ! неожиданный дубликат в базе данных')
     #elif purpose == <purpose_name> ... id возвратить по ключу (сервер id + logs_type) 
     #(напр: important_audit_logs, deletion_logs, welcome_bye_logs)
     return guild.get_channel(channel_id)
