@@ -48,7 +48,7 @@ class Readalong(object):
 
     def form_poll_embed(self) -> discord.Embed:
         embed_text = self.__str__()
-        poll_embed = discord.Embed(title = '**Варианты книг на 4-е совместное чтение.**\n__**Голосование**__', type = 'rich', 
+        poll_embed = discord.Embed(title = f'**Варианты книг на {self.number}-е совместное чтение.**\n__**Голосование**__', type = 'rich', 
             description = embed_text, colour = discord.Colour.blurple())
         return poll_embed
 
