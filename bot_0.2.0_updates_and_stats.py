@@ -13,10 +13,10 @@ import _readalong_class as rac
 #from !cards import cards_imports_reload (! мешает импорту) 
 #sql запросы написаны в одну строку (т. е. есть опасность sql-injection)
 
-версия_бота = 't'  #'b' for VocaBot 't' for VocaTest 
+версия_бота = 'b'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
-discord_error_handling = False
+discord_error_handling = True
 #False - все трейсбеки в консоли, True - не все ошибки, но будут в дискорде.
 #деплоить с True, фигачить с False. Т. к. c True бот иногда падает молча. 
 
