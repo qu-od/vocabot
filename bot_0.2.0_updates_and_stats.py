@@ -9,12 +9,16 @@ import _users_admission as ua
 #from _users_admission import is_user_allowed, init_user
 import _language_edits as le
 import _database as db
+import _readalong_class as rac
 #from !cards import cards_imports_reload (! мешает импорту) 
 #sql запросы написаны в одну строку (т. е. есть опасность sql-injection)
 
-версия_бота = 'b'  #'b' for VocaBot 't' for VocaTest 
+версия_бота = 't'  #'b' for VocaBot 't' for VocaTest 
 if версия_бота == 'b': TOKEN = os.getenv('VOCABOT_TOKEN') 
 if версия_бота == 't': TOKEN = os.getenv('VOCATEST_TOKEN')
+discord_error_handling = False
+#False - все трейсбеки в консоли, True - не все ошибки, но будут в дискорде.
+#деплоить с True, фигачить с False. Т. к. c True бот иногда падает молча. 
 
 #BUG: карточки отваливаются через некоторое время (когда соединение прерывается)
 #Попробовать восстанавливать активные карточки на on_ready(). Взяв эти сообщения в кэш снова
@@ -89,31 +93,32 @@ def is_me():#decorator for is_me check
         return ctx.message.author.id == 303115719644807168 #my_id
     return commands.check(is_me_check)
 
-@bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
-async def on_command_error(ctx, error):
-    pass # если эта функция включена, ексепшоны не принтятся. во как
-    if isinstance(error, commands.errors.CheckFailure): #обрабатываем ошибку отсутствия разрешения
-        await ctx.send("```You don't have permission to use it```")
-    if isinstance(error, commands.errors.CommandNotFound):  #обрабатываем ошибку "неправильная команда"
-        cool_responses = ["Try something different", "you've entered wrong command",
-                    "**English, mother#$^%*1!! Can you speak it?**","There is no that command",
-                    "Wrong command", "This command haven't been added yet, unfortunately"]
-        #await ctx.send(random.choice(cool_responses))
-        await ctx.send(f'`{random.choice(cool_responses)}`')
-    if isinstance(error, commands.UserInputError):
-        await ctx.send('```UserInputError occured```')# base class for several next errors
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('```Not enough arguments for that command```')
-    if isinstance(error, commands.TooManyArguments):
-        await ctx.send("```You've entered too many arguments```")
-    if isinstance(error, commands.BadArgument):
-        await ctx.send('```Wrong argument```')
-    if isinstance(error, commands.BadUnionArgument):
-        await ctx.send('```Wrong union argument```')
-    if isinstance(error, commands.ArgumentParsingError):
-        await ctx.send('```ArgumentParsingError occured```')
-    if isinstance(error, commands.ExtensionFailed): #NE ROBIT см. "update" command
-        await ctx.send('```ExtensionFailed```')
+if discord_error_handling:
+    @bot.event  #при отладке отключаем это, чтобы все ошибки шли в консоль а не терялись 
+    async def on_command_error(ctx, error):
+        pass # если эта функция включена, ексепшоны не принтятся. во как
+        if isinstance(error, commands.errors.CheckFailure): #обрабатываем ошибку отсутствия разрешения
+            await ctx.send("```You don't have permission to use it```")
+        if isinstance(error, commands.errors.CommandNotFound):  #обрабатываем ошибку "неправильная команда"
+            cool_responses = ["Try something different", "you've entered wrong command",
+                        "**English, mother#$^%*1!! Can you speak it?**","There is no that command",
+                        "Wrong command", "This command haven't been added yet, unfortunately"]
+            #await ctx.send(random.choice(cool_responses))
+            await ctx.send(f'`{random.choice(cool_responses)}`')
+        if isinstance(error, commands.UserInputError):
+            await ctx.send('```UserInputError occured```')# base class for several next errors
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send('```Not enough arguments for that command```')
+        if isinstance(error, commands.TooManyArguments):
+            await ctx.send("```You've entered too many arguments```")
+        if isinstance(error, commands.BadArgument):
+            await ctx.send('```Wrong argument```')
+        if isinstance(error, commands.BadUnionArgument):
+            await ctx.send('```Wrong union argument```')
+        if isinstance(error, commands.ArgumentParsingError):
+            await ctx.send('```ArgumentParsingError occured```')
+        if isinstance(error, commands.ExtensionFailed): #NE ROBIT см. "update" command
+            await ctx.send('```ExtensionFailed```')
 
 @bot.event #делаем эмбед
 async def on_reaction_add(reaction, user): #leads to card flip on 'translation' side 
@@ -162,7 +167,7 @@ async def on_member_remove(member):
 
 @bot.event
 async def on_message_edit(before, after):
-    if is_bookish_message(before) and before.author != bot.user:
+    if is_bookish_message(before) and not before.author.bot:
     #добавление ембеда == edit. так что нужна таблетка от самоответов
         log_channel = get_log_channel(before.guild)
         if log_channel: #если он задан
@@ -212,6 +217,22 @@ async def getdirs(ctx): #посмотрим файлы в облаке
     await ctx.author.create_dm()
     await ctx.author.dm_channel.send('`Here is your dictionary file`', file = dict_file)'''
 
+@commands.command(name = '_msg', help = 'staff only') #custom message. 
+#to channels or users on the sever where command is invoked
+@is_me()
+async def custom_message(ctx, id_type: str, opt_id: int, *args): #слишком длинный инт для питона?
+    #РАБОТАЕТ ЧЕРЕЗ РАЗ
+    print(id_type, opt_id, args)
+    message = ' '.join(args)
+    if id_type == 'ch':
+        await ctx.guild.get_channel(opt_id).send(message)
+    elif id_type == 'dm':
+        member = ctx.guild.get_member(opt_id)
+        await member.create_dm()
+        await member.dm_channel.send(message)
+    else:
+        await ctx.send('`Wrong id_type argument`')
+
 @bot.command(name = '_init', 
     help = '[name] [id] for user initialization')
 @is_me()
@@ -249,6 +270,7 @@ async def update_commands(ctx): #for updating commands during runtime
         reload(le) #update _language_edits module
         reload(ua) #update _users_admission module
         reload(db) #update _database module
+        reload(rc) #update _readalong_class module
         #reload(fetch_active_card) #как бы перезагружать функции из импорта а не модули..
         #!cards.cards_import_reload() #еще хотелось бы так обновить косвенные импорты 
         #восклицательный знак запрещает import !cards 
@@ -294,7 +316,9 @@ def get_log_channel(guild: discord.guild, logs_type: str = 'all') -> discord.Tex
     elif len(lines) == 0: 
         print("log channel hasn't been chosen")
         return None #канал не задан
-    elif len(lines) >= 1: print('МЯУ! неожиданный дубликат в базе данных')
+    elif len(lines) > 1: 
+        print('МЯУ! неожиданный дубликат в базе данных')
+        return None #ошибка 
     #elif purpose == <purpose_name> ... id возвратить по ключу (сервер id + logs_type) 
     #(напр: important_audit_logs, deletion_logs, welcome_bye_logs)
     return guild.get_channel(channel_id)

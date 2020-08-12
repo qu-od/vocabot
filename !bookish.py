@@ -1,59 +1,98 @@
-#STATISTICS MODULE, _NOT_ GENERAL PURPOSE
 import discord
-import psycopg2
 from discord.ext import commands
+import psycopg2
 from _database import cursor_exec_select, cursor_exec_edit
-#from _repeat_class import *
-#from _language_edits import *
-#from _users_admission import *
+from _readalong_class import (Book, Readalong, read_book_instance_from_discord_channel, 
+    load_readalong_from_embed)
 
-#use this for stats _predictions_ https://pytorch.org/tutorials/
-#КАТЕГОРЯ КОМАНД "bookish" (вместе с cog)
-#команда для написания сообщения от имени бота (+через эмбед, + не открывая дс)
-#custom_embed.txt в формате словаря для сборки для подготовки сообщений (узюму)
-#создание голосовых каналов по команде, удаление по ненужности
-#статистика серва (в первую очередь войсов, сообщений, их удалений, и статусов)
-#welcome message с настоящими ссылками и упоминаниями (после хоста)
 
 def is_me():#decorator for is_me check
     def is_me_check(ctx):
         return ctx.message.author.id == 303115719644807168 #my_id
     return commands.check(is_me_check)
 
+def is_bookish_server():
+    def is_language_house_check(ctx):
+        return ctx.message.guild.id == 673968890325237771 #First Bookish ID
+    return commands.check(is_language_house_check)
+
+#---------------------------------converters------------------------------------
+def str_to_book(argument: str) -> Book:
+    return read_book_instance_from_discord_channel(argument)
+
+
 #-------------------------------COMMAND LIST------------------------------------
-
-@commands.command(name = '_msg', help = 'staff only') #custom message. 
-#to channels or users on the sever where command is invoked
+# ----------------------------readalong commands--------------------------------
+@commands.command(name = 'ra_poll_create', 
+    help = '[n: int] создать пост-голосование для выбор книги на n-ное совместное чтение')
 @is_me()
-async def custom_message(ctx, id_type: str, opt_id: int, *args): #слишком длинный инт для питона?
-    #РАБОТАЕТ ЧЕРЕЗ РАЗ
-    print(id_type, opt_id, args)
-    message = ' '.join(args)
-    if id_type == 'ch':
-        await ctx.guild.get_channel(opt_id).send(message)
-    elif id_type == 'dm':
-        member = ctx.guild.get_member(opt_id)
-        await member.create_dm()
-        await member.dm_channel.send(message)
-    else:
-        await ctx.send('`Wrong id_type argument`')
+@is_bookish_server()
+async def create_readalong_poll(ctx, number: int):
+    global readalong #CEASE GLOBAL
+    readalong = Readalong(number)
+    poll_message = await ctx.send(embed = readalong.form_poll_embed())
+    readalong.poll_message_id = str(poll_message.id)
 
-@commands.command(name = '_logs', #устанавливает канал для логов
-help = '[id] of a channel for for welcome message')
+@commands.command(name = 'ra_poll_add_book', 
+    help = ('[автор --- название --- жанр(можно опустить)' +
+    '--- кол-во страниц(можно опустить)] записывает книгу в список' +
+    'для голосования и обновляет пост с этим голосованием'))
 @is_me()
-async def set_channel(ctx, channel_id: str, server_id = None):
-    try:
-        query = (f"INSERT INTO log_channels VALUES ('{str(ctx.guild.id)}', 'all', "
-                + f"'{channel_id}', '{str(ctx.author.id)}')")
-        cursor_exec_edit(query)
-        await ctx.send(f'```all_logs channel set as <#{channel_id}>```')
-    except psycopg2.errors.lookup('23505'): #UniqueViolationError in sql table
-        query = ("UPDATE log_channels" + 
-                f" SET channel_id = '{channel_id}', logs_type = 'all'"
-                + f" WHERE channel_id = '{channel_id}'")
-        cursor_exec_edit(query)
-        await ctx.send(f'```all_logs channel changed to <#{channel_id}> ```')
+@is_bookish_server()
+async def add_book_to_readalong_poll(ctx, *, new_book: str_to_book):
+    global readalong #CEASE GLOBAL
+    readalong.add_book(new_book)
+    poll_message = await ctx.fetch_message(readalong.poll_message_id)
+    await poll_message.edit(embed = readalong.form_poll_embed())
+
+@commands.command(name = 'ra_poll_delete_book', 
+    help = ('[номер книги в списке (от 1)] удаляет книгу из голосования'))
+@is_me()
+@is_bookish_server()
+async def delete_book_from_readalong_poll(ctx, number: int):
+    global readalong #CEASE GLOBAL
+    readalong.delete_book(number) #индексирование с 1. перевод в инд. с 0 идет внутри метода
+    poll_message = await ctx.fetch_message(readalong.poll_message_id)
+    await poll_message.edit(embed = readalong.form_poll_embed())
+
+@commands.command(name = 'ra_poll_load', 
+    help = '[id сообщения] загружает сообщение ')
+@is_me()
+@is_bookish_server()
+async def load_readalong_poll(ctx, poll_message_id: str):
+    global readalong #CEASE GLOBAL
+    poll_message = await ctx.fetch_message(poll_message_id) #FIND PROPER FUNC
+    poll_embed = poll_message.embeds[0] #first (and the only embed in message) 
+    readalong = load_readalong_from_embed(poll_embed)
+
+@commands.command(name = 'add_reactions',
+    help = '[n] [id] добавляет n реакций-чисел (начиная с единицы)' +
+    ' под сообщение с указанным id. n <= 10')
+@is_me()
+@is_bookish_server()
+async def react_with_numbers(ctx, number: int, message_id: str):
+    message = await ctx.fetch_message(message_id)
+    all_number_emojis = ['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟']
+    number_reactions = all_number_emojis[:number]
+    for reaction in number_reactions:
+        await message.add_reaction(reaction)
+
+# ----------------------------stats --commands--------------------------------
+'''@commands.command(name = '_status_dump', help = 'get status')
+@is_me()
+async def get_status(ctx, server_id: str):
+    guild = ctx.bot.get_guild(int(server_id))
+    print(guild.name)
+    with open('dump_status.txt', 'wb') as F:
+        for member in guild.members:
+            F.write(f"{member.status} --- {member.name}\n".encode('utf-8'))
+    await ctx.send("```Status dump is succsesful```")'''
+
 
 def setup(bot):
-    bot.add_command(set_channel)
-    bot.add_command(custom_message)
+    bot.add_command(create_readalong_poll)
+    bot.add_command(add_book_to_readalong_poll)
+    bot.add_command(delete_book_from_readalong_poll)
+    bot.add_command(load_readalong_poll)
+    bot.add_command(react_with_numbers)
+
