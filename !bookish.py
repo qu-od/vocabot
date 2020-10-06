@@ -25,7 +25,7 @@ def str_to_book(argument: str) -> Book:
 # ----------------------------readalong commands--------------------------------
 @commands.command(name = 'ra_poll_create', 
     help = '[n: int] создать пост-голосование для выбор книги на n-ное совместное чтение')
-@is_me()
+#@is_me()
 @is_bookish_server()
 async def create_readalong_poll(ctx, number: int):
     global readalong #CEASE GLOBAL
@@ -37,7 +37,7 @@ async def create_readalong_poll(ctx, number: int):
     help = ('[автор --- название --- жанр(можно опустить)' +
     '--- кол-во страниц(можно опустить)] записывает книгу в список' +
     'для голосования и обновляет пост с этим голосованием'))
-@is_me()
+#@is_me()
 @is_bookish_server()
 async def add_book_to_readalong_poll(ctx, *, new_book: str_to_book):
     global readalong #CEASE GLOBAL
@@ -47,7 +47,7 @@ async def add_book_to_readalong_poll(ctx, *, new_book: str_to_book):
 
 @commands.command(name = 'ra_poll_delete_book', 
     help = ('[номер книги в списке (от 1)] удаляет книгу из голосования'))
-@is_me()
+#@is_me()
 @is_bookish_server()
 async def delete_book_from_readalong_poll(ctx, number: int):
     global readalong #CEASE GLOBAL
@@ -57,7 +57,7 @@ async def delete_book_from_readalong_poll(ctx, number: int):
 
 @commands.command(name = 'ra_poll_load', 
     help = '[id сообщения] загружает сообщение ')
-@is_me()
+#@is_me()
 @is_bookish_server()
 async def load_readalong_poll(ctx, poll_message_id: str):
     global readalong #CEASE GLOBAL
@@ -68,7 +68,7 @@ async def load_readalong_poll(ctx, poll_message_id: str):
 @commands.command(name = 'add_reactions',
     help = '[n] [id] добавляет n реакций-чисел (начиная с единицы)' +
     ' под сообщение с указанным id. n <= 10')
-@is_me()
+#@is_me()
 @is_bookish_server()
 async def react_with_numbers(ctx, number: int, message_id: str):
     message = await ctx.fetch_message(message_id)
