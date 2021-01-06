@@ -3,6 +3,7 @@ import random
 import discord
 from importlib import reload
 from discord.ext import commands
+
 import _repeat_class as rc #так можно делать reload(rc)!
 #from _repeat_class import Repeat, fetch_active_card
 import _users_admission as ua
@@ -56,9 +57,12 @@ discord_error_handling = True
 
 
 GUILD = 673968890325237771 #server name (ПК)
+intents = discord.Intents.all()
+    # members=True, reactions=True, guilds=True,
+    # voice_states=True, presences=True)
 
 bot_prefix = '!v ' #параметризовали префикс
-bot = commands.Bot(command_prefix = bot_prefix)
+bot = commands.Bot(command_prefix = bot_prefix, intents = intents)
 
 @bot.event
 async def on_ready(): #executes when connection made and data prepaired
@@ -67,7 +71,7 @@ async def on_ready(): #executes when connection made and data prepaired
             break
     print(f'{bot.user} is connected to  {guild.name} (id: {guild.id})')
     for member in guild.members: #finding my "member"
-        if member.name == "Machine 🪐":
+        if member.name == "Phoebe":
             my_member = member
     if ua.is_user_allowed(my_member.name, my_member.id): #am I even allowed lol (just in case)
         await my_member.create_dm()
@@ -216,22 +220,6 @@ async def getdirs(ctx): #посмотрим файлы в облаке
             f'_Dictionaries/of {cursedtea}.txt', filename = 'Tea card collection.txt')
     await ctx.author.create_dm()
     await ctx.author.dm_channel.send('`Here is your dictionary file`', file = dict_file)'''
-
-@commands.command(name = '_msg', help = 'staff only') #custom message. 
-#to channels or users on the sever where command is invoked
-@is_me()
-async def custom_message(ctx, id_type: str, opt_id: int, *args): #слишком длинный инт для питона?
-    #РАБОТАЕТ ЧЕРЕЗ РАЗ
-    print(id_type, opt_id, args)
-    message = ' '.join(args)
-    if id_type == 'ch':
-        await ctx.guild.get_channel(opt_id).send(message)
-    elif id_type == 'dm':
-        member = ctx.guild.get_member(opt_id)
-        await member.create_dm()
-        await member.dm_channel.send(message)
-    else:
-        await ctx.send('`Wrong id_type argument`')
 
 @bot.command(name = '_init', 
     help = '[name] [id] for user initialization')
