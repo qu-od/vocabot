@@ -12,6 +12,19 @@ def is_me():#decorator for is_me check
         return ctx.message.author.id == 303115719644807168 #my_id
     return commands.check(is_me_check)
 
+def is_bookish_moderator(): #принадлежит ли юзер к администрации ПК
+    # NEED TESTING
+    def is_bookish_moderator_check(ctx):
+        author = ctx.message.author
+        admin_role     = ctx.guild.get_role(679731966228037719)
+        moderator_role = ctx.guild.get_role(679732018073960475)
+        # print(author.roles)
+        return (admin_role in author.roles
+             or moderator_role in author.roles
+             or author.id == 303115719644807168
+             ) #my_id
+    return commands.check(is_bookish_moderator_check)
+
 def is_bookish_server():
     def is_bookish_check(ctx):
         return ctx.message.guild.id == 673968890325237771 #First Bookish ID
@@ -123,57 +136,58 @@ async def all_advice_embeds(
         +" чтобы увидеть всю информацию ⬆️ ⬆️```")
 
 
-
-
-
 # ----------------------------readalong commands--------------------------------
 @commands.command(name = 'ra_poll_create', 
     help = '[n: int] создать пост-голосование для выбор книги на n-ное совместное чтение')
-# @is_me()
-@is_bookish_server()
+@is_my_servers()
+@is_bookish_moderator()
 async def create_readalong_poll(ctx, number: int):
     global readalong #CEASE GLOBAL
     readalong = Readalong(number)
     poll_message = await ctx.send(embed = readalong.form_poll_embed())
     readalong.poll_message_id = str(poll_message.id)
 
-@commands.command(name = 'ra_poll_add_book', 
+@commands.command(
+    name = 'ra_poll_add_book', 
     help = ('[автор --- название --- жанр(можно опустить)' +
-    '--- кол-во страниц(можно опустить)] записывает книгу в список' +
-    'для голосования и обновляет пост с этим голосованием'))
-# @is_me()
-@is_bookish_server()
+        '--- кол-во страниц(можно опустить)] записывает книгу в список' +
+        'для голосования и обновляет пост с этим голосованием'))
+@is_my_servers()
+@is_bookish_moderator()
 async def add_book_to_readalong_poll(ctx, *, new_book: str_to_book):
     global readalong #CEASE GLOBAL
     readalong.add_book(new_book)
     poll_message = await ctx.fetch_message(readalong.poll_message_id)
     await poll_message.edit(embed = readalong.form_poll_embed())
 
-@commands.command(name = 'ra_poll_delete_book', 
-    help = ('[номер книги в списке (от 1)] удаляет книгу из голосования'))
-# @is_me()
-@is_bookish_server()
+@commands.command(
+    name = 'ra_poll_delete_book', 
+    help = '[номер книги в списке (от 1)] удаляет книгу из голосования')
+@is_my_servers()
+@is_bookish_moderator()
 async def delete_book_from_readalong_poll(ctx, number: int):
     global readalong #CEASE GLOBAL
     readalong.delete_book(number) #индексирование с 1. перевод в инд. с 0 идет внутри метода
     poll_message = await ctx.fetch_message(readalong.poll_message_id)
     await poll_message.edit(embed = readalong.form_poll_embed())
 
-@commands.command(name = 'ra_poll_load', 
+@commands.command(
+    name = 'ra_poll_load', 
     help = '[id сообщения] загружает сообщение ')
-# @is_me()
-@is_bookish_server()
+@is_my_servers()
+@is_bookish_moderator()
 async def load_readalong_poll(ctx, poll_message_id: str):
     global readalong #CEASE GLOBAL
     poll_message = await ctx.fetch_message(poll_message_id) #FIND PROPER FUNC
     poll_embed = poll_message.embeds[0] #first (and the only embed in message) 
     readalong = load_readalong_from_embed(poll_embed)
 
-@commands.command(name = 'add_reactions',
+@commands.command(
+    name = 'add_reactions',
     help = '[n] [id] добавляет n реакций-чисел (начиная с единицы)' +
-    ' под сообщение с указанным id. n <= 10')
-# @is_me()
-@is_bookish_server()
+        ' под сообщение с указанным id. n <= 10')
+@is_my_servers()
+@is_bookish_moderator()
 async def react_with_numbers(ctx, number: int, message_id: str):
     message = await ctx.fetch_message(message_id)
     all_number_emojis = ['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟']

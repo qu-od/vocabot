@@ -87,7 +87,7 @@ async def on_message(message): #saving of all dialogues
     log_message(message)
     await bot.process_commands(message) #эта функция разблокирует работу других комманд (смотри FAQ почаще)
 
-@bot.check #global permission check
+@bot.check #global permission check (even for !bookish)
 def user_permission_check(ctx): #applying permitted users list
     #print(f'author.name equals {name}') #почему этот принт срабатывает много раз после !vhelp?
     return ua.is_user_allowed(ctx.author.name, ctx.author.id) #возвращаем флаг для проверки
